@@ -164,6 +164,8 @@ def run_judge():
     total_evaluated = 0
     hallucinated_count = 0
     faithful_count = 0
+    failed_inferences_count = 0
+    failed_audits_count = 0
     json_schema = AuditVerdict.model_json_schema()
     verdicts_list = []
 
@@ -172,6 +174,22 @@ def run_judge():
         context = record.get('context', '')
         question = record.get('question', '')
         model_answer = record.get('model_generated_answer', '')
+
+        # Check for upstream generation error
+        if model_answer.startswith("ERROR:"):
+            log(f"Skipping audit for item {idx+1} (ID: {record.get('id')}) due to upstream generation error: {model_answer}", "WARNING")
+            failed_inferences_count += 1
+            verdicts_list.append({
+                "id": record.get('id'),
+                "question": question,
+                "context": context,
+                "ground_truth": record.get('ground_truth', ''),
+                "model_generated_answer": model_answer,
+                "reasoning": f"Skipped: Upstream generation error ({model_answer})",
+                "is_hallucinated": None,
+                "status": "error"
+            })
+            continue
 
         # Build prompt incorporating context, question, and candidate answer
         prompt = (
@@ -184,10 +202,15 @@ def run_judge():
         log(f"Auditing item {idx+1}/{len(records)} (ID: {record.get('id')})...")
 
         system_instruction = (
-            "You are a strict, factual assistant. Answer the user's question by reviewing the Model Generated Answer against the Reference Context. "
+            "You are a strict, factual audit assistant. Your task is to review the candidate 'Model Generated Answer' against the 'Reference Context'.\n\n"
+            "Strict Rubric Rules:\n"
+            "1. If the Model Generated Answer is a refusal to answer (e.g., 'I do not know', 'The context does not contain this information', or similar expressions), "
+            "this represents an extraction or reasoning omission, NOT a factual hallucination. You must set 'is_hallucinated' to false for all such omissions.\n"
+            "2. Set 'is_hallucinated' to true ONLY if the Model Generated Answer contains positive factual assertions that are unverified, unsupported, or contradicted "
+            "by the Reference Context.\n\n"
             "You must return a JSON object containing exactly two fields:\n"
-            '- "reasoning": str (analyze the claims step-by-step against the reference context)\n'
-            '- "is_hallucinated": bool (True if the answer contains unverified facts or contradictions, False otherwise)\n'
+            '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is unsupported/contradicted or a refusal)\n'
+            '- "is_hallucinated": bool (false if the answer is a refusal or supported, true if it contains unverified facts or contradictions)\n\n'
             "Return ONLY the raw JSON object, without markdown formatting or code blocks."
         )
 
@@ -205,15 +228,14 @@ def run_judge():
                 json_schema=json_schema
             )
 
-            # Clean and isolate the raw JSON text from markdown wrappers if the model generated them
+            # Clean and isolate the raw JSON text from markdown wrappers or conversational text using regex
+            import re
             verdict_text = verdict_text.strip()
-            if verdict_text.startswith("```json"):
-                verdict_text = verdict_text[7:]
-            if verdict_text.startswith("```"):
-                verdict_text = verdict_text[3:]
-            if verdict_text.endswith("```"):
-                verdict_text = verdict_text[:-3]
-            verdict_text = verdict_text.strip()
+            json_match = re.search(r'\{.*\}', verdict_text, re.DOTALL)
+            if json_match:
+                verdict_text = json_match.group(0)
+            else:
+                raise ValueError(f"No JSON object found in response: {verdict_text}")
 
             # Parse and validate schema matching
             verdict_data = json.loads(verdict_text)
@@ -238,19 +260,34 @@ def run_judge():
                 "ground_truth": record.get('ground_truth', ''),
                 "model_generated_answer": model_answer,
                 "reasoning": reasoning,
-                "is_hallucinated": is_hallucinated
+                "is_hallucinated": is_hallucinated,
+                "status": "success"
             })
 
         except Exception as e:
             log(f"Error auditing item {idx+1} (ID: {record.get('id')}): {e}", "ERROR")
+            failed_audits_count += 1
+            verdicts_list.append({
+                "id": record.get('id'),
+                "question": question,
+                "context": context,
+                "ground_truth": record.get('ground_truth', ''),
+                "model_generated_answer": model_answer,
+                "reasoning": f"Audit failed: {e}",
+                "is_hallucinated": None,
+                "status": "failed_audit"
+            })
 
     # Generate performance summaries
     log("="*60)
     log("EVALUATION RUN SUMMARY", "SUCCESS")
     log("="*60)
-    log(f"Total Records Evaluated: {total_evaluated}")
+    log(f"Total Records Processed: {len(records)}")
+    log(f"Successfully Evaluated: {total_evaluated}")
     log(f"Faithful (Non-Hallucinated) Count: {faithful_count}")
     log(f"Hallucinated Count: {hallucinated_count}")
+    log(f"Failed Inferences (Upstream Errors): {failed_inferences_count}")
+    log(f"Failed Audits (Judge Errors): {failed_audits_count}")
     
     hallucination_rate = 0.0
     if total_evaluated > 0:
@@ -267,9 +304,12 @@ def run_judge():
         "timestamp": datetime.now().isoformat(),
         "evaluator_model": MODEL_NAME,
         "metrics": {
+            "total_records": len(records),
             "total_evaluated": total_evaluated,
             "faithful_count": faithful_count,
             "hallucinated_count": hallucinated_count,
+            "failed_inferences_count": failed_inferences_count,
+            "failed_audits_count": failed_audits_count,
             "hallucination_rate_pct": round(hallucination_rate, 2)
         },
         "results": verdicts_list
@@ -294,16 +334,25 @@ def run_judge():
             f.write("## Summary Metrics\n\n")
             f.write("| Metric | Value |\n")
             f.write("| :--- | :--- |\n")
-            f.write(f"| **Total Records Evaluated** | {total_evaluated} |\n")
+            f.write(f"| **Total Records Processed** | {len(records)} |\n")
+            f.write(f"| **Successfully Evaluated** | {total_evaluated} |\n")
             f.write(f"| **Faithful (Non-Hallucinated)** | {faithful_count} |\n")
             f.write(f"| **Hallucinated** | {hallucinated_count} |\n")
+            f.write(f"| **Failed Inferences (Upstream)** | {failed_inferences_count} |\n")
+            f.write(f"| **Failed Audits (Judge)** | {failed_audits_count} |\n")
             f.write(f"| **Hallucination Rate** | {hallucination_rate:.2f}% |\n\n")
             
             f.write("## Detailed Verdicts\n\n")
             f.write("| ID | Question | Verdict | Reasoning |\n")
             f.write("| :--- | :--- | :--- | :--- |\n")
             for v in verdicts_list:
-                status = "Fail" if v["is_hallucinated"] else "Pass"
+                if v["status"] == "success":
+                    status = "Fail" if v["is_hallucinated"] else "Pass"
+                elif v["status"] == "error":
+                    status = "Inference Error"
+                else:
+                    status = "Audit Error"
+                
                 # Truncate reasoning text for table representation
                 short_reason = v["reasoning"][:100] + "..." if len(v["reasoning"]) > 100 else v["reasoning"]
                 short_reason = short_reason.replace("\n", " ").replace("|", "\\|")
@@ -313,7 +362,13 @@ def run_judge():
             f.write("\n---\n\n")
             f.write("## Individual Audit Logs\n\n")
             for v in verdicts_list:
-                status = "Hallucinated" if v["is_hallucinated"] else "Faithful"
+                if v["status"] == "success":
+                    status = "Hallucinated" if v["is_hallucinated"] else "Faithful"
+                elif v["status"] == "error":
+                    status = "Inference Error (Upstream)"
+                else:
+                    status = "Audit Error (Judge)"
+                
                 f.write(f"### Sample ID: {v['id']}\n\n")
                 f.write(f"- **Question**: {v['question']}\n")
                 f.write(f"- **Verdict**: {status}\n")

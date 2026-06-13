@@ -8,7 +8,7 @@ The pipeline downloads a benchmark dataset, performs batch inference on a target
 
 ## Pipeline Workflow
 
-The automated evaluation pipeline is executed in four sequential steps:
+The automated evaluation pipeline is executed in three sequential steps:
 
 ```mermaid
 graph TD
@@ -16,13 +16,11 @@ graph TD
     B --> C[2. Inference: eval_runner.py]
     C -->|Generates Target Answers| D(data/generation_outputs.jsonl)
     D --> E[3. Verification: judge.py]
-    E -->|Audits Outputs & Computes Metrics| F[4. Meta-Evaluation: meta_eval.py]
-    F -->|Computes Correlation vs. Human Ground Truth| G{Validation Threshold: rho >= 0.75}
+    E -->|Audits Outputs & Computes Metrics| F(data/evaluation_report.md)
 
     style A fill:#4F46E5,stroke:#312E81,stroke-width:2px,color:#fff
     style C fill:#0D9488,stroke:#115E59,stroke-width:2px,color:#fff
     style E fill:#0284C7,stroke:#075985,stroke-width:2px,color:#fff
-    style F fill:#F59E0B,stroke:#B45309,stroke-width:2px,color:#fff
 ```
 
 ---
@@ -33,12 +31,13 @@ graph TD
 1.Evaluation/
 ├── data/
 │   ├── eval_set.jsonl              # Streamed, parsed, and normalized HaluEval QA subset (50 samples)
-│   └── generation_outputs.jsonl    # Target model responses with source context and ground truth
+│   ├── generation_outputs.jsonl    # Target model responses with source context and ground truth
+│   ├── evaluation_report.json      # Structured audit metrics and verdicts database
+│   └── evaluation_report.md        # Professional Markdown summary and detailed audit logs
 │
 ├── download_data.py                # Ingestion: Downloads, filters, and standardizes raw dataset
 ├── eval_runner.py                  # Inference: Runs batch queries on target model (Gemma 3) via NVIDIA API
-├── judge.py                        # Audit: Stronger LLM-as-a-Judge (Llama 3 70B) scoring output factuality
-└── meta_eval.py                    # Validation: Computes Spearman Rank Correlation Coefficient vs. Human Ground Truth
+└── judge.py                        # Audit: Stronger LLM-as-a-Judge (Llama 3 70B) scoring output factuality
 ```
 
 ---
@@ -70,14 +69,6 @@ graph TD
   * **Resilience**: Configured to use NVIDIA's `guided_json` schema extension to guarantee JSON format alignment. If unsupported, it falls back to standard JSON mode with custom parsing blocks.
   * Outputs a step-by-step `reasoning` trace alongside a binary `is_hallucinated` boolean.
   * Computes and prints the **Model Baseline Hallucination Rate**.
-
-### 4. Meta-Evaluation ([meta_eval.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/meta_eval.py))
-* **Objective**: Validate the reliability of the automated judge against manual grading.
-* **Mechanism**:
-  * Compares judge classifications against a 30-sample human-annotated baseline.
-  * Computes **Direct Accuracy Alignment %** and **Spearman Rank Correlation Coefficient** ($\rho$).
-  * Calculates ranks natively (handling ties) or using `scipy.stats.spearmanr` if installed.
-  * **Success Criteria**: A correlation coefficient of $\rho \ge 0.75$ indicates the judge matches human consensus and is certified for production.
 
 ---
 
@@ -147,13 +138,6 @@ Grade target outputs and calculate the hallucination rate:
 python 1.Evaluation/judge.py
 ```
 *Calculates and prints the final pipeline metrics in the terminal.*
-
-### Step 4: Validate via Meta-Evaluation
-Verify that the judge's scoring correlates with human consensus:
-```bash
-python 1.Evaluation/meta_eval.py
-```
-*Outputs accuracy alignment and the Spearman Rank Correlation Coefficient ($\rho$).*
 
 ---
 

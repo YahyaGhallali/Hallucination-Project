@@ -9,4 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+# Environment variables
 .env
+
+# Quality Assessment Report
+1.Evaluation/quality_assessment.md
