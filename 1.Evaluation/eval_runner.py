@@ -1,3 +1,17 @@
+"""
+Project Veracity: Automated Hallucination Evaluation (Phase 1)
+Script: eval_runner.py
+
+This script implements the Inference Engine of the evaluation pipeline. It reads the normalized
+evaluation set, queries the target model (Gemma 3) using NVIDIA API integration, enforces strict system
+context boundaries, and records generations for subsequent auditing.
+
+Core architecture:
+1. Orchestrates execution of the target model with a deterministic temperature setting (0.0).
+2. Intercepts and logs execution states.
+3. Implements rate limiting and backoff routines to gracefully scale requests.
+"""
+
 import os
 import json
 import sys
@@ -6,22 +20,48 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import openai
 
-# Dynamically resolve directory of this script to keep paths robust
+# Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "eval_set.jsonl")
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "data")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "generation_outputs.jsonl")
-MODEL_NAME = 'meta/llama-3.1-8b-instruct'
 
-# Load environment variables explicitly from .env in the project root
+# Target evaluation model configurations
+MODEL_NAME = 'google/gemma-3n-e2b-it'
+
+# Load API credentials from the project root .env file
 ENV_PATH = os.path.join(SCRIPT_DIR, "..", ".env")
 load_dotenv(ENV_PATH)
 
 def log(msg, level="INFO"):
+    """
+    Standardized logger displaying messages to stdout.
+    
+    Args:
+        msg (str): Message payload.
+        level (str): Category tag (e.g. INFO, WARNING, ERROR, SUCCESS).
+    """
     print(f"[{level}] {msg}")
 
 def generate_with_retry(client, model, messages, temperature=0.0, max_retries=5, initial_delay=3.0, delay_between_calls=1.0):
-    """Executes model generation using OpenAI client with proactive rate-limiting sleep and exponential backoff for 429s."""
+    """
+    Queries OpenAI API endpoint with rate limiting support and backoff logic.
+    
+    Sleeps for a politeness delay before executing to prevent aggressive API hitting.
+    Catches rate limiting exceptions (429) and performs exponential backoff retries.
+    
+    Args:
+        client (OpenAI): Configured OpenAI client.
+        model (str): Name of the target model.
+        messages (list): Chat history format messages.
+        temperature (float): Generation temperature.
+        max_retries (int): Maximum number of retry attempts.
+        initial_delay (float): Starting backoff delay in seconds.
+        delay_between_calls (float): Pause in seconds before every query to avoid triggering limits.
+        
+    Returns:
+        ChatCompletion: Generation object returned by the API.
+    """
     if delay_between_calls > 0:
         time.sleep(delay_between_calls)
         
@@ -47,18 +87,26 @@ def generate_with_retry(client, model, messages, temperature=0.0, max_retries=5,
             if is_rate_limit and attempt < max_retries - 1:
                 log(f"Rate limit (429) hit. Retrying in {delay:.1f} seconds... (Attempt {attempt + 1}/{max_retries})", "WARNING")
                 time.sleep(delay)
-                delay *= 2  # Exponential backoff
+                delay *= 2  # Exponential backoff scaling
             else:
                 raise e
 
 def run_evaluation():
-    # Verify API key is present in environment after loading .env
+    """
+    Executes batch inference over the evaluation set:
+    1. Validates presence of the NVIDIA API key.
+    2. Initializes OpenAI client pointing to the NVIDIA integrated URL.
+    3. Reads evaluation records from `eval_set.jsonl`.
+    4. Submits prompt instructions constraining output to reference context.
+    5. Saves inference results to `generation_outputs.jsonl`.
+    """
+    # Retrieve and validate NVIDIA API key
     api_key = os.environ.get("NVIDIA_API_KEY")
     if not api_key:
         log("NVIDIA_API_KEY environment variable not found. Please ensure it is defined in your .env or environment.", "ERROR")
         sys.exit(1)
 
-    # Initialize OpenAI client pointed to NVIDIA's base URL
+    # Initialize client targeting NVIDIA's API endpoint
     log("Initializing OpenAI client for NVIDIA API...")
     try:
         client = OpenAI(
@@ -69,12 +117,12 @@ def run_evaluation():
         log(f"Failed to initialize OpenAI Client: {e}", "ERROR")
         sys.exit(1)
 
-    # Check input file exists
+    # Verify that input evaluation file exists
     if not os.path.exists(INPUT_FILE):
         log(f"Input file not found at: {INPUT_FILE}. Please run download_data.py first.", "ERROR")
         sys.exit(1)
 
-    # Read inputs
+    # Load records
     log(f"Reading evaluation set from {INPUT_FILE}...")
     items = []
     try:
@@ -88,21 +136,22 @@ def run_evaluation():
 
     log(f"Found {len(items)} evaluation samples. Starting inference using {MODEL_NAME}...")
     
-    # Ensure output directory exists
+    # Verify or create output folder structure
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    # Open output file for writing
+    # Loop through evaluation items and execute inference
     try:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as out_f:
             for idx, item in enumerate(items):
                 knowledge = item.get('knowledge', '')
                 question = item.get('question', '')
                 
-                # Build prompt combining background knowledge and question
+                # Combine knowledge and question as prompt context
                 prompt = f"Context: {knowledge}\n\nQuestion: {question}"
                 
                 log(f"Processing item {idx+1}/{len(items)} (ID: {item.get('id')})...")
                 
+                # Enforce strict context limitations using system role boundaries
                 system_instruction = (
                     "You are a strict, factual assistant. Answer the user's question using ONLY the provided Context. "
                     "If the answer cannot be found in the context, say 'I do not know'."
@@ -113,7 +162,7 @@ def run_evaluation():
                     {"role": "user", "content": prompt}
                 ]
                 
-                # Execute generation using the retry helper
+                # Query target model
                 try:
                     response = generate_with_retry(
                         client=client,
@@ -126,7 +175,7 @@ def run_evaluation():
                     log(f"API generation error on item {idx+1} (ID: {item.get('id')}): {e}", "ERROR")
                     model_generated_answer = f"ERROR: {e}"
                 
-                # Create output row mapping the original fields to requirements
+                # Compile records to standardized target structure
                 output_row = {
                     'id': item.get('id'),
                     'context': knowledge,
@@ -136,7 +185,7 @@ def run_evaluation():
                     'model_generated_answer': model_generated_answer.strip()
                 }
                 
-                # Write each row as a self-contained JSON string on its own line
+                # Save item immediately to preserve state on execution interruptions
                 out_f.write(json.dumps(output_row, ensure_ascii=False) + '\n')
                 
         log(f"Inference completed successfully. Outputs saved to {OUTPUT_FILE}", "SUCCESS")
