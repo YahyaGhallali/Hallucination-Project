@@ -54,7 +54,7 @@ graph TD
 
 ### 2. Inference ([eval_runner.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/eval_runner.py))
 * **Objective**: Generate factual answers under constrained conditions.
-* **Model**: `google/gemma-3n-e2b-it` (run via NVIDIA API at temperature `0.0`).
+* **Model**: `google/gemma-2-2b-it` (run via NVIDIA API at temperature `0.01`).
 * **Mechanism**:
   * Prompts the target model with a context-question structure.
   * Employs strict system instructions: *Answer the question using ONLY the provided Context. If the answer cannot be found in the context, say 'I do not know'.*

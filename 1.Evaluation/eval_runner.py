@@ -7,7 +7,7 @@ evaluation set, queries the target model (Gemma 3) using NVIDIA API integration,
 context boundaries, and records generations for subsequent auditing.
 
 Core architecture:
-1. Orchestrates execution of the target model with a deterministic temperature setting (0.0).
+1. Orchestrates execution of the target model with a deterministic temperature setting (0.01).
 2. Intercepts and logs execution states.
 3. Implements rate limiting and backoff routines to gracefully scale requests.
 """
@@ -27,7 +27,8 @@ OUTPUT_DIR = os.path.join(SCRIPT_DIR, "data")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "generation_outputs.jsonl")
 
 # Target evaluation model configurations
-MODEL_NAME = 'google/gemma-3n-e2b-it'
+# MODEL_NAME = 'google/gemma-3n-e2b-it'
+MODEL_NAME = 'google/gemma-2-2b-it'
 
 # Load API credentials from the project root .env file
 ENV_PATH = os.path.join(SCRIPT_DIR, "..", ".env")
@@ -43,7 +44,7 @@ def log(msg, level="INFO"):
     """
     print(f"[{level}] {msg}")
 
-def generate_with_retry(client, model, messages, temperature=0.0, max_retries=5, initial_delay=3.0, delay_between_calls=1.0):
+def generate_with_retry(client, model, messages, temperature=0.01, max_retries=5, initial_delay=3.0, delay_between_calls=1.0):
     """
     Queries OpenAI API endpoint with rate limiting support and backoff logic.
     
@@ -146,19 +147,18 @@ def run_evaluation():
                 knowledge = item.get('knowledge', '')
                 question = item.get('question', '')
                 
-                # Combine knowledge and question as prompt context
-                prompt = f"Context: {knowledge}\n\nQuestion: {question}"
-                
                 log(f"Processing item {idx+1}/{len(items)} (ID: {item.get('id')})...")
                 
-                # Enforce strict context limitations using system role boundaries
+                # Enforce strict context limitations using prompt instructions
                 system_instruction = (
                     "You are a strict, factual assistant. Answer the user's question using ONLY the provided Context. "
                     "If the answer cannot be found in the context, say 'I do not know'."
                 )
                 
+                # Combine system instructions, knowledge, and question as user prompt
+                prompt = f"{system_instruction}\n\nContext: {knowledge}\n\nQuestion: {question}"
+                
                 messages = [
-                    {"role": "system", "content": system_instruction},
                     {"role": "user", "content": prompt}
                 ]
                 
@@ -168,7 +168,7 @@ def run_evaluation():
                         client=client,
                         model=MODEL_NAME,
                         messages=messages,
-                        temperature=0.0
+                        temperature=0.01
                     )
                     model_generated_answer = response.choices[0].message.content or ""
                 except Exception as e:

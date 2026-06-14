@@ -73,51 +73,8 @@ def generate_verdict_with_retry(client, model, messages, json_schema, max_retrie
     Returns:
         str: Raw JSON output of the model verdict.
     """
-    if delay_between_calls > 0:
-        time.sleep(delay_between_calls)
-        
-    delay = initial_delay
-    for attempt in range(max_retries):
-        try:
-            # First attempt: Try NVIDIA guided JSON extension
-            try:
-                response = client.chat.completions.create(
-                    model=model,
-                    messages=messages,
-                    temperature=0.0,
-                    extra_body={
-                        "nvext": {
-                            "guided_json": json_schema
-                        }
-                    }
-                )
-                return response.choices[0].message.content
-            except Exception as e_nv:
-                # Fallback attempt: Standard OpenAI JSON mode
-                log(f"NVIDIA guided_json extension failed ({e_nv}). Falling back to standard JSON mode...", "WARNING")
-                response = client.chat.completions.create(
-                    model=model,
-                    messages=messages,
-                    temperature=0.0,
-                    response_format={"type": "json_object"}
-                )
-                return response.choices[0].message.content
-        except Exception as e:
-            err_str = str(e)
-            is_rate_limit = (
-                isinstance(e, openai.RateLimitError) or
-                "429" in err_str or
-                "rate limit" in err_str.lower() or
-                "resource_exhausted" in err_str.lower() or
-                "quota" in err_str.lower()
-            )
-            
-            if is_rate_limit and attempt < max_retries - 1:
-                log(f"Rate limit (429) hit. Retrying in {delay:.1f} seconds... (Attempt {attempt + 1}/{max_retries})", "WARNING")
-                time.sleep(delay)
-                delay *= 2  # Exponential backoff scaling
-            else:
-                raise e
+
+
 
 def run_judge():
     """

@@ -1,71 +1,74 @@
 # Project Veracity: Evaluation Report
 
-Generated at: `2026-06-13 16:33:23`  
+Generated at: `2026-06-14 22:57:52`  
 Evaluator Model: `meta/llama-3.1-70b-instruct`
 
 ## Summary Metrics
 
 | Metric | Value |
 | :--- | :--- |
-| **Total Records Evaluated** | 50 |
-| **Faithful (Non-Hallucinated)** | 46 |
-| **Hallucinated** | 4 |
-| **Hallucination Rate** | 8.00% |
+| **Total Records Processed** | 50 |
+| **Successfully Evaluated** | 50 |
+| **Faithful (Non-Hallucinated)** | 45 |
+| **Hallucinated** | 5 |
+| **Failed Inferences (Upstream)** | 0 |
+| **Failed Audits (Judge)** | 0 |
+| **Hallucination Rate** | 10.00% |
 
 ## Detailed Verdicts
 
 | ID | Question | Verdict | Reasoning |
 | :--- | :--- | :--- | :--- |
-| 0 | Which magazine was started first Arthur's Magazine or First for Women? | Pass | The Model Generated Answer claims that Arthur's Magazine was started first. According to the Referen... |
-| 1 | The Oberoi family is part of a hotel company that has a head office in what city? | Pass | The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Con... |
+| 0 | Which magazine was started first Arthur's Magazine or First for Women? | Pass | The Model Generated Answer claims that Arthur's Magazine was started first. The Reference Context pr... |
+| 1 | The Oberoi family is part of a hotel company that has a head office in what city? | Pass | The Model Generated Answer states that the Oberoi family's hotel company has a head office in Delhi.... |
 | 2 | Musician and satirist Allie Goertz wrote a song about the "The Simpsons" character Milhouse, who Matt Groening named after who? | Pass | The Model Generated Answer states that Matt Groening named the character Milhouse after President Ri... |
-| 3 |  What nationality was James Henry Miller's wife? | Fail | The Model Generated Answer claims that the provided context does not specify Margaret 'Peggy' Seeger... |
-| 4 | Cadmium Chloride is slightly soluble in this chemical, it is also called what? | Pass | The Model Generated Answer correctly states that it does not know the answer to the question. The Re... |
-| 5 | Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark? | Pass | The Model Generated Answer correctly states that the provided context only details Jonathan Stark's ... |
-| 6 | Which genus of moth in the world's seventh-largest country contains only one species? | Pass | The Model Generated Answer states that Indogrammodes is a genus of moths of the Crambidae family tha... |
-| 7 | Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring. | Pass | The Model Generated Answer directly matches the information provided in the Reference Context about ... |
-| 8 | The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year? | Fail | The Model Generated Answer claims that the context does not directly state the year 'Het Huis Anubis... |
-| 9 | What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged? | Pass | The Model Generated Answer states that the 2013 Liqui Moly Bathurst 12 Hour was staged at the Mount ... |
-| 10 | Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive? | Pass | The Model Generated Answer states that the guest appearance on Fast Cars, Danger, Fire and Knives is... |
-| 11 | Gunmen from Laredo starred which narrator of "Frontier"? | Pass | The Model Generated Answer correctly identifies Walter Coy as the narrator of "Frontier" from the Re... |
-| 12 | Where did the form of music played by Die Rhöner Säuwäntzt originate? | Pass | The Model Generated Answer is supported by the Reference Context, which states that the term 'Skiffl... |
-| 13 | In which American football game was Malcolm Smith named Most Valuable player? | Pass | The Model Generated Answer correctly states that Malcolm Smith was named Most Valuable Player of Sup... |
-| 14 | What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail? | Fail | The Model Generated Answer states that U.S. Highway 60 is known as the historic Midland Trail. The R... |
-| 15 | The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year? | Pass | The Model Generated Answer correctly states that Annette Bening received a star on the Hollywood Wal... |
-| 16 | What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical?  | Pass | The Model Generated Answer correctly identifies that the musical is titled 'Hurt Locker The Musical'... |
-| 17 | Human Error" is the season finale of the third season of a tv show that aired on what network? | Pass | The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Con... |
-| 18 | Dua Lipa, an English singer, songwriter and model, the album spawned the number-one single "New Rules" is a song by English singer Dua Lipa from her eponymous debut studio album, released in what year? | Pass | The Model Generated Answer states that the album was released in 2017. The Reference Context confirm... |
+| 3 |  What nationality was James Henry Miller's wife? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference C... |
+| 4 | Cadmium Chloride is slightly soluble in this chemical, it is also called what? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context do... |
+| 5 | Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context do... |
+| 6 | Which genus of moth in the world's seventh-largest country contains only one species? | Pass | The Model Generated Answer states that Indogrammodes is the genus of moth in the world's seventh-lar... |
+| 7 | Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring. | Pass | The Model Generated Answer directly matches the information provided in the Reference Context. The R... |
+| 8 | The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year? | Fail | The Model Generated Answer claims that the Dutch-Belgian television series 'Het Huis Anubis' first a... |
+| 9 | What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged? | Pass | The Model Generated Answer directly quotes the Reference Context, providing the correct length of th... |
+| 10 | Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive? | Pass | The Model Generated Answer states that the album 'Fast Cars, Danger, Fire and Knives' includes guest... |
+| 11 | Gunmen from Laredo starred which narrator of "Frontier"? | Pass | The Model Generated Answer states that Walter Darwin Coy starred in Gunmen from Laredo. The Referenc... |
+| 12 | Where did the form of music played by Die Rhöner Säuwäntzt originate? | Pass | The Model Generated Answer states that the form of music played by Die Rhöner Säuwäntzt originated i... |
+| 13 | In which American football game was Malcolm Smith named Most Valuable player? | Pass | The Model Generated Answer states that Malcolm Smith was named Most Valuable Player in Super Bowl XL... |
+| 14 | What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail? | Pass | The Model Generated Answer states that U.S. Highway 60 gives access to the nine mile byway and is al... |
+| 15 | The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year? | Pass | The Model Generated Answer states that the four-time Academy Award nominee who starred in The Great ... |
+| 16 | What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical?  | Fail | The Model Generated Answer correctly identifies the current members of Metallica, which is the Ameri... |
+| 17 | Human Error" is the season finale of the third season of a tv show that aired on what network? | Pass | The Model Generated Answer states that 'Human Error' is the season finale of the third season of a t... |
+| 18 | Dua Lipa, an English singer, songwriter and model, the album spawned the number-one single "New Rules" is a song by English singer Dua Lipa from her eponymous debut studio album, released in what year? | Pass | The Model Generated Answer states that the album 'Dua Lipa' was released in 2017. The Reference Cont... |
 | 19 | American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto, a woman who previously served as the 32nd Attorney General of where? | Pass | The Model Generated Answer states that Catherine Cortez Masto previously served as the 32nd Attorney... |
 | 20 | Which state does the drug stores, of which the CEO is Warren Bryant, are located? | Pass | The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context ... |
-| 21 | Which  American politician did Donahue replaced  | Pass | The Model Generated Answer correctly states that Donahue replaced Kelli Ward, which is supported by ... |
-| 22 | Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds? | Pass | The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Con... |
+| 21 | Which  American politician did Donahue replaced  | Pass | The Model Generated Answer states that Donahue replaced Kelli Ward. The Reference Context supports t... |
+| 22 | Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds? | Pass | The Model Generated Answer claims that The Wolfhounds were formed first. According to the Reference ... |
 | 23 | How old is the female main protagonist of Catching Fire? | Pass | The Model Generated Answer states that the female main protagonist of Catching Fire is 16 years old.... |
-| 24 | Chang Ucchin was born in korea during a time that ended with the conclusion of what?  | Fail | The Model Generated Answer correctly states that Chang was born when Korea was under Japanese coloni... |
-| 25 | Who is the director of the 2003 film which has scenes in it filmed at the Quality Cafe in Los Angeles? | Pass | The Model Generated Answer claims that Todd Phillips directed the 2003 film 'Old School', which has ... |
-| 26 | New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress? | Pass | The Model Generated Answer accurately states that New Faces of 1952 helped jump start the careers of... |
-| 27 | Were Pavel Urysohn and Leonid Levin known for the same type of work? | Pass | The Model Generated Answer correctly identifies Pavel Urysohn as a mathematician known for his work ... |
-| 28 | Are both The New Pornographers and Kings of Leon American rock bands? | Pass | The Model Generated Answer correctly identifies that the context states Kings of Leon is an American... |
+| 24 | Chang Ucchin was born in korea during a time that ended with the conclusion of what?  | Pass | The Model Generated Answer states that Chang Ucchin was born in Korea during a time that ended with ... |
+| 25 | Who is the director of the 2003 film which has scenes in it filmed at the Quality Cafe in Los Angeles? | Pass | The Reference Context mentions that the Quality Cafe appeared as a location in the film 'Old School'... |
+| 26 | New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress? | Pass | The Model Generated Answer states that New Faces of 1952 helped jump start the career of Carol Lawre... |
+| 27 | Were Pavel Urysohn and Leonid Levin known for the same type of work? | Pass | The Model Generated Answer states that Pavel Urysohn and Leonid Levin were not known for the same ty... |
+| 28 | Are both The New Pornographers and Kings of Leon American rock bands? | Pass | The Model Generated Answer states that both The New Pornographers and Kings of Leon are not American... |
 | 29 | 750 7th Avenue and 101 Park Avenue, are located in which city? | Pass | The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are located in New York Ci... |
-| 30 | Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'? | Pass | The Model Generated Answer states that Amy Jo Johnson played the part of fictitious character Kimber... |
-| 31 | Who was born first, Pablo Trapero or Aleksander Ford? | Pass | The Model Generated Answer claims that Aleksander Ford was born first, citing his birthdate as 24 No... |
-| 32 | Are Jane and First for Women both women's magazines? | Pass | The Model Generated Answer claims that Jane was the founding editor of a woman's magazine, which is ... |
-| 33 | What profession does Nicholas Ray and Elia Kazan have in common? | Pass | The Model Generated Answer states that both Nicholas Ray and Elia Kazan were directors. According to... |
-| 34 | Where is the company that purchased Aixam based in? | Pass | The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Con... |
-| 35 | Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture? | Pass | The Model Generated Answer claims that The Saimaa Gesture is about Finnish rock groups. According to... |
+| 30 | Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'? | Pass | The Model Generated Answer states that Amy Jo Johnson played the part of Kimberly Ann Hart. The Refe... |
+| 31 | Who was born first, Pablo Trapero or Aleksander Ford? | Fail | The Model Generated Answer claims that Pablo Trapero was born first. However, according to the Refer... |
+| 32 | Are Jane and First for Women both women's magazines? | Pass | The Reference Context explicitly states that Jane was an American magazine created to appeal to wome... |
+| 33 | What profession does Nicholas Ray and Elia Kazan have in common? | Pass | The Reference Context states that Nicholas Ray was an American film director and Elia Kazan was a Gr... |
+| 34 | Where is the company that purchased Aixam based in? | Pass | The Model Generated Answer directly matches the information provided in the Reference Context, stati... |
+| 35 | Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture? | Pass | The Model Generated Answer claims that The Saimaa Gesture is about Finnish rock groups. This claim i... |
 | 36 | Who was inducted into the Rock and Roll Hall of Fame, David Lee Roth or Cia Berg? | Pass | The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fa... |
-| 37 | Zimbabwe's Guwe Secondary School has a sister school in what New York cunty? | Pass | The Model Generated Answer correctly states that the provided context does not mention Zimbabwe or G... |
-| 38 | The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?   | Pass | The Model Generated Answer is compared to the Reference Context. The answer states that The Honoured... |
-| 39 | The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state? | Pass | The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Con... |
+| 37 | Zimbabwe's Guwe Secondary School has a sister school in what New York cunty? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context do... |
+| 38 | The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?   | Pass | The Model Generated Answer states that The Honoured Society is currently active in all of Australia.... |
+| 39 | The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state? | Pass | The Model Generated Answer states that the 337th Flight Test Squadron was based at McClellan Air For... |
 | 40 | The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city? | Pass | The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a... |
-| 41 | Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula?  | Pass | The Model Generated Answer correctly identifies the University of Providence as a private Roman Cath... |
-| 42 | Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from? | Pass | The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' is from... |
-| 43 | Guitars for Wounded Warriors is an album that was recorded in the village in which New York county? | Pass | The Model Generated Answer correctly identifies the county where the album was recorded by referenci... |
+| 41 | Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula?  | Pass | The Model Generated Answer states that the University of Providence is Roman Catholic. The Reference... |
+| 42 | Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from? | Pass | The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' was fro... |
+| 43 | Guitars for Wounded Warriors is an album that was recorded in the village in which New York county? | Pass | The Model Generated Answer states that the album was recorded in Ulster County. The Reference Contex... |
 | 44 | What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song "The Battle?" | Pass | The Model Generated Answer claims that Tammy Wynette sang a duet with her ex-husband the same year t... |
-| 45 | Who was born first, Francis Nethersole or Elizabeth Stuart? | Pass | The Model Generated Answer claims that Sir Francis Nethersole was born first, citing his birth year ... |
-| 46 | What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations? | Pass | The Model Generated Answer correctly states that the Reinheitsgebot limits the ingredients in beer, ... |
-| 47 | Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016? | Pass | The Model Generated Answer correctly states that the provided context does not mention the founder o... |
-| 48 | What male actor starred in The Messenger? | Pass | The Model Generated Answer states that Robert Michael Sheehan starred in The Messenger. According to... |
-| 49 | Are Gin and tonic and Paloma both cocktails based on tequila? | Pass | The Model Generated Answer correctly states that Gin and tonic is a highball cocktail made with gin ... |
+| 45 | Who was born first, Francis Nethersole or Elizabeth Stuart? | Fail | The Reference Context provides the birth years of both individuals: Francis Nethersole was born in 1... |
+| 46 | What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference C... |
+| 47 | Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016? | Fail | The Model Generated Answer claims that Howard Marks was the Welsh member who died on 10 April 2016. ... |
+| 48 | What male actor starred in The Messenger? | Pass | The Model Generated Answer states that Robert Sheehan starred in The Messenger. The Reference Contex... |
+| 49 | Are Gin and tonic and Paloma both cocktails based on tequila? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference C... |
 
 ---
 
@@ -76,7 +79,7 @@ Evaluator Model: `meta/llama-3.1-70b-instruct`
 - **Question**: Which magazine was started first Arthur's Magazine or First for Women?
 - **Verdict**: Faithful
 - **Ground Truth**: `Arthur's Magazine`
-- **Model Generated Answer**: `Arthur's Magazine (1844–1846) was started first.`
+- **Model Generated Answer**: `Arthur's Magazine`
 
 #### Context:
 ```text
@@ -84,7 +87,7 @@ Arthur's Magazine (1844–1846) was an American literary periodical published in
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that Arthur's Magazine was started first. According to the Reference Context, Arthur's Magazine was published from 1844-1846, while the publication start date of First for Women is not provided. However, since Arthur's Magazine has a specific publication date range in the 19th century and First for Women does not have a specified start date, it can be inferred that Arthur's Magazine was indeed started first. The answer is consistent with the information provided in the Reference Context.
+The Model Generated Answer claims that Arthur's Magazine was started first. The Reference Context provides the publication years for Arthur's Magazine as 1844-1846, but does not provide the exact start year for First for Women. However, since First for Women is mentioned as being published by Bauer Media Group in the USA without any specific start year, and Arthur's Magazine has a specific start year of 1844, it can be inferred that Arthur's Magazine was indeed started first. This inference is supported by the information provided in the Reference Context.
 
 ---
 
@@ -93,9 +96,7 @@ The Model Generated Answer claims that Arthur's Magazine was started first. Acco
 - **Question**: The Oberoi family is part of a hotel company that has a head office in what city?
 - **Verdict**: Faithful
 - **Ground Truth**: `Delhi`
-- **Model Generated Answer**: `The Oberoi Group is a hotel company with its head office in Delhi.
-
-Therefore, the answer is Delhi.`
+- **Model Generated Answer**: `Delhi`
 
 #### Context:
 ```text
@@ -103,7 +104,7 @@ The Oberoi family is an Indian family that is famous for its involvement in hote
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that The Oberoi Group is a hotel company with its head office in Delhi. The Model Generated Answer correctly identifies the head office location of The Oberoi Group as Delhi. The answer is directly supported by the Reference Context and does not contain any unverified facts or contradictions.
+The Model Generated Answer states that the Oberoi family's hotel company has a head office in Delhi. This claim is directly supported by the Reference Context, which mentions that The Oberoi Group has its head office in Delhi. Therefore, the answer is supported and does not contain any unverified facts or contradictions.
 
 ---
 
@@ -120,16 +121,16 @@ Allison Beth "Allie" Goertz (born March 2, 1991) is an American musician. Goertz
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Matt Groening named the character Milhouse after President Richard Nixon's middle name. This claim is directly supported by the Reference Context, which also mentions that Matt Groening named the character Milhouse after President Richard Nixon's middle name. The answer does not contain any information about Allie Goertz writing a song about Milhouse, but this is not relevant to the question about who Milhouse was named after. The answer only addresses the second part of the question and does so accurately.
+The Model Generated Answer states that Matt Groening named the character Milhouse after President Richard Nixon's middle name. This claim is supported by the Reference Context, which explicitly states that Matt Groening named the character Milhouse after President Richard Nixon's middle name. The answer does not contain any unverified or unsupported facts, and it does not contradict the Reference Context. The answer also does not refuse to answer the question.
 
 ---
 
 ### Sample ID: 3
 
 - **Question**:  What nationality was James Henry Miller's wife?
-- **Verdict**: Hallucinated
+- **Verdict**: Faithful
 - **Ground Truth**: `American`
-- **Model Generated Answer**: `The provided context states that Margaret "Peggy" Seeger is an American folksinger. It does not specify her nationality. Therefore, I do not know.`
+- **Model Generated Answer**: `I do not know.`
 
 #### Context:
 ```text
@@ -137,7 +138,7 @@ Margaret "Peggy" Seeger (born June 17, 1935) is an American folksinger. She is a
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that the provided context does not specify Margaret 'Peggy' Seeger's nationality. However, the Reference Context explicitly states that Margaret 'Peggy' Seeger is an American folksinger, which directly implies her nationality. Therefore, the Model Generated Answer's claim is incorrect. The correct answer should be that Margaret 'Peggy' Seeger is American.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does provide information about James Henry Miller's wife, Margaret 'Peggy' Seeger, it does not explicitly state her nationality. However, it does mention that she is an American folksinger. Since the Model Generated Answer does not make any positive factual assertions, it does not contain unverified facts or contradictions.
 
 ---
 
@@ -146,7 +147,7 @@ The Model Generated Answer claims that the provided context does not specify Mar
 - **Question**: Cadmium Chloride is slightly soluble in this chemical, it is also called what?
 - **Verdict**: Faithful
 - **Ground Truth**: `alcohol`
-- **Model Generated Answer**: `I do not know. The provided context does not mention Cadmium Chloride or its solubility in any chemical. It only discusses Ethanol.`
+- **Model Generated Answer**: `I do not know.`
 
 #### Context:
 ```text
@@ -154,7 +155,7 @@ The Model Generated Answer claims that the provided context does not specify Mar
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that it does not know the answer to the question. The Reference Context does not mention Cadmium Chloride or its solubility in any chemical. The context only discusses the properties of a hygroscopic solid and Ethanol, but does not provide any information about Cadmium Chloride. Therefore, the Model Generated Answer is correct in stating that it does not know the answer.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context does not contain information about Cadmium Chloride's solubility in any specific chemical. The question asks for the name of the chemical in which Cadmium Chloride is slightly soluble, but the Reference Context only provides information about the solubility of the hygroscopic solid and the properties of ethanol. Since the Model Generated Answer does not make any positive factual assertions, it does not contain any unverified or unsupported claims.
 
 ---
 
@@ -163,7 +164,7 @@ The Model Generated Answer correctly states that it does not know the answer to 
 - **Question**: Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?
 - **Verdict**: Faithful
 - **Ground Truth**: `Jonathan Stark`
-- **Model Generated Answer**: `The provided context only details Jonathan Stark's accomplishments. It does not mention Henri Leconte or their respective Grand Slam titles. Therefore, I do not know.`
+- **Model Generated Answer**: `I do not know.`
 
 #### Context:
 ```text
@@ -171,7 +172,7 @@ Jonathan Stark (born April 3, 1971) is a former professional tennis player from 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that the provided context only details Jonathan Stark's accomplishments and does not mention Henri Leconte or their respective Grand Slam titles. The answer does not make any claims about Henri Leconte's Grand Slam titles or compare them to Jonathan Stark's titles. The answer is neutral and does not provide any information that contradicts the Reference Context.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context does not provide information about Henri Leconte's Grand Slam titles, making it impossible to compare with Jonathan Stark's titles. The answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context.
 
 ---
 
@@ -180,7 +181,7 @@ The Model Generated Answer correctly states that the provided context only detai
 - **Question**: Which genus of moth in the world's seventh-largest country contains only one species?
 - **Verdict**: Faithful
 - **Ground Truth**: `Crambidae`
-- **Model Generated Answer**: `Indogrammodes is a genus of moths of the Crambidae family that contains only one species, Indogrammodes pectinicornalis, which is found in India.`
+- **Model Generated Answer**: `Indogrammodes`
 
 #### Context:
 ```text
@@ -188,7 +189,7 @@ Indogrammodes is a genus of moths of the Crambidae family. It contains only one 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Indogrammodes is a genus of moths of the Crambidae family that contains only one species, Indogrammodes pectinicornalis, which is found in India. The Reference Context confirms that Indogrammodes is a genus of moths of the Crambidae family with only one species, Indogrammodes pectinicornalis, found in India. Additionally, the Reference Context mentions that India is the seventh-largest country by area. Therefore, the Model Generated Answer accurately matches the information provided in the Reference Context.
+The Model Generated Answer states that Indogrammodes is the genus of moth in the world's seventh-largest country that contains only one species. The Reference Context supports this claim by stating that Indogrammodes is a genus of moths found in India, which is the seventh-largest country by area. Additionally, it is mentioned that Indogrammodes contains only one species, Indogrammodes pectinicornalis. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -197,7 +198,7 @@ The Model Generated Answer states that Indogrammodes is a genus of moths of the 
 - **Question**: Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.
 - **Verdict**: Faithful
 - **Ground Truth**: `Badr Hari`
-- **Model Generated Answer**: `Badr Hari was once considered the best kickboxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.`
+- **Model Generated Answer**: `Badr Hari`
 
 #### Context:
 ```text
@@ -205,7 +206,7 @@ The Model Generated Answer states that Indogrammodes is a genus of moths of the 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly matches the information provided in the Reference Context about Badr Hari. It accurately states that Badr Hari was once considered the best kickboxer in the world and mentions his involvement in controversies and crimes. The answer does not contain any additional information that is not present in the Reference Context.
+The Model Generated Answer directly matches the information provided in the Reference Context. The Reference Context states that Badr Hari 'was once considered the best kickboxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring.' The Model Generated Answer accurately reflects this information without adding any unverified or unsupported claims.
 
 ---
 
@@ -214,7 +215,7 @@ The Model Generated Answer directly matches the information provided in the Refe
 - **Question**: The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year?
 - **Verdict**: Hallucinated
 - **Ground Truth**: `2006`
-- **Model Generated Answer**: `The context states that "Het Huis Anubis" (the Dutch-Belgian television series that "House of Anubis" was based on) first aired in September 2006. Therefore, the answer is not directly stated in the context. However, the context does state that "House of Anubis" first aired in September 2006. This implies that "Het Huis Anubis" first aired before that. I do not know the exact year "Het Huis Anubis" first aired.`
+- **Model Generated Answer**: `2006`
 
 #### Context:
 ```text
@@ -222,7 +223,7 @@ House of Anubis is a mystery television series developed for Nickelodeon based o
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that the context does not directly state the year 'Het Huis Anubis' first aired, which is correct. However, it incorrectly implies that 'House of Anubis' first airing in September 2006 provides information about 'Het Huis Anubis' airing before that. The correct interpretation is that the context does not provide any information about the year 'Het Huis Anubis' first aired. The Model Generated Answer also incorrectly states that 'Het Huis Anubis' first aired before 'House of Anubis', which is not supported by the context.
+The Model Generated Answer claims that the Dutch-Belgian television series 'Het Huis Anubis' first aired in 2006. However, the Reference Context does not provide information about the first airing year of 'Het Huis Anubis'. It only mentions that 'House of Anubis' first aired in September 2006. Therefore, the Model Generated Answer contains an unverified fact.
 
 ---
 
@@ -231,7 +232,7 @@ The Model Generated Answer claims that the context does not directly state the y
 - **Question**: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
 - **Verdict**: Faithful
 - **Ground Truth**: `6.213 km long`
-- **Model Generated Answer**: `The 2013 Liqui Moly Bathurst 12 Hour was staged at the Mount Panorama Circuit, which is 6.213 km long.`
+- **Model Generated Answer**: `The 6.213 km long track is technically a street circuit, and is a public road, with normal speed restrictions, when no racing events are being run, and there are many residences which can only be accessed from the circuit.`
 
 #### Context:
 ```text
@@ -239,7 +240,7 @@ The 2013 Liqui Moly Bathurst 12 Hour was an endurance race for a variety of GT a
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the 2013 Liqui Moly Bathurst 12 Hour was staged at the Mount Panorama Circuit, which is 6.213 km long. According to the Reference Context, the event was indeed staged at the Mount Panorama Circuit, and the track length is confirmed to be 6.213 km. The answer accurately reflects the information provided in the Reference Context.
+The Model Generated Answer directly quotes the Reference Context, providing the correct length of the track (6.213 km) and additional information about the track being a street circuit and a public road. However, the question only asks for the length of the track. The extra information is present in the Reference Context but is not directly relevant to the question asked. Despite this, the answer does not contain any unverified or unsupported facts and does not contradict the Reference Context.
 
 ---
 
@@ -248,7 +249,7 @@ The Model Generated Answer states that the 2013 Liqui Moly Bathurst 12 Hour was 
 - **Question**: Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?
 - **Verdict**: Faithful
 - **Ground Truth**: `Jaime Meline`
-- **Model Generated Answer**: `El-P.`
+- **Model Generated Answer**: `El-P`
 
 #### Context:
 ```text
@@ -256,7 +257,7 @@ The Model Generated Answer states that the 2013 Liqui Moly Bathurst 12 Hour was 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the guest appearance on Fast Cars, Danger, Fire and Knives is from El-P. According to the Reference Context, El-P is indeed a hip hop record executive and made a guest appearance on the album, as mentioned in the context. The answer is consistent with the provided information.
+The Model Generated Answer states that the album 'Fast Cars, Danger, Fire and Knives' includes guest appearances from El-P, who is indeed a hip hop record executive. The Reference Context confirms that El-P is a record executive and also mentions that he made a guest appearance on an album, although it does not explicitly mention the album title 'Fast Cars, Danger, Fire and Knives'. However, since the Reference Context does mention El-P's guest appearance and his role as a record executive, and the Model Generated Answer does not provide any information that contradicts the Reference Context, the answer is supported.
 
 ---
 
@@ -265,7 +266,7 @@ The Model Generated Answer states that the guest appearance on Fast Cars, Danger
 - **Question**: Gunmen from Laredo starred which narrator of "Frontier"?
 - **Verdict**: Faithful
 - **Ground Truth**: `Walter Darwin Coy`
-- **Model Generated Answer**: `The provided context states that Walter Darwin Coy was best known for narrating the NBC western anthology series, "Frontier". The film "Gunmen from Laredo" stars Walter Coy. Therefore, Gunmen from Laredo starred Walter Coy, who narrated "Frontier".`
+- **Model Generated Answer**: `Walter Darwin Coy.`
 
 #### Context:
 ```text
@@ -273,7 +274,7 @@ Gunmen from Laredo is a 1959 American western film produced and directed by Wall
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly identifies Walter Coy as the narrator of "Frontier" from the Reference Context. It also correctly states that Walter Coy stars in the film "Gunmen from Laredo". The connection between Walter Coy's role in "Frontier" and "Gunmen from Laredo" is logically derived from the Reference Context, which mentions both facts separately. Therefore, the answer is supported by the provided context.
+The Model Generated Answer states that Walter Darwin Coy starred in Gunmen from Laredo. The Reference Context confirms that Walter Coy, whose full name is Walter Darwin Coy, starred in Gunmen from Laredo and also narrated the NBC western anthology series 'Frontier'. Therefore, the Model Generated Answer is supported by the Reference Context.
 
 ---
 
@@ -290,7 +291,7 @@ Die Rhöner Säuwäntzt are a Skiffle-Bluesband from Eichenzell-Lütter in Hesse
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is supported by the Reference Context, which states that the term 'Skiffle' originated in the United States in the first half of the 20th century. The answer accurately identifies the origin of the music form played by Die Rhöner Säuwäntzt, which is described as a Skiffle-Bluesband.
+The Model Generated Answer states that the form of music played by Die Rhöner Säuwäntzt originated in the United States in the first half of the 20th century. This claim is supported by the Reference Context, which mentions that the term 'Skiffle' originated in the United States in the first half of the 20th century. The answer does not contain any unverified or unsupported facts, and it accurately reflects the information provided in the Reference Context.
 
 ---
 
@@ -299,9 +300,7 @@ The Model Generated Answer is supported by the Reference Context, which states t
 - **Question**: In which American football game was Malcolm Smith named Most Valuable player?
 - **Verdict**: Faithful
 - **Ground Truth**: `Super Bowl XLVIII`
-- **Model Generated Answer**: `Malcolm Smith was named Most Valuable Player of Super Bowl XLVIII. Super Bowl XLVIII was an American football game between the American Football Conference (AFC) champion Denver Broncos and National Football Conference (NFC) champion Seattle Seahawks to decide the National Football League (NFL) champion for the 2013 season.
-
-I do not know if Malcolm Smith was named MVP of any other game.`
+- **Model Generated Answer**: `Super Bowl XLVIII.`
 
 #### Context:
 ```text
@@ -309,16 +308,16 @@ I do not know if Malcolm Smith was named MVP of any other game.`
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that Malcolm Smith was named Most Valuable Player of Super Bowl XLVIII, which is supported by the Reference Context. The answer also provides additional context about Super Bowl XLVIII, which is also consistent with the Reference Context. However, the answer does not provide any information about Malcolm Smith being named MVP of any other game, and the Reference Context does not mention Malcolm Smith at all. The Model Generated Answer assumes the subject of the sentence is Malcolm Smith, which is not explicitly stated in the Reference Context, but it is a reasonable inference based on the context. Therefore, the answer is not entirely hallucinated, but it does make an assumption not explicitly supported by the Reference Context.
+The Model Generated Answer states that Malcolm Smith was named Most Valuable Player in Super Bowl XLVIII. The Reference Context confirms this information, stating that Smith was named the Most Valuable Player of Super Bowl XLVIII. Therefore, the answer is supported by the Reference Context.
 
 ---
 
 ### Sample ID: 14
 
 - **Question**: What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?
-- **Verdict**: Hallucinated
+- **Verdict**: Faithful
 - **Ground Truth**: `US 60`
-- **Model Generated Answer**: `U.S. Highway 60 is known as the historic Midland Trail.`
+- **Model Generated Answer**: `U.S. Highway 60`
 
 #### Context:
 ```text
@@ -326,7 +325,7 @@ The Model Generated Answer correctly states that Malcolm Smith was named Most Va
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that U.S. Highway 60 is known as the historic Midland Trail. The Reference Context confirms this information, as it mentions that Morehead is located along US 60 (the historic Midland Trail). However, the question asks about Zilpo Road, which is not mentioned in the Reference Context. The Reference Context does mention that the nine mile byway starts south of Morehead and can be accessed by U.S. Highway 60, but it does not explicitly state that Zilpo Road is the nine mile byway. Therefore, the answer assumes information not present in the Reference Context.
+The Model Generated Answer states that U.S. Highway 60 gives access to the nine mile byway and is also known as the Midland Trail. The Reference Context supports this claim, stating that the nine mile byway can be accessed by U.S. Highway 60 and that U.S. 60 is the historic Midland Trail. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -335,7 +334,7 @@ The Model Generated Answer states that U.S. Highway 60 is known as the historic 
 - **Question**: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
 - **Verdict**: Faithful
 - **Ground Truth**: `2006`
-- **Model Generated Answer**: `Annette Bening received a star on the Hollywood Walk of Fame in 2006. She is a four-time Academy Award nominee for "The Grifters" (1990), "American Beauty" (1999), "Being Julia" (2004) and "The Kids Are All Right" (2010). The film "The Great Outdoors" was released in 1988.`
+- **Model Generated Answer**: `2006`
 
 #### Context:
 ```text
@@ -343,16 +342,16 @@ The Great Outdoors is a 1988 American comedy film directed by Howard Deutch, and
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that Annette Bening received a star on the Hollywood Walk of Fame in 2006, which is supported by the Reference Context. Additionally, it accurately mentions that Annette Bening is a four-time Academy Award nominee and lists the correct films for which she received nominations. The answer also correctly states that the film 'The Great Outdoors' was released in 1988. The Model Generated Answer does not contain any unverified facts or contradictions, and all information is supported by the Reference Context.
+The Model Generated Answer states that the four-time Academy Award nominee who starred in The Great Outdoors received a star on the Hollywood Walk of Fame in 2006. According to the Reference Context, Annette Bening, who starred in The Great Outdoors, received a star on the Hollywood Walk of Fame in 2006. This information is supported by the Reference Context, which mentions that Annette Bening received a star on the Hollywood Walk of Fame in 2006.
 
 ---
 
 ### Sample ID: 16
 
 - **Question**: What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? 
-- **Verdict**: Faithful
+- **Verdict**: Hallucinated
 - **Ground Truth**: `Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.`
-- **Model Generated Answer**: `I do not know. The context mentions Metallica wrote the music for the musical, but it does not specify the current members of the band. It only lists the founding members and current lineup. The musical is titled "Hurt Locker The Musical", not "Hedwig".`
+- **Model Generated Answer**: `Metallica's current lineup comprises founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.`
 
 #### Context:
 ```text
@@ -360,7 +359,7 @@ The Model Generated Answer correctly states that Annette Bening received a star 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly identifies that the musical is titled 'Hurt Locker The Musical' and not 'Hedwig'. However, it fails to provide the names of the current members of Metallica, which are indeed mentioned in the Reference Context as founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo. The answer does not contain any unverified facts or contradictions, but rather an incomplete response.
+The Model Generated Answer correctly identifies the current members of Metallica, which is the American heavy metal band that wrote the music for the musical. The answer is supported by the Reference Context, which states that Metallica's current lineup comprises founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo. However, the Model Generated Answer does not explicitly state that Metallica wrote the music for Hurt Locker The Musical, but rather it is implied from the Reference Context that Metallica wrote the music for a musical, but the name of the musical is actually not 'Hurt Locker The Musical' but rather it is not specified. The Reference Context does mention 'Hedwig' and 'Hurt Locker The Musical' is not mentioned at all. The Model Generated Answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context, but it does contain an implied claim that is not supported by the Reference Context.
 
 ---
 
@@ -369,9 +368,7 @@ The Model Generated Answer correctly identifies that the musical is titled 'Hurt
 - **Question**: Human Error" is the season finale of the third season of a tv show that aired on what network?
 - **Verdict**: Faithful
 - **Ground Truth**: `Fox`
-- **Model Generated Answer**: `The context states that "House" originally ran on the Fox network. 
-
-Therefore, "Human Error" is the season finale of the third season of a TV show that aired on the Fox network.`
+- **Model Generated Answer**: `Fox`
 
 #### Context:
 ```text
@@ -379,7 +376,7 @@ Therefore, "Human Error" is the season finale of the third season of a TV show t
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that 'House' originally ran on the Fox network and that 'Human Error' is the season finale of the third season of 'House'. The Model Generated Answer correctly combines these facts to conclude that 'Human Error' is the season finale of the third season of a TV show that aired on the Fox network. The answer is supported by the Reference Context and does not contain any unverified facts or contradictions.
+The Model Generated Answer states that 'Human Error' is the season finale of the third season of a tv show that aired on Fox. The Reference Context supports this claim by stating that House, the tv show in which 'Human Error' is an episode, originally ran on the Fox network. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -388,7 +385,7 @@ The Model Generated Answer is analyzed step-by-step against the Reference Contex
 - **Question**: Dua Lipa, an English singer, songwriter and model, the album spawned the number-one single "New Rules" is a song by English singer Dua Lipa from her eponymous debut studio album, released in what year?
 - **Verdict**: Faithful
 - **Ground Truth**: `2017`
-- **Model Generated Answer**: `The album was released in 2017.`
+- **Model Generated Answer**: `2017`
 
 #### Context:
 ```text
@@ -396,7 +393,7 @@ The Model Generated Answer is analyzed step-by-step against the Reference Contex
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the album was released in 2017. The Reference Context confirms this information, stating that Dua Lipa's self-titled debut studio album was released on 2 June 2017, and also mentions that 'New Rules' is a song from her eponymous debut studio album (2017). Therefore, the Model Generated Answer is consistent with the Reference Context.
+The Model Generated Answer states that the album 'Dua Lipa' was released in 2017. The Reference Context supports this claim, as it mentions that her self-titled debut studio album was released on 2 June 2017. Additionally, it is mentioned that 'New Rules' is a song by English singer Dua Lipa from her eponymous debut studio album (2017). Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -405,7 +402,7 @@ The Model Generated Answer states that the album was released in 2017. The Refer
 - **Question**: American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto, a woman who previously served as the 32nd Attorney General of where?
 - **Verdict**: Faithful
 - **Ground Truth**: `Nevada`
-- **Model Generated Answer**: `Catherine Cortez Masto previously served as the 32nd Attorney General of Nevada from 2007 to 2015.`
+- **Model Generated Answer**: `Nevada.`
 
 #### Context:
 ```text
@@ -413,7 +410,7 @@ Joseph John “Joe” Heck (born October 30, 1961) is an American politician, ph
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Catherine Cortez Masto previously served as the 32nd Attorney General of Nevada from 2007 to 2015. This information is directly supported by the Reference Context, which also mentions that she served as the 32nd Attorney General of Nevada from 2007 to 2015. Therefore, the answer is accurate and does not contain any unverified facts or contradictions.
+The Model Generated Answer states that Catherine Cortez Masto previously served as the 32nd Attorney General of Nevada. This claim is directly supported by the Reference Context, which explicitly mentions that she served as the 32nd Attorney General of Nevada from 2007 to 2015.
 
 ---
 
@@ -422,7 +419,7 @@ The Model Generated Answer states that Catherine Cortez Masto previously served 
 - **Question**: Which state does the drug stores, of which the CEO is Warren Bryant, are located?
 - **Verdict**: Faithful
 - **Ground Truth**: `Hawaii`
-- **Model Generated Answer**: `The drug stores are located in Hawaii.`
+- **Model Generated Answer**: `Hawaii`
 
 #### Context:
 ```text
@@ -430,7 +427,7 @@ Warren Bryant was the CEO of Longs Drugs Store Corporation out of California pri
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context mentions that Longs Drugs is an American chain with approximately 40 drug stores throughout the state of Hawaii. However, it also mentions that Warren Bryant was the CEO of Longs Drugs Store Corporation out of California. The Model Generated Answer only partially matches the Reference Context, as it correctly identifies the location of the drug stores but does not acknowledge the mention of California in relation to the CEO. Nevertheless, the answer does not contain any unverified facts or contradictions, it simply omits a detail.
+The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context also mentions that Longs Drugs is an American chain with approximately 40 drug stores throughout the state of Hawaii. Therefore, the Model Generated Answer is supported by the Reference Context.
 
 ---
 
@@ -439,7 +436,7 @@ The Model Generated Answer states that the drug stores are located in Hawaii. Th
 - **Question**: Which  American politician did Donahue replaced 
 - **Verdict**: Faithful
 - **Ground Truth**: `Kelli Ward`
-- **Model Generated Answer**: `Donahue replaced Kelli Ward, who resigned to run for the United States Senate. Kelli Ward is an American politician and osteopathic physician.`
+- **Model Generated Answer**: `Kelli Ward`
 
 #### Context:
 ```text
@@ -447,7 +444,7 @@ The Model Generated Answer states that the drug stores are located in Hawaii. Th
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that Donahue replaced Kelli Ward, which is supported by the Reference Context. Additionally, the answer accurately describes Kelli Ward as an American politician and osteopathic physician, which is also consistent with the Reference Context. The answer does not introduce any new information that is not present in the Reference Context, and it does not contradict any information in the Reference Context.
+The Model Generated Answer states that Donahue replaced Kelli Ward. The Reference Context supports this claim by stating 'Donahue replaced Kelli Ward who resigned to run for the United States Senate.' Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -456,7 +453,7 @@ The Model Generated Answer correctly states that Donahue replaced Kelli Ward, wh
 - **Question**: Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds?
 - **Verdict**: Faithful
 - **Ground Truth**: `The Wolfhounds`
-- **Model Generated Answer**: `The Wolfhounds were formed first, in 1985. Hole was formed in 1989.`
+- **Model Generated Answer**: `The Wolfhounds were formed first.`
 
 #### Context:
 ```text
@@ -464,7 +461,7 @@ Courtney Michelle Love (born Courtney Michelle Harrison; July 9, 1964) is an Ame
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that Hole was formed in 1989 and The Wolfhounds were formed in 1985. The Model Generated Answer correctly identifies the formation years of both bands and accurately concludes that The Wolfhounds were formed first. The answer does not contain any unverified facts or contradictions.
+The Model Generated Answer claims that The Wolfhounds were formed first. According to the Reference Context, Hole was formed in 1989, while The Wolfhounds were formed in 1985. This information supports the Model Generated Answer, indicating that The Wolfhounds were indeed formed first. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -473,7 +470,7 @@ The Model Generated Answer is analyzed step-by-step against the Reference Contex
 - **Question**: How old is the female main protagonist of Catching Fire?
 - **Verdict**: Faithful
 - **Ground Truth**: `16-year-old`
-- **Model Generated Answer**: `The female main protagonist of Catching Fire is 16 years old.`
+- **Model Generated Answer**: `16`
 
 #### Context:
 ```text
@@ -481,16 +478,16 @@ Catching Fire is a 2009 science fiction young adult novel by the American noveli
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the female main protagonist of Catching Fire is 16 years old. According to the Reference Context, the novel is written in the voice of 16-year-old Katniss Everdeen, who is the main protagonist. Therefore, the answer is consistent with the reference context.
+The Model Generated Answer states that the female main protagonist of Catching Fire is 16 years old. The Reference Context supports this claim, stating that the novel is written in the voice of 16-year-old Katniss Everdeen. Therefore, the answer is supported by the Reference Context.
 
 ---
 
 ### Sample ID: 24
 
 - **Question**: Chang Ucchin was born in korea during a time that ended with the conclusion of what? 
-- **Verdict**: Hallucinated
+- **Verdict**: Faithful
 - **Ground Truth**: `World War II`
-- **Model Generated Answer**: `Chang was born when Korea was still under Japanese colonial rule. Korea under Japanese rule began with the end of the short-lived Korean Empire in 1910 and ended at the conclusion of World War II in 1945. Therefore, Chang Ucchin was born in Korea during the conclusion of World War II in 1945.`
+- **Model Generated Answer**: `World War II`
 
 #### Context:
 ```text
@@ -498,7 +495,7 @@ The Model Generated Answer states that the female main protagonist of Catching F
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that Chang was born when Korea was under Japanese colonial rule and provides the correct time period for this rule. However, the conclusion drawn from this information is partially incorrect. The Model Generated Answer states that Chang Ucchin was born in Korea during the conclusion of World War II in 1945, which is not necessarily true. The Reference Context only states that Korea under Japanese rule ended at the conclusion of World War II in 1945, but it does not provide the exact birth year of Chang Ucchin. Therefore, the Model Generated Answer contains an unverified fact.
+The Model Generated Answer states that Chang Ucchin was born in Korea during a time that ended with the conclusion of World War II. The Reference Context supports this claim by stating that Korea under Japanese rule ended at the conclusion of World War II in 1945. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -507,7 +504,7 @@ The Model Generated Answer correctly states that Chang was born when Korea was u
 - **Question**: Who is the director of the 2003 film which has scenes in it filmed at the Quality Cafe in Los Angeles?
 - **Verdict**: Faithful
 - **Ground Truth**: `Todd Phillips`
-- **Model Generated Answer**: `Todd Phillips directed the 2003 film "Old School", which has scenes filmed at the Quality Cafe in Los Angeles.`
+- **Model Generated Answer**: `Todd Phillips`
 
 #### Context:
 ```text
@@ -515,7 +512,7 @@ The Quality Cafe (also known as Quality Diner) is a now-defunct diner at 1236 We
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that Todd Phillips directed the 2003 film 'Old School', which has scenes filmed at the Quality Cafe in Los Angeles. The Reference Context confirms that Todd Phillips directed 'Old School' and that 'Old School' is one of the films that featured the Quality Cafe as a location. Therefore, the Model Generated Answer is supported by the Reference Context.
+The Reference Context mentions that the Quality Cafe appeared as a location in the film 'Old School', and also states that 'Old School' is a 2003 film directed by Todd Phillips. The Model Generated Answer directly matches this information, providing the correct director of the film 'Old School' which has scenes filmed at the Quality Cafe. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -524,9 +521,7 @@ The Model Generated Answer claims that Todd Phillips directed the 2003 film 'Old
 - **Question**: New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress?
 - **Verdict**: Faithful
 - **Ground Truth**: `Carol Lawrence`
-- **Model Generated Answer**: `New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the careers of several young performers including Paul Lynde, Alice Ghostley, Eartha Kitt, Robert Clary, Carol Lawrence, Ronny Graham, performer/writer Mel Brooks (as Melvin Brooks), and lyricist Sheldon Harnick. Carol Lawrence (born September 5, 1932) is an American actress, most often associated with musical theatre, but who has also appeared extensively on television.
-
-Therefore, it helped jump start the career of Carol Lawrence.`
+- **Model Generated Answer**: `Carol Lawrence`
 
 #### Context:
 ```text
@@ -534,7 +529,7 @@ Therefore, it helped jump start the career of Carol Lawrence.`
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer accurately states that New Faces of 1952 helped jump start the careers of several young performers, including Carol Lawrence. The answer also correctly provides information about Carol Lawrence's background, which is present in the Reference Context. The answer does not introduce any new information that is not present in the Reference Context, and it accurately summarizes the information provided.
+The Model Generated Answer states that New Faces of 1952 helped jump start the career of Carol Lawrence, an American actress. The Reference Context supports this claim by mentioning Carol Lawrence as one of the young performers whose career was jump started by New Faces of 1952. The Reference Context also provides additional information about Carol Lawrence, confirming that she is an American actress. Therefore, the Model Generated Answer is supported by the Reference Context.
 
 ---
 
@@ -543,9 +538,7 @@ The Model Generated Answer accurately states that New Faces of 1952 helped jump 
 - **Question**: Were Pavel Urysohn and Leonid Levin known for the same type of work?
 - **Verdict**: Faithful
 - **Ground Truth**: `no`
-- **Model Generated Answer**: `Pavel Samuilovich Urysohn was a Soviet mathematician known for his contributions in dimension theory, and for developing Urysohn's Metrization Theorem and Urysohn's Lemma, both of which are fundamental results in topology. Leonid Anatolievich Levin is a Soviet-American computer scientist.
-
-Therefore, they were not known for the same type of work.`
+- **Model Generated Answer**: `No.`
 
 #### Context:
 ```text
@@ -553,7 +546,7 @@ Pavel Samuilovich Urysohn (Па́вел Самуи́лович Урысо́н ) 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly identifies Pavel Urysohn as a mathematician known for his work in dimension theory and topology, and Leonid Levin as a computer scientist. The answer accurately concludes that they were not known for the same type of work based on the information provided in the Reference Context. The answer does not contain any unverified facts or contradictions.
+The Model Generated Answer states that Pavel Urysohn and Leonid Levin were not known for the same type of work. According to the Reference Context, Pavel Urysohn was a mathematician known for his contributions in dimension theory and topology, while Leonid Levin is a computer scientist. This supports the Model Generated Answer's claim that they were not known for the same type of work. The answer does not contain any unverified or unsupported facts, and it does not contradict the Reference Context.
 
 ---
 
@@ -562,7 +555,7 @@ The Model Generated Answer correctly identifies Pavel Urysohn as a mathematician
 - **Question**: Are both The New Pornographers and Kings of Leon American rock bands?
 - **Verdict**: Faithful
 - **Ground Truth**: `no`
-- **Model Generated Answer**: `The context states that Kings of Leon is an American rock band. The context does not state whether The New Pornographers is American. Therefore, I do not know if both are American rock bands.`
+- **Model Generated Answer**: `No.`
 
 #### Context:
 ```text
@@ -570,7 +563,7 @@ The New Pornographers is a Canadian indie rock band formed in 1997 in Vancouver,
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly identifies that the context states Kings of Leon is an American rock band. However, it fails to explicitly state that The New Pornographers is a Canadian indie rock band, which directly contradicts the claim of being American. The correct answer should have stated that The New Pornographers is not an American rock band, but rather a Canadian one.
+The Model Generated Answer states that both The New Pornographers and Kings of Leon are not American rock bands. According to the Reference Context, The New Pornographers is a Canadian indie rock band, which supports the Model's answer. However, the Reference Context also states that Kings of Leon is an American rock band, which contradicts the Model's implication that neither band is American. The Model's answer is a negation and does not contain a positive factual assertion that is unverified or unsupported, but rather a correct assertion about The New Pornographers and an incorrect implication about Kings of Leon. However, the answer itself is a simple 'No', which does not contain any positive factual assertions that are unverified or unsupported.
 
 ---
 
@@ -579,7 +572,7 @@ The Model Generated Answer correctly identifies that the context states Kings of
 - **Question**: 750 7th Avenue and 101 Park Avenue, are located in which city?
 - **Verdict**: Faithful
 - **Ground Truth**: `New York City`
-- **Model Generated Answer**: `New York City.`
+- **Model Generated Answer**: `New York City`
 
 #### Context:
 ```text
@@ -587,7 +580,7 @@ The Model Generated Answer correctly identifies that the context states Kings of
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are located in New York City. The Reference Context confirms this information, as it mentions that 750 Seventh Avenue is a skyscraper in New York City and 101 Park Avenue is a skyscraper in New York City, New York. Since both buildings are indeed located in New York City, the answer is accurate.
+The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are located in New York City. The Reference Context supports this claim, as it mentions that both 750 Seventh Avenue and 101 Park Avenue are located in New York City. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -596,7 +589,7 @@ The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are lo
 - **Question**: Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'?
 - **Verdict**: Faithful
 - **Ground Truth**: `Amy Jo Johnson`
-- **Model Generated Answer**: `Amy Jo Johnson played the part of fictitious character Kimberly Ann Hart.`
+- **Model Generated Answer**: `Amy Jo Johnson`
 
 #### Context:
 ```text
@@ -604,16 +597,16 @@ Kimberly Ann Hart is a fictitious character in the "Power Rangers" universe. Pla
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Amy Jo Johnson played the part of fictitious character Kimberly Ann Hart. This information is directly supported by the Reference Context, which mentions that Kimberly Ann Hart was played by actress Amy Jo Johnson during the first three seasons of the show. The Reference Context also mentions that the show is part of the Power Rangers franchise, which is built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'. Therefore, the Model Generated Answer accurately reflects the information provided in the Reference Context.
+The Model Generated Answer states that Amy Jo Johnson played the part of Kimberly Ann Hart. The Reference Context supports this claim by mentioning that Kimberly Ann Hart was played by actress Amy Jo Johnson during the first three seasons of the show. Therefore, the answer is supported by the Reference Context.
 
 ---
 
 ### Sample ID: 31
 
 - **Question**: Who was born first, Pablo Trapero or Aleksander Ford?
-- **Verdict**: Faithful
+- **Verdict**: Hallucinated
 - **Ground Truth**: `Aleksander Ford`
-- **Model Generated Answer**: `Aleksander Ford was born first. He was born on 24 November 1908, and Pablo Trapero was born on 4 October 1971.`
+- **Model Generated Answer**: `Pablo Trapero was born first.`
 
 #### Context:
 ```text
@@ -621,7 +614,7 @@ Pablo Trapero (Born 4 October 1971) is an Argentine film producer, editor and di
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that Aleksander Ford was born first, citing his birthdate as 24 November 1908, and Pablo Trapero's birthdate as 4 October 1971. This information is verified by the Reference Context, which also provides the birthdates of Aleksander Ford and Pablo Trapero as 24 November 1908 and 4 October 1971, respectively. The comparison of the birthdates is also correct, as 1908 is indeed before 1971.
+The Model Generated Answer claims that Pablo Trapero was born first. However, according to the Reference Context, Aleksander Ford was born on 24 November 1908, and Pablo Trapero was born on 4 October 1971. This indicates that Aleksander Ford was born first, contradicting the Model Generated Answer.
 
 ---
 
@@ -630,7 +623,7 @@ The Model Generated Answer claims that Aleksander Ford was born first, citing hi
 - **Question**: Are Jane and First for Women both women's magazines?
 - **Verdict**: Faithful
 - **Ground Truth**: `yes`
-- **Model Generated Answer**: `Yes, Jane was the founding editor of a woman's magazine, and First for Women is a woman's magazine.`
+- **Model Generated Answer**: `Yes.`
 
 #### Context:
 ```text
@@ -638,7 +631,7 @@ Jane was an American magazine created to appeal to the women who grew up reading
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that Jane was the founding editor of a woman's magazine, which is correct according to the Reference Context. However, the answer also implies that Jane is a woman's magazine, which is also correct according to the Reference Context. Additionally, the answer states that First for Women is a woman's magazine, which is also correct according to the Reference Context. The answer does not contain any unverified facts or contradictions.
+The Reference Context explicitly states that Jane was an American magazine created to appeal to women and First for Women is a woman's magazine, which supports the Model Generated Answer. The answer does not contain any unverified or unsupported claims, and it does not contradict the Reference Context.
 
 ---
 
@@ -647,7 +640,7 @@ The Model Generated Answer claims that Jane was the founding editor of a woman's
 - **Question**: What profession does Nicholas Ray and Elia Kazan have in common?
 - **Verdict**: Faithful
 - **Ground Truth**: `director`
-- **Model Generated Answer**: `Both Nicholas Ray and Elia Kazan were directors.`
+- **Model Generated Answer**: `Both Nicholas Ray and Elia Kazan are film directors.`
 
 #### Context:
 ```text
@@ -655,7 +648,7 @@ Nicholas Ray (born Raymond Nicholas Kienzle Jr., August 7, 1911 – June 16, 197
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that both Nicholas Ray and Elia Kazan were directors. According to the Reference Context, Nicholas Ray was an American film director and Elia Kazan was a Greek-American director, producer, writer, and actor. The Reference Context confirms that both individuals were indeed directors, which supports the Model Generated Answer. No unverified facts or contradictions were found.
+The Reference Context states that Nicholas Ray was an American film director and Elia Kazan was a Greek-American director, among other professions. The Model Generated Answer claims that both Nicholas Ray and Elia Kazan are film directors. This claim is supported by the Reference Context, which explicitly mentions that both individuals were film directors.
 
 ---
 
@@ -664,7 +657,7 @@ The Model Generated Answer states that both Nicholas Ray and Elia Kazan were dir
 - **Question**: Where is the company that purchased Aixam based in?
 - **Verdict**: Faithful
 - **Ground Truth**: `Roseau, Minnesota, USA`
-- **Model Generated Answer**: `Polaris Industries is based in Roseau, Minnesota, USA.`
+- **Model Generated Answer**: `Roseau, Minnesota, USA.`
 
 #### Context:
 ```text
@@ -672,7 +665,7 @@ The Model Generated Answer states that both Nicholas Ray and Elia Kazan were dir
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that Polaris Industries is based in Roseau, Minnesota, USA, and that it acquired Aixam-Mega. The Model Generated Answer directly matches this information, correctly identifying the location of Polaris Industries. No unverified facts or contradictions are found.
+The Model Generated Answer directly matches the information provided in the Reference Context, stating that Polaris, the company that purchased Aixam-Mega, is based in Roseau, Minnesota, USA. This answer is fully supported by the Reference Context.
 
 ---
 
@@ -689,7 +682,7 @@ Adam Clayton Powell is a 1989 American documentary film directed by Richard Kilb
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that The Saimaa Gesture is about Finnish rock groups. According to the Reference Context, The Saimaa Gesture is indeed a documentary about three Finnish rock groups aboard the steamboat SS Heinävesi on their tour around Lake Saimaa. On the other hand, Adam Clayton Powell is a documentary about the civil rights leader. Therefore, the Model Generated Answer is consistent with the Reference Context.
+The Model Generated Answer claims that The Saimaa Gesture is about Finnish rock groups. This claim is supported by the Reference Context, which states that The Saimaa Gesture is a documentary of three Finnish rock groups aboard the steamboat SS Heinävesi on their tour around Lake Saimaa. The Reference Context also mentions Adam Clayton Powell as a documentary about the civil rights leader, which is unrelated to Finnish rock groups. Therefore, the Model Generated Answer is accurate and supported by the Reference Context.
 
 ---
 
@@ -698,7 +691,7 @@ The Model Generated Answer claims that The Saimaa Gesture is about Finnish rock 
 - **Question**: Who was inducted into the Rock and Roll Hall of Fame, David Lee Roth or Cia Berg?
 - **Verdict**: Faithful
 - **Ground Truth**: `David Lee Roth`
-- **Model Generated Answer**: `David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007.`
+- **Model Generated Answer**: `David Lee Roth.`
 
 #### Context:
 ```text
@@ -706,7 +699,7 @@ Cia Berg (born 2 December 1963), now known as Cia Soro, is a Swedish television 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. This claim is directly supported by the Reference Context, which also mentions that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. The Reference Context does not mention Cia Berg being inducted into the Rock and Roll Hall of Fame. Therefore, the Model Generated Answer accurately reflects the information provided in the Reference Context.
+The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fame. This claim is supported by the Reference Context, which explicitly mentions that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. There is no mention of Cia Berg being inducted into the Rock and Roll Hall of Fame in the Reference Context. Therefore, the Model Generated Answer is supported by the Reference Context.
 
 ---
 
@@ -715,7 +708,7 @@ The Model Generated Answer states that David Lee Roth was inducted into the Rock
 - **Question**: Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?
 - **Verdict**: Faithful
 - **Ground Truth**: `Nassau County`
-- **Model Generated Answer**: `I do not know. The provided context only mentions Carle Place Middle/High School in Nassau County, New York. It does not mention Zimbabwe or Guwe Secondary School.`
+- **Model Generated Answer**: `I do not know.`
 
 #### Context:
 ```text
@@ -723,7 +716,7 @@ The Model Generated Answer states that David Lee Roth was inducted into the Rock
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that the provided context does not mention Zimbabwe or Guwe Secondary School, and it does not make any claims about Guwe Secondary School having a sister school in New York. The answer is based on the lack of information in the reference context, rather than providing unverified facts or contradictions.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context does not contain any information about Zimbabwe's Guwe Secondary School or its sister school. The context only mentions a sister school in Carle Place, New York, but it is related to an unnamed school, not Guwe Secondary School. Therefore, the Model Generated Answer is not making any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context.
 
 ---
 
@@ -732,7 +725,7 @@ The Model Generated Answer correctly states that the provided context does not m
 - **Question**: The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?  
 - **Verdict**: Faithful
 - **Ground Truth**: `Australia`
-- **Model Generated Answer**: `The Honoured Society is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of Australia.`
+- **Model Generated Answer**: `Australia`
 
 #### Context:
 ```text
@@ -740,7 +733,7 @@ The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commi
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is compared to the Reference Context. The answer states that The Honoured Society is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of Australia. This information is directly supported by the Reference Context, which also mentions that The Honoured Society is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all Australia. Therefore, the answer is accurate and does not contain any unverified facts or contradictions.
+The Model Generated Answer states that The Honoured Society is currently active in all of Australia. This claim is supported by the Reference Context, which explicitly mentions that The Honoured Society is 'currently active in all Australia'. Therefore, the answer is not a refusal and does not contain any unverified or unsupported facts.
 
 ---
 
@@ -749,7 +742,7 @@ The Model Generated Answer is compared to the Reference Context. The answer stat
 - **Question**: The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state?
 - **Verdict**: Faithful
 - **Ground Truth**: `California`
-- **Model Generated Answer**: `California.`
+- **Model Generated Answer**: `California`
 
 #### Context:
 ```text
@@ -757,7 +750,7 @@ The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Tes
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that the 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, California. The Model Generated Answer directly answers the question by stating the US state where McClellan Air Force Base is located, which is California. This answer is directly supported by the Reference Context, which explicitly mentions California as the state where McClellan Air Force Base is located.
+The Model Generated Answer states that the 337th Flight Test Squadron was based at McClellan Air Force Base in California. The Reference Context supports this claim, stating that McClellan Air Force Base is located in Sacramento County, 7 mi northeast of Sacramento, California. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -774,7 +767,7 @@ The Pirna 014 was an axial turbojet designed in East Germany (or the GDR) in the
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a German aircraft and aircraft engine manufacturer based in Dessau, Germany. According to the Reference Context, Junkers Flugzeug- und Motorenwerke AG, the manufacturer in question, was indeed based in Dessau, Germany. Additionally, the Reference Context mentions that former Junkers engineers designed the Pirna 014 after being repatriated to East Germany. Therefore, the Model Generated Answer is consistent with the Reference Context.
+The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a German aircraft and aircraft engine manufacturer based in Dessau, Germany. The Reference Context confirms that Junkers, the manufacturer, was based in Dessau, Germany, and that former Junkers engineers designed the Pirna 014. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -783,11 +776,7 @@ The Model Generated Answer states that the axial turbojet Pirna 014 was designed
 - **Question**: Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? 
 - **Verdict**: Faithful
 - **Ground Truth**: `Roman Catholic`
-- **Model Generated Answer**: `The University of Providence (UP) is a private Roman Catholic university.
-
-The question states that Great Falls is the third largest city in Montana after being passed by Missoula. This information is provided in the context.
-
-I do not know if the university is still the third largest city in Montana.`
+- **Model Generated Answer**: `Roman Catholic.`
 
 #### Context:
 ```text
@@ -795,7 +784,7 @@ The University of Providence (UP) (renamed from University of Great Falls in Jul
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly identifies the University of Providence as a private Roman Catholic university, which is supported by the Reference Context. The answer also correctly states that Great Falls is the third largest city in Montana after being passed by Missoula, which is also supported by the Reference Context. However, the answer contains a statement 'I do not know if the university is still the third largest city in Montana', which is incorrect as the Reference Context clearly states that Great Falls, not the university, is the third largest city in Montana. This statement is unnecessary and introduces confusion, but it does not contradict the Reference Context. The answer does not contain any unverified facts or direct contradictions.
+The Model Generated Answer states that the University of Providence is Roman Catholic. The Reference Context supports this claim, stating that the University of Providence is a private Roman Catholic university. The answer does not contain any unverified or unsupported facts, and it does not contradict the Reference Context. The answer is a direct match to the information provided in the Reference Context.
 
 ---
 
@@ -804,7 +793,7 @@ The Model Generated Answer correctly identifies the University of Providence as 
 - **Question**: Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?
 - **Verdict**: Faithful
 - **Ground Truth**: `The Joshua Tree`
-- **Model Generated Answer**: `The song "I Still Haven't Found What I'm Looking For" is from U2's 1987 album "The Joshua Tree".`
+- **Model Generated Answer**: `The song "I Still Haven't Found What I'm Looking For" was from the album "The Joshua Tree".`
 
 #### Context:
 ```text
@@ -812,7 +801,7 @@ Pauline Henry (born 29 January 1961) is a British Jamaican recording artist. She
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' is from U2's 1987 album 'The Joshua Tree'. According to the Reference Context, this information is accurate. The Reference Context mentions that Pauline Henry was the vocalist in the Scottish band The Chimes, best known for their 1990 cover version of U2's 'I Still Haven't Found What I'm Looking For', and that 'I Still Haven't Found What I'm Looking For' is a song by Irish rock band U2 from their 1987 album 'The Joshua Tree'. The Model Generated Answer correctly identifies the album the song is from, without adding any unverified information or contradictions.
+The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' was from the album 'The Joshua Tree'. This information is directly supported by the Reference Context, which mentions that 'I Still Haven't Found What I'm Looking For' is the second track from U2's 1987 album 'The Joshua Tree'. Therefore, the answer is supported and does not contain any unverified facts or contradictions.
 
 ---
 
@@ -821,7 +810,7 @@ The Model Generated Answer states that the song 'I Still Haven't Found What I'm 
 - **Question**: Guitars for Wounded Warriors is an album that was recorded in the village in which New York county?
 - **Verdict**: Faithful
 - **Ground Truth**: `Ulster County`
-- **Model Generated Answer**: `The context states that New Paltz is a village in Ulster County. Therefore, Guitars for Wounded Warriors was recorded in Ulster County.`
+- **Model Generated Answer**: `Ulster County`
 
 #### Context:
 ```text
@@ -829,7 +818,7 @@ The Model Generated Answer states that the song 'I Still Haven't Found What I'm 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly identifies the county where the album was recorded by referencing the information provided in the Reference Context. It states that New Paltz is a village in Ulster County, and since the album was recorded in New Paltz, it logically follows that the album was recorded in Ulster County. The answer does not contain any unverified facts or contradictions.
+The Model Generated Answer states that the album was recorded in Ulster County. The Reference Context mentions that New Paltz is a village in Ulster County, and also mentions that the tracks were recorded at Tarquin's Jungle Room Studios in New Paltz, New York. Therefore, the Model Generated Answer is supported by the Reference Context, as it correctly identifies the county where the album was recorded.
 
 ---
 
@@ -838,7 +827,7 @@ The Model Generated Answer correctly identifies the county where the album was r
 - **Question**: What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song "The Battle?"
 - **Verdict**: Faithful
 - **Ground Truth**: `Tammy Wynette`
-- **Model Generated Answer**: `Tammy Wynette, born Virginia Wynette Pugh, sang a duet with her ex-husband the same year that George Jones released the song "The Battle."`
+- **Model Generated Answer**: `Tammy Wynette`
 
 #### Context:
 ```text
@@ -846,16 +835,16 @@ The Model Generated Answer correctly identifies the county where the album was r
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that Tammy Wynette sang a duet with her ex-husband the same year that George Jones released the song 'The Battle.' The Reference Context confirms that Tammy Wynette sang a duet with her estranged ex-husband George Jones, titled 'Golden Ring,' which became a #1 hit the same year that George Jones released the song 'The Battle.' The Reference Context also confirms that Tammy Wynette was born in May 1942. Therefore, the Model Generated Answer is consistent with the Reference Context.
+The Model Generated Answer claims that Tammy Wynette sang a duet with her ex-husband the same year that he released the song 'The Battle.' The Reference Context supports this claim by stating that Tammy Wynette sang a duet with her estranged ex-husband George Jones, who released the song 'The Battle.' The Reference Context also confirms that Tammy Wynette was born in May 1942. Therefore, the Model Generated Answer is supported by the Reference Context.
 
 ---
 
 ### Sample ID: 45
 
 - **Question**: Who was born first, Francis Nethersole or Elizabeth Stuart?
-- **Verdict**: Faithful
+- **Verdict**: Hallucinated
 - **Ground Truth**: `Sir Francis Nethersole`
-- **Model Generated Answer**: `Sir Francis Nethersole (1587–1659) was born first. Elizabeth Stuart (19 August 1596 – 13 February 1662) was born later.`
+- **Model Generated Answer**: `Elizabeth Stuart was born first.`
 
 #### Context:
 ```text
@@ -863,7 +852,7 @@ Sir Francis Nethersole (1587–1659) was an English diplomat, secretary to the E
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that Sir Francis Nethersole was born first, citing his birth year as 1587, and Elizabeth Stuart was born later, citing her birth year as 1596. The Reference Context confirms these birth years, stating that Sir Francis Nethersole was born in 1587 and Elizabeth Stuart was born on 19 August 1596. Therefore, the Model Generated Answer accurately reflects the information in the Reference Context.
+The Reference Context provides the birth years of both individuals: Francis Nethersole was born in 1587 and Elizabeth Stuart was born in 1596. Based on this information, Francis Nethersole was born first. However, the Model Generated Answer claims that Elizabeth Stuart was born first, which contradicts the Reference Context.
 
 ---
 
@@ -872,9 +861,7 @@ The Model Generated Answer claims that Sir Francis Nethersole was born first, ci
 - **Question**: What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?
 - **Verdict**: Faithful
 - **Ground Truth**: `ingredients in beer`
-- **Model Generated Answer**: `The context states that the Reinheitsgebot (purity order) is a series of regulations limiting the ingredients in beer in Germany and the states of the former Holy Roman Empire. The Hacker-Pschorr brewery, formed in 1972 out of the merger of Hacker and Pschorr, must comply with these regulations. 
-
-Therefore, the answer is: The Reinheitsgebot limits the ingredients in beer.`
+- **Model Generated Answer**: `I do not know.`
 
 #### Context:
 ```text
@@ -882,16 +869,16 @@ Hacker-Pschorr is a brewery in Munich, formed in 1972 out of the merger of two b
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that the Reinheitsgebot limits the ingredients in beer, which is supported by the Reference Context. The Reference Context mentions that the Reinheitsgebot is a series of regulations limiting the ingredients in beer in Germany and the states of the former Holy Roman Empire. The Model Generated Answer also correctly connects the Reinheitsgebot to the Hacker-Pschorr brewery, implying that the brewery must comply with these regulations. The answer does not contain any unverified facts or contradictions.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does not explicitly state what Hacker-Pschorr Brewery has to limit, it mentions the Reinheitsgebot regulations limiting the ingredients in beer in Germany. However, since the Model Generated Answer does not provide any information, it does not contain any unsupported or contradicted claims.
 
 ---
 
 ### Sample ID: 47
 
 - **Question**: Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?
-- **Verdict**: Faithful
+- **Verdict**: Hallucinated
 - **Ground Truth**: `Dennis Howard Marks`
-- **Model Generated Answer**: `I do not know. The provided context only lists the following individuals as associates of PSI: Mathew Atha, Colin Angus, Brian Barritt, Michael Carmichael, Fraser Clark, Paul Devereux, the late John Entwistle, Paul Flynn MP, Ben Ganly, Lee Harris, Mike Jay, Howard Marks, Dr John Marks, Jonathan Ott, Dr Russell Newcombe, Richard Rudgley and Youth.Dennis Howard Marks. The context also states that Howard Marks was a Welsh drug smuggler and author who died on 10 April 2016. However, it does not mention Barry Mason or any other members of PSI.`
+- **Model Generated Answer**: `Howard Marks`
 
 #### Context:
 ```text
@@ -899,7 +886,7 @@ The Model Generated Answer correctly states that the Reinheitsgebot limits the i
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that the provided context does not mention the founder of PSI. However, it fails to directly answer the question about the Welsh member of PSI who died on 10 April 2016. The context does mention that Howard Marks was a Welsh associate of PSI and that he died on 10 April 2016. The answer should have directly linked this information to the question. Despite this, the answer does not contain any unverified facts or contradictions, it simply does not fully utilize the provided context to answer the question.
+The Model Generated Answer claims that Howard Marks was the Welsh member who died on 10 April 2016. However, the Reference Context states that Dennis Howard Marks, a Welsh drug smuggler and author, died on 10 April 2016. The Reference Context does support the claim that a person named Howard Marks was a member of PSI, but it does not support the claim that he died on 10 April 2016. Instead, it was Dennis Howard Marks who died on that date. The Model Generated Answer contains an unverified fact, as it incorrectly identifies Howard Marks as the person who died on 10 April 2016.
 
 ---
 
@@ -908,7 +895,7 @@ The Model Generated Answer correctly states that the provided context does not m
 - **Question**: What male actor starred in The Messenger?
 - **Verdict**: Faithful
 - **Ground Truth**: `Robert Sheehan`
-- **Model Generated Answer**: `Robert Michael Sheehan starred in The Messenger.`
+- **Model Generated Answer**: `Robert Sheehan`
 
 #### Context:
 ```text
@@ -916,7 +903,7 @@ The Messenger is a 2015 British supernatural mystery horror film directed by Dav
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Robert Michael Sheehan starred in The Messenger. According to the Reference Context, Robert Sheehan is indeed the male actor who starred in The Messenger, and his full name is Robert Michael Sheehan. Therefore, the answer is consistent with the provided context.
+The Model Generated Answer states that Robert Sheehan starred in The Messenger. The Reference Context confirms this information, stating that Robert Sheehan is one of the starring actors in the film. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -925,7 +912,7 @@ The Model Generated Answer states that Robert Michael Sheehan starred in The Mes
 - **Question**: Are Gin and tonic and Paloma both cocktails based on tequila?
 - **Verdict**: Faithful
 - **Ground Truth**: `no`
-- **Model Generated Answer**: `No. Gin and tonic is a highball cocktail made with gin and tonic water, while the paloma is a tequila-based cocktail.`
+- **Model Generated Answer**: `I do not know.`
 
 #### Context:
 ```text
@@ -933,7 +920,7 @@ A gin and tonic is a highball cocktail made with gin and tonic water poured over
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer correctly states that Gin and tonic is a highball cocktail made with gin and tonic water, which matches the Reference Context. Additionally, it correctly identifies the Paloma as a tequila-based cocktail, also consistent with the Reference Context. The answer accurately concludes that both cocktails are not based on tequila, as Gin and tonic is made with gin. The answer does not contain any unverified facts or contradictions.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference Context provides sufficient information to answer the question. According to the Reference Context, a gin and tonic is made with gin, and the paloma is a tequila-based cocktail. Therefore, the correct answer should be 'no', as only the paloma is based on tequila. Despite this, the Model Generated Answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context.
 
 ---
 

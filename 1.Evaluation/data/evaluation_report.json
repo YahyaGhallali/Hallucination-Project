@@ -1,11 +1,14 @@
 {
-  "timestamp": "2026-06-13T16:33:23.016059",
+  "timestamp": "2026-06-14T22:57:52.208832",
   "evaluator_model": "meta/llama-3.1-70b-instruct",
   "metrics": {
+    "total_records": 50,
     "total_evaluated": 50,
-    "faithful_count": 46,
-    "hallucinated_count": 4,
-    "hallucination_rate_pct": 8.0
+    "faithful_count": 45,
+    "hallucinated_count": 5,
+    "failed_inferences_count": 0,
+    "failed_audits_count": 0,
+    "hallucination_rate_pct": 10.0
   },
   "results": [
     {
@@ -13,18 +16,20 @@
       "question": "Which magazine was started first Arthur's Magazine or First for Women?",
       "context": "Arthur's Magazine (1844–1846) was an American literary periodical published in Philadelphia in the 19th century.First for Women is a woman's magazine published by Bauer Media Group in the USA.",
       "ground_truth": "Arthur's Magazine",
-      "model_generated_answer": "Arthur's Magazine (1844–1846) was started first.",
-      "reasoning": "The Model Generated Answer claims that Arthur's Magazine was started first. According to the Reference Context, Arthur's Magazine was published from 1844-1846, while the publication start date of First for Women is not provided. However, since Arthur's Magazine has a specific publication date range in the 19th century and First for Women does not have a specified start date, it can be inferred that Arthur's Magazine was indeed started first. The answer is consistent with the information provided in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Arthur's Magazine",
+      "reasoning": "The Model Generated Answer claims that Arthur's Magazine was started first. The Reference Context provides the publication years for Arthur's Magazine as 1844-1846, but does not provide the exact start year for First for Women. However, since First for Women is mentioned as being published by Bauer Media Group in the USA without any specific start year, and Arthur's Magazine has a specific start year of 1844, it can be inferred that Arthur's Magazine was indeed started first. This inference is supported by the information provided in the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 1,
       "question": "The Oberoi family is part of a hotel company that has a head office in what city?",
       "context": "The Oberoi family is an Indian family that is famous for its involvement in hotels, namely through The Oberoi Group.The Oberoi Group is a hotel company with its head office in Delhi.",
       "ground_truth": "Delhi",
-      "model_generated_answer": "The Oberoi Group is a hotel company with its head office in Delhi.\n\nTherefore, the answer is Delhi.",
-      "reasoning": "The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that The Oberoi Group is a hotel company with its head office in Delhi. The Model Generated Answer correctly identifies the head office location of The Oberoi Group as Delhi. The answer is directly supported by the Reference Context and does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "Delhi",
+      "reasoning": "The Model Generated Answer states that the Oberoi family's hotel company has a head office in Delhi. This claim is directly supported by the Reference Context, which mentions that The Oberoi Group has its head office in Delhi. Therefore, the answer is supported and does not contain any unverified facts or contradictions.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 2,
@@ -32,89 +37,99 @@
       "context": "Allison Beth \"Allie\" Goertz (born March 2, 1991) is an American musician. Goertz is known for her satirical songs based on various pop culture topics. Her videos are posted on YouTube under the name of Cossbysweater.Milhouse Mussolini van Houten is a fictional character featured in the animated television series \"The Simpsons\", voiced by Pamela Hayden, and created by Matt Groening who named the character after President Richard Nixon's middle name.",
       "ground_truth": "President Richard Nixon",
       "model_generated_answer": "Matt Groening named the character Milhouse after President Richard Nixon's middle name.",
-      "reasoning": "The Model Generated Answer states that Matt Groening named the character Milhouse after President Richard Nixon's middle name. This claim is directly supported by the Reference Context, which also mentions that Matt Groening named the character Milhouse after President Richard Nixon's middle name. The answer does not contain any information about Allie Goertz writing a song about Milhouse, but this is not relevant to the question about who Milhouse was named after. The answer only addresses the second part of the question and does so accurately.",
-      "is_hallucinated": false
+      "reasoning": "The Model Generated Answer states that Matt Groening named the character Milhouse after President Richard Nixon's middle name. This claim is supported by the Reference Context, which explicitly states that Matt Groening named the character Milhouse after President Richard Nixon's middle name. The answer does not contain any unverified or unsupported facts, and it does not contradict the Reference Context. The answer also does not refuse to answer the question.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 3,
       "question": " What nationality was James Henry Miller's wife?",
       "context": "Margaret \"Peggy\" Seeger (born June 17, 1935) is an American folksinger. She is also well known in Britain, where she has lived for more than 30 years, and was married to the singer and songwriter Ewan MacColl until his death in 1989.James Henry Miller (25 January 1915 – 22 October 1989), better known by his stage name Ewan MacColl, was an English folk singer, songwriter, communist, labour activist, actor, poet, playwright and record producer.",
       "ground_truth": "American",
-      "model_generated_answer": "The provided context states that Margaret \"Peggy\" Seeger is an American folksinger. It does not specify her nationality. Therefore, I do not know.",
-      "reasoning": "The Model Generated Answer claims that the provided context does not specify Margaret 'Peggy' Seeger's nationality. However, the Reference Context explicitly states that Margaret 'Peggy' Seeger is an American folksinger, which directly implies her nationality. Therefore, the Model Generated Answer's claim is incorrect. The correct answer should be that Margaret 'Peggy' Seeger is American.",
-      "is_hallucinated": true
+      "model_generated_answer": "I do not know.",
+      "reasoning": "The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does provide information about James Henry Miller's wife, Margaret 'Peggy' Seeger, it does not explicitly state her nationality. However, it does mention that she is an American folksinger. Since the Model Generated Answer does not make any positive factual assertions, it does not contain unverified facts or contradictions.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 4,
       "question": "Cadmium Chloride is slightly soluble in this chemical, it is also called what?",
       "context": " It is a hygroscopic solid that is highly soluble in water and slightly soluble in alcohol.Ethanol, also called alcohol, ethyl alcohol, and drinking alcohol, is a compound and simple alcohol with the chemical formula C2H5OH .",
       "ground_truth": "alcohol",
-      "model_generated_answer": "I do not know. The provided context does not mention Cadmium Chloride or its solubility in any chemical. It only discusses Ethanol.",
-      "reasoning": "The Model Generated Answer correctly states that it does not know the answer to the question. The Reference Context does not mention Cadmium Chloride or its solubility in any chemical. The context only discusses the properties of a hygroscopic solid and Ethanol, but does not provide any information about Cadmium Chloride. Therefore, the Model Generated Answer is correct in stating that it does not know the answer.",
-      "is_hallucinated": false
+      "model_generated_answer": "I do not know.",
+      "reasoning": "The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context does not contain information about Cadmium Chloride's solubility in any specific chemical. The question asks for the name of the chemical in which Cadmium Chloride is slightly soluble, but the Reference Context only provides information about the solubility of the hygroscopic solid and the properties of ethanol. Since the Model Generated Answer does not make any positive factual assertions, it does not contain any unverified or unsupported claims.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 5,
       "question": "Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark?",
       "context": "Jonathan Stark (born April 3, 1971) is a former professional tennis player from the United States. During his career he won two Grand Slam doubles titles (the 1994 French Open Men's Doubles and the 1995 Wimbledon Championships Mixed Doubles). He reached the men's singles final at the French Open in 1988, won the French Open men's doubles title in 1984, and helped France win the Davis Cup in 1991.",
       "ground_truth": "Jonathan Stark",
-      "model_generated_answer": "The provided context only details Jonathan Stark's accomplishments. It does not mention Henri Leconte or their respective Grand Slam titles. Therefore, I do not know.",
-      "reasoning": "The Model Generated Answer correctly states that the provided context only details Jonathan Stark's accomplishments and does not mention Henri Leconte or their respective Grand Slam titles. The answer does not make any claims about Henri Leconte's Grand Slam titles or compare them to Jonathan Stark's titles. The answer is neutral and does not provide any information that contradicts the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "I do not know.",
+      "reasoning": "The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context does not provide information about Henri Leconte's Grand Slam titles, making it impossible to compare with Jonathan Stark's titles. The answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 6,
       "question": "Which genus of moth in the world's seventh-largest country contains only one species?",
       "context": "Indogrammodes is a genus of moths of the Crambidae family. It contains only one species, Indogrammodes pectinicornalis, which is found in India.India, officially the Republic of India (\"Bhārat Gaṇarājya\"), is a country in South Asia. It is the seventh-largest country by area, the second-most populous country (with over 1.2 billion people), and the most populous democracy in the world.",
       "ground_truth": "Crambidae",
-      "model_generated_answer": "Indogrammodes is a genus of moths of the Crambidae family that contains only one species, Indogrammodes pectinicornalis, which is found in India.",
-      "reasoning": "The Model Generated Answer states that Indogrammodes is a genus of moths of the Crambidae family that contains only one species, Indogrammodes pectinicornalis, which is found in India. The Reference Context confirms that Indogrammodes is a genus of moths of the Crambidae family with only one species, Indogrammodes pectinicornalis, found in India. Additionally, the Reference Context mentions that India is the seventh-largest country by area. Therefore, the Model Generated Answer accurately matches the information provided in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Indogrammodes",
+      "reasoning": "The Model Generated Answer states that Indogrammodes is the genus of moth in the world's seventh-largest country that contains only one species. The Reference Context supports this claim by stating that Indogrammodes is a genus of moths found in India, which is the seventh-largest country by area. Additionally, it is mentioned that Indogrammodes contains only one species, Indogrammodes pectinicornalis. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 7,
       "question": "Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring.",
       "context": " Fighters from around world on the roster include Badr Hari, Peter Aerts, Peter Graham, Dewey Cooper, Zabit Samedov. It was considered as one of the biggest kickboxing and MMA promotion in Middle East.Badr Hari (Arabic: بدر هاري‎ ‎ ; born 8 December 1984) is a Moroccan-Dutch super heavyweight kickboxer from Amsterdam, fighting out of Mike's Gym in Oostzaan. Hari has been a prominent figure in the world of kickboxing and was once considered the best kickboxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring.",
       "ground_truth": "Badr Hari",
-      "model_generated_answer": "Badr Hari was once considered the best kickboxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring.",
-      "reasoning": "The Model Generated Answer directly matches the information provided in the Reference Context about Badr Hari. It accurately states that Badr Hari was once considered the best kickboxer in the world and mentions his involvement in controversies and crimes. The answer does not contain any additional information that is not present in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Badr Hari",
+      "reasoning": "The Model Generated Answer directly matches the information provided in the Reference Context. The Reference Context states that Badr Hari 'was once considered the best kickboxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring.' The Model Generated Answer accurately reflects this information without adding any unverified or unsupported claims.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 8,
       "question": "The Dutch-Belgian television series that \"House of Anubis\" was based on first aired in what year?",
       "context": "House of Anubis is a mystery television series developed for Nickelodeon based on the Dutch-Belgian television series \"Het Huis Anubis\". It first aired in September 2006 and the last episode was broadcast on December 4, 2009.",
       "ground_truth": "2006",
-      "model_generated_answer": "The context states that \"Het Huis Anubis\" (the Dutch-Belgian television series that \"House of Anubis\" was based on) first aired in September 2006. Therefore, the answer is not directly stated in the context. However, the context does state that \"House of Anubis\" first aired in September 2006. This implies that \"Het Huis Anubis\" first aired before that. I do not know the exact year \"Het Huis Anubis\" first aired.",
-      "reasoning": "The Model Generated Answer claims that the context does not directly state the year 'Het Huis Anubis' first aired, which is correct. However, it incorrectly implies that 'House of Anubis' first airing in September 2006 provides information about 'Het Huis Anubis' airing before that. The correct interpretation is that the context does not provide any information about the year 'Het Huis Anubis' first aired. The Model Generated Answer also incorrectly states that 'Het Huis Anubis' first aired before 'House of Anubis', which is not supported by the context.",
-      "is_hallucinated": true
+      "model_generated_answer": "2006",
+      "reasoning": "The Model Generated Answer claims that the Dutch-Belgian television series 'Het Huis Anubis' first aired in 2006. However, the Reference Context does not provide information about the first airing year of 'Het Huis Anubis'. It only mentions that 'House of Anubis' first aired in September 2006. Therefore, the Model Generated Answer contains an unverified fact.",
+      "is_hallucinated": true,
+      "status": "success"
     },
     {
       "id": 9,
       "question": "What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?",
       "context": "The 2013 Liqui Moly Bathurst 12 Hour was an endurance race for a variety of GT and touring car classes, including: GT3 cars, GT4 cars, Group 3E Series Production Cars and Dubai 24 Hour cars. The event, which was staged at the Mount Panorama Circuit, near Bathurst, in New South Wales, Australia on 10 February 2013, was the eleventh running of the Bathurst 12 Hour.Mount Panorama Circuit is a motor racing track located in Bathurst, New South Wales, Australia. The 6.213 km long track is technically a street circuit, and is a public road, with normal speed restrictions, when no racing events are being run, and there are many residences which can only be accessed from the circuit.",
       "ground_truth": "6.213 km long",
-      "model_generated_answer": "The 2013 Liqui Moly Bathurst 12 Hour was staged at the Mount Panorama Circuit, which is 6.213 km long.",
-      "reasoning": "The Model Generated Answer states that the 2013 Liqui Moly Bathurst 12 Hour was staged at the Mount Panorama Circuit, which is 6.213 km long. According to the Reference Context, the event was indeed staged at the Mount Panorama Circuit, and the track length is confirmed to be 6.213 km. The answer accurately reflects the information provided in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "The 6.213 km long track is technically a street circuit, and is a public road, with normal speed restrictions, when no racing events are being run, and there are many residences which can only be accessed from the circuit.",
+      "reasoning": "The Model Generated Answer directly quotes the Reference Context, providing the correct length of the track (6.213 km) and additional information about the track being a street circuit and a public road. However, the question only asks for the length of the track. The extra information is present in the Reference Context but is not directly relevant to the question asked. Despite this, the answer does not contain any unverified or unsupported facts and does not contradict the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 10,
       "question": "Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive?",
       "context": " Vocals are handled by Aesop Rock, with guest appearances from Camu Tao and Metro of S.A. Smash and Definitive Jux label head El-P.Jaime Meline (born March 2, 1975), better known by his stage name El-P (shortened from El Producto), is an American hip hop recording artist, record producer, and record executive.",
       "ground_truth": "Jaime Meline",
-      "model_generated_answer": "El-P.",
-      "reasoning": "The Model Generated Answer states that the guest appearance on Fast Cars, Danger, Fire and Knives is from El-P. According to the Reference Context, El-P is indeed a hip hop record executive and made a guest appearance on the album, as mentioned in the context. The answer is consistent with the provided information.",
-      "is_hallucinated": false
+      "model_generated_answer": "El-P",
+      "reasoning": "The Model Generated Answer states that the album 'Fast Cars, Danger, Fire and Knives' includes guest appearances from El-P, who is indeed a hip hop record executive. The Reference Context confirms that El-P is a record executive and also mentions that he made a guest appearance on an album, although it does not explicitly mention the album title 'Fast Cars, Danger, Fire and Knives'. However, since the Reference Context does mention El-P's guest appearance and his role as a record executive, and the Model Generated Answer does not provide any information that contradicts the Reference Context, the answer is supported.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 11,
       "question": "Gunmen from Laredo starred which narrator of \"Frontier\"?",
       "context": "Gunmen from Laredo is a 1959 American western film produced and directed by Wallace MacDonald, which stars Robert Knapp, Maureen Hingert, and Walter Coy.Walter Darwin Coy (January 31, 1909 – December 11, 1974) was an American stage, radio, film, and, principally, television actor, originally from Great Falls, Montana. He was best known for narrating the NBC western anthology series, \"Frontier\", which aired early Sunday evenings in the 1955–1956 season.",
       "ground_truth": "Walter Darwin Coy",
-      "model_generated_answer": "The provided context states that Walter Darwin Coy was best known for narrating the NBC western anthology series, \"Frontier\". The film \"Gunmen from Laredo\" stars Walter Coy. Therefore, Gunmen from Laredo starred Walter Coy, who narrated \"Frontier\".",
-      "reasoning": "The Model Generated Answer correctly identifies Walter Coy as the narrator of \"Frontier\" from the Reference Context. It also correctly states that Walter Coy stars in the film \"Gunmen from Laredo\". The connection between Walter Coy's role in \"Frontier\" and \"Gunmen from Laredo\" is logically derived from the Reference Context, which mentions both facts separately. Therefore, the answer is supported by the provided context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Walter Darwin Coy.",
+      "reasoning": "The Model Generated Answer states that Walter Darwin Coy starred in Gunmen from Laredo. The Reference Context confirms that Walter Coy, whose full name is Walter Darwin Coy, starred in Gunmen from Laredo and also narrated the NBC western anthology series 'Frontier'. Therefore, the Model Generated Answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 12,
@@ -122,206 +137,229 @@
       "context": "Die Rhöner Säuwäntzt are a Skiffle-Bluesband from Eichenzell-Lütter in Hessen, Germany. Originating as a term in the United States in the first half of the 20th century, it became popular again in the UK in the 1950s, where it was associated with artists such as Lonnie Donegan, The Vipers Skiffle Group, Ken Colyer and Chas McDevitt.",
       "ground_truth": "United States",
       "model_generated_answer": "The form of music played by Die Rhöner Säuwäntzt originated in the United States in the first half of the 20th century.",
-      "reasoning": "The Model Generated Answer is supported by the Reference Context, which states that the term 'Skiffle' originated in the United States in the first half of the 20th century. The answer accurately identifies the origin of the music form played by Die Rhöner Säuwäntzt, which is described as a Skiffle-Bluesband.",
-      "is_hallucinated": false
+      "reasoning": "The Model Generated Answer states that the form of music played by Die Rhöner Säuwäntzt originated in the United States in the first half of the 20th century. This claim is supported by the Reference Context, which mentions that the term 'Skiffle' originated in the United States in the first half of the 20th century. The answer does not contain any unverified or unsupported facts, and it accurately reflects the information provided in the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 13,
       "question": "In which American football game was Malcolm Smith named Most Valuable player?",
       "context": " Smith was named the Most Valuable Player of Super Bowl XLVIII after they defeated the Denver Broncos.Super Bowl XLVIII was an American football game between the American Football Conference (AFC) champion Denver Broncos and National Football Conference (NFC) champion Seattle Seahawks to decide the National Football League (NFL) champion for the 2013 season.",
       "ground_truth": "Super Bowl XLVIII",
-      "model_generated_answer": "Malcolm Smith was named Most Valuable Player of Super Bowl XLVIII. Super Bowl XLVIII was an American football game between the American Football Conference (AFC) champion Denver Broncos and National Football Conference (NFC) champion Seattle Seahawks to decide the National Football League (NFL) champion for the 2013 season.\n\nI do not know if Malcolm Smith was named MVP of any other game.",
-      "reasoning": "The Model Generated Answer correctly states that Malcolm Smith was named Most Valuable Player of Super Bowl XLVIII, which is supported by the Reference Context. The answer also provides additional context about Super Bowl XLVIII, which is also consistent with the Reference Context. However, the answer does not provide any information about Malcolm Smith being named MVP of any other game, and the Reference Context does not mention Malcolm Smith at all. The Model Generated Answer assumes the subject of the sentence is Malcolm Smith, which is not explicitly stated in the Reference Context, but it is a reasonable inference based on the context. Therefore, the answer is not entirely hallucinated, but it does make an assumption not explicitly supported by the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Super Bowl XLVIII.",
+      "reasoning": "The Model Generated Answer states that Malcolm Smith was named Most Valuable Player in Super Bowl XLVIII. The Reference Context confirms this information, stating that Smith was named the Most Valuable Player of Super Bowl XLVIII. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 14,
       "question": "What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail?",
       "context": " The nine mile byway starts south of Morehead, Kentucky and can be accessed by U.S. Highway 60.Morehead is a home rule-class city located along US 60 (the historic Midland Trail) and Interstate 64 in Rowan County, Kentucky, in the United States.",
       "ground_truth": "US 60",
-      "model_generated_answer": "U.S. Highway 60 is known as the historic Midland Trail.",
-      "reasoning": "The Model Generated Answer states that U.S. Highway 60 is known as the historic Midland Trail. The Reference Context confirms this information, as it mentions that Morehead is located along US 60 (the historic Midland Trail). However, the question asks about Zilpo Road, which is not mentioned in the Reference Context. The Reference Context does mention that the nine mile byway starts south of Morehead and can be accessed by U.S. Highway 60, but it does not explicitly state that Zilpo Road is the nine mile byway. Therefore, the answer assumes information not present in the Reference Context.",
-      "is_hallucinated": true
+      "model_generated_answer": "U.S. Highway 60",
+      "reasoning": "The Model Generated Answer states that U.S. Highway 60 gives access to the nine mile byway and is also known as the Midland Trail. The Reference Context supports this claim, stating that the nine mile byway can be accessed by U.S. Highway 60 and that U.S. 60 is the historic Midland Trail. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 15,
       "question": "The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?",
       "context": "The Great Outdoors is a 1988 American comedy film directed by Howard Deutch, and written and produced by John Hughes. It stars Dan Aykroyd, John Candy, Stephanie Faracy and Annette Bening in her film debut.Annette Carol Bening (born May 29, 1958) is an American actress. She is a four-time Academy Award nominee; for \"The Grifters\" (1990), \"American Beauty\" (1999), \"Being Julia\" (2004) and \"The Kids Are All Right\" (2010). In 2006, she received a star on the Hollywood Walk of Fame.",
       "ground_truth": "2006",
-      "model_generated_answer": "Annette Bening received a star on the Hollywood Walk of Fame in 2006. She is a four-time Academy Award nominee for \"The Grifters\" (1990), \"American Beauty\" (1999), \"Being Julia\" (2004) and \"The Kids Are All Right\" (2010). The film \"The Great Outdoors\" was released in 1988.",
-      "reasoning": "The Model Generated Answer correctly states that Annette Bening received a star on the Hollywood Walk of Fame in 2006, which is supported by the Reference Context. Additionally, it accurately mentions that Annette Bening is a four-time Academy Award nominee and lists the correct films for which she received nominations. The answer also correctly states that the film 'The Great Outdoors' was released in 1988. The Model Generated Answer does not contain any unverified facts or contradictions, and all information is supported by the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "2006",
+      "reasoning": "The Model Generated Answer states that the four-time Academy Award nominee who starred in The Great Outdoors received a star on the Hollywood Walk of Fame in 2006. According to the Reference Context, Annette Bening, who starred in The Great Outdoors, received a star on the Hollywood Walk of Fame in 2006. This information is supported by the Reference Context, which mentions that Annette Bening received a star on the Hollywood Walk of Fame in 2006.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 16,
       "question": "What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical? ",
       "context": " The Playbills, which describe the musical as having \"explosions, negligible storytelling, camouflage and tits\", also state that the musical's cast included actors such as Taye Diggs (who would go on to play the role of Hedwig in the summer of 2015) and that the music was written by Metallica and Stephen R. Schwartz, which is the real name of \"Hedwig\" songwriter Stephen Trask. Metallica's current lineup comprises founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.",
       "ground_truth": "Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.",
-      "model_generated_answer": "I do not know. The context mentions Metallica wrote the music for the musical, but it does not specify the current members of the band. It only lists the founding members and current lineup. The musical is titled \"Hurt Locker The Musical\", not \"Hedwig\".",
-      "reasoning": "The Model Generated Answer correctly identifies that the musical is titled 'Hurt Locker The Musical' and not 'Hedwig'. However, it fails to provide the names of the current members of Metallica, which are indeed mentioned in the Reference Context as founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo. The answer does not contain any unverified facts or contradictions, but rather an incomplete response.",
-      "is_hallucinated": false
+      "model_generated_answer": "Metallica's current lineup comprises founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo.",
+      "reasoning": "The Model Generated Answer correctly identifies the current members of Metallica, which is the American heavy metal band that wrote the music for the musical. The answer is supported by the Reference Context, which states that Metallica's current lineup comprises founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo. However, the Model Generated Answer does not explicitly state that Metallica wrote the music for Hurt Locker The Musical, but rather it is implied from the Reference Context that Metallica wrote the music for a musical, but the name of the musical is actually not 'Hurt Locker The Musical' but rather it is not specified. The Reference Context does mention 'Hedwig' and 'Hurt Locker The Musical' is not mentioned at all. The Model Generated Answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context, but it does contain an implied claim that is not supported by the Reference Context.",
+      "is_hallucinated": true,
+      "status": "success"
     },
     {
       "id": 17,
       "question": "Human Error\" is the season finale of the third season of a tv show that aired on what network?",
       "context": "\"Human Error\" is the twenty-fourth episode and season finale of the third season of \"House\" and the seventieth episode overall.House (also called House, M.D.) is an American television medical drama that originally ran on the Fox network for eight seasons, from November 16, 2004 to May 21, 2012.",
       "ground_truth": "Fox",
-      "model_generated_answer": "The context states that \"House\" originally ran on the Fox network. \n\nTherefore, \"Human Error\" is the season finale of the third season of a TV show that aired on the Fox network.",
-      "reasoning": "The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that 'House' originally ran on the Fox network and that 'Human Error' is the season finale of the third season of 'House'. The Model Generated Answer correctly combines these facts to conclude that 'Human Error' is the season finale of the third season of a TV show that aired on the Fox network. The answer is supported by the Reference Context and does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "Fox",
+      "reasoning": "The Model Generated Answer states that 'Human Error' is the season finale of the third season of a tv show that aired on Fox. The Reference Context supports this claim by stating that House, the tv show in which 'Human Error' is an episode, originally ran on the Fox network. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 18,
       "question": "Dua Lipa, an English singer, songwriter and model, the album spawned the number-one single \"New Rules\" is a song by English singer Dua Lipa from her eponymous debut studio album, released in what year?",
       "context": " Her self-titled debut studio album was released on 2 June 2017.\"New Rules\" is a song by English singer Dua Lipa from her eponymous debut studio album (2017).",
       "ground_truth": "2017",
-      "model_generated_answer": "The album was released in 2017.",
-      "reasoning": "The Model Generated Answer states that the album was released in 2017. The Reference Context confirms this information, stating that Dua Lipa's self-titled debut studio album was released on 2 June 2017, and also mentions that 'New Rules' is a song from her eponymous debut studio album (2017). Therefore, the Model Generated Answer is consistent with the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "2017",
+      "reasoning": "The Model Generated Answer states that the album 'Dua Lipa' was released in 2017. The Reference Context supports this claim, as it mentions that her self-titled debut studio album was released on 2 June 2017. Additionally, it is mentioned that 'New Rules' is a song by English singer Dua Lipa from her eponymous debut studio album (2017). Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 19,
       "question": "American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto, a woman who previously served as the 32nd Attorney General of where?",
       "context": "Joseph John “Joe” Heck (born October 30, 1961) is an American politician, physician, and U.S. Army Brigadier General who had served as the U.S. Representative for Nevada's 3rd congressional district from 2011 to 2017. He ran unsuccessfully against Democrat Catherine Cortez Masto in the general election for the open Nevada United States Senate seat in 2016. She previously served as the 32nd Attorney General of Nevada from 2007 to 2015.",
       "ground_truth": "Nevada",
-      "model_generated_answer": "Catherine Cortez Masto previously served as the 32nd Attorney General of Nevada from 2007 to 2015.",
-      "reasoning": "The Model Generated Answer states that Catherine Cortez Masto previously served as the 32nd Attorney General of Nevada from 2007 to 2015. This information is directly supported by the Reference Context, which also mentions that she served as the 32nd Attorney General of Nevada from 2007 to 2015. Therefore, the answer is accurate and does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "Nevada.",
+      "reasoning": "The Model Generated Answer states that Catherine Cortez Masto previously served as the 32nd Attorney General of Nevada. This claim is directly supported by the Reference Context, which explicitly mentions that she served as the 32nd Attorney General of Nevada from 2007 to 2015.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 20,
       "question": "Which state does the drug stores, of which the CEO is Warren Bryant, are located?",
       "context": "Warren Bryant was the CEO of Longs Drugs Store Corporation out of California prior to the retail chain's acquisition by CVS/Caremark.Longs Drugs is an American chain with approximately 40 drug stores throughout the state of Hawaii.",
       "ground_truth": "Hawaii",
-      "model_generated_answer": "The drug stores are located in Hawaii.",
-      "reasoning": "The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context mentions that Longs Drugs is an American chain with approximately 40 drug stores throughout the state of Hawaii. However, it also mentions that Warren Bryant was the CEO of Longs Drugs Store Corporation out of California. The Model Generated Answer only partially matches the Reference Context, as it correctly identifies the location of the drug stores but does not acknowledge the mention of California in relation to the CEO. Nevertheless, the answer does not contain any unverified facts or contradictions, it simply omits a detail.",
-      "is_hallucinated": false
+      "model_generated_answer": "Hawaii",
+      "reasoning": "The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context also mentions that Longs Drugs is an American chain with approximately 40 drug stores throughout the state of Hawaii. Therefore, the Model Generated Answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 21,
       "question": "Which  American politician did Donahue replaced ",
       "context": " Donahue replaced Kelli Ward who resigned to run for the United States Senate.Kelli Ward (\"née\" Kaznoski; born January 25, 1969) is an American politician and osteopathic physician.",
       "ground_truth": "Kelli Ward",
-      "model_generated_answer": "Donahue replaced Kelli Ward, who resigned to run for the United States Senate. Kelli Ward is an American politician and osteopathic physician.",
-      "reasoning": "The Model Generated Answer correctly states that Donahue replaced Kelli Ward, which is supported by the Reference Context. Additionally, the answer accurately describes Kelli Ward as an American politician and osteopathic physician, which is also consistent with the Reference Context. The answer does not introduce any new information that is not present in the Reference Context, and it does not contradict any information in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Kelli Ward",
+      "reasoning": "The Model Generated Answer states that Donahue replaced Kelli Ward. The Reference Context supports this claim by stating 'Donahue replaced Kelli Ward who resigned to run for the United States Senate.' Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 22,
       "question": "Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds?",
       "context": "Courtney Michelle Love (born Courtney Michelle Harrison; July 9, 1964) is an American singer, songwriter, actress, and visual artist. She rose to prominence as the frontwoman of the alternative rock band Hole, which she formed in 1989.The Wolfhounds are an indie pop/noise pop band formed in Romford, UK in 1985 by Dave Callahan, Paul Clark, Andy Golding, Andy Bolton and Frank Stebbing, and originally active until 1990.",
       "ground_truth": "The Wolfhounds",
-      "model_generated_answer": "The Wolfhounds were formed first, in 1985. Hole was formed in 1989.",
-      "reasoning": "The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that Hole was formed in 1989 and The Wolfhounds were formed in 1985. The Model Generated Answer correctly identifies the formation years of both bands and accurately concludes that The Wolfhounds were formed first. The answer does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "The Wolfhounds were formed first.",
+      "reasoning": "The Model Generated Answer claims that The Wolfhounds were formed first. According to the Reference Context, Hole was formed in 1989, while The Wolfhounds were formed in 1985. This information supports the Model Generated Answer, indicating that The Wolfhounds were indeed formed first. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 23,
       "question": "How old is the female main protagonist of Catching Fire?",
       "context": "Catching Fire is a 2009 science fiction young adult novel by the American novelist Suzanne Collins, the second book in \"The Hunger Games trilogy\". It is written in the voice of 16-year-old Katniss Everdeen, who lives in the future, post-apocalyptic nation of Panem in North America.",
       "ground_truth": "16-year-old",
-      "model_generated_answer": "The female main protagonist of Catching Fire is 16 years old.",
-      "reasoning": "The Model Generated Answer states that the female main protagonist of Catching Fire is 16 years old. According to the Reference Context, the novel is written in the voice of 16-year-old Katniss Everdeen, who is the main protagonist. Therefore, the answer is consistent with the reference context.",
-      "is_hallucinated": false
+      "model_generated_answer": "16",
+      "reasoning": "The Model Generated Answer states that the female main protagonist of Catching Fire is 16 years old. The Reference Context supports this claim, stating that the novel is written in the voice of 16-year-old Katniss Everdeen. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 24,
       "question": "Chang Ucchin was born in korea during a time that ended with the conclusion of what? ",
       "context": " Chang was born when Korea was still under Japanese colonial rule.Korea under Japanese rule began with the end of the short-lived Korean Empire in 1910 and ended at the conclusion of World War II in 1945.",
       "ground_truth": "World War II",
-      "model_generated_answer": "Chang was born when Korea was still under Japanese colonial rule. Korea under Japanese rule began with the end of the short-lived Korean Empire in 1910 and ended at the conclusion of World War II in 1945. Therefore, Chang Ucchin was born in Korea during the conclusion of World War II in 1945.",
-      "reasoning": "The Model Generated Answer correctly states that Chang was born when Korea was under Japanese colonial rule and provides the correct time period for this rule. However, the conclusion drawn from this information is partially incorrect. The Model Generated Answer states that Chang Ucchin was born in Korea during the conclusion of World War II in 1945, which is not necessarily true. The Reference Context only states that Korea under Japanese rule ended at the conclusion of World War II in 1945, but it does not provide the exact birth year of Chang Ucchin. Therefore, the Model Generated Answer contains an unverified fact.",
-      "is_hallucinated": true
+      "model_generated_answer": "World War II",
+      "reasoning": "The Model Generated Answer states that Chang Ucchin was born in Korea during a time that ended with the conclusion of World War II. The Reference Context supports this claim by stating that Korea under Japanese rule ended at the conclusion of World War II in 1945. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 25,
       "question": "Who is the director of the 2003 film which has scenes in it filmed at the Quality Cafe in Los Angeles?",
       "context": "The Quality Cafe (also known as Quality Diner) is a now-defunct diner at 1236 West 7th Street in Los Angeles, California. The restaurant ceased to function as a diner in late 2006 but has appeared as a location featured in a number of Hollywood films, including \"Training Day\", \"Old School\", \"Se7en\", \"Ghost World\", \"Gone in 60 Seconds\", \"The Stepfather\", \"What's Love Got to Do with It\", \"Sex and Death 101\", and \"Catch Me If You Can.\"Old School is a 2003 American comedy film released by DreamWorks Pictures and The Montecito Picture Company and directed by Todd Phillips.",
       "ground_truth": "Todd Phillips",
-      "model_generated_answer": "Todd Phillips directed the 2003 film \"Old School\", which has scenes filmed at the Quality Cafe in Los Angeles.",
-      "reasoning": "The Model Generated Answer claims that Todd Phillips directed the 2003 film 'Old School', which has scenes filmed at the Quality Cafe in Los Angeles. The Reference Context confirms that Todd Phillips directed 'Old School' and that 'Old School' is one of the films that featured the Quality Cafe as a location. Therefore, the Model Generated Answer is supported by the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Todd Phillips",
+      "reasoning": "The Reference Context mentions that the Quality Cafe appeared as a location in the film 'Old School', and also states that 'Old School' is a 2003 film directed by Todd Phillips. The Model Generated Answer directly matches this information, providing the correct director of the film 'Old School' which has scenes filmed at the Quality Cafe. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 26,
       "question": "New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and American actress?",
       "context": " It helped jump start the careers of several young performers including Paul Lynde, Alice Ghostley, Eartha Kitt, Robert Clary, Carol Lawrence, Ronny Graham, performer/writer Mel Brooks (as Melvin Brooks), and lyricist Sheldon Harnick.Carol Lawrence (born September 5, 1932) is an American actress, most often associated with musical theatre, but who has also appeared extensively on television.",
       "ground_truth": "Carol Lawrence",
-      "model_generated_answer": "New Faces of 1952 is a musical revue with songs and comedy skits, it helped jump start the careers of several young performers including Paul Lynde, Alice Ghostley, Eartha Kitt, Robert Clary, Carol Lawrence, Ronny Graham, performer/writer Mel Brooks (as Melvin Brooks), and lyricist Sheldon Harnick. Carol Lawrence (born September 5, 1932) is an American actress, most often associated with musical theatre, but who has also appeared extensively on television.\n\nTherefore, it helped jump start the career of Carol Lawrence.",
-      "reasoning": "The Model Generated Answer accurately states that New Faces of 1952 helped jump start the careers of several young performers, including Carol Lawrence. The answer also correctly provides information about Carol Lawrence's background, which is present in the Reference Context. The answer does not introduce any new information that is not present in the Reference Context, and it accurately summarizes the information provided.",
-      "is_hallucinated": false
+      "model_generated_answer": "Carol Lawrence",
+      "reasoning": "The Model Generated Answer states that New Faces of 1952 helped jump start the career of Carol Lawrence, an American actress. The Reference Context supports this claim by mentioning Carol Lawrence as one of the young performers whose career was jump started by New Faces of 1952. The Reference Context also provides additional information about Carol Lawrence, confirming that she is an American actress. Therefore, the Model Generated Answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 27,
       "question": "Were Pavel Urysohn and Leonid Levin known for the same type of work?",
       "context": "Pavel Samuilovich Urysohn (Па́вел Самуи́лович Урысо́н ) (February 3, 1898 – August 17, 1924) was a Soviet mathematician of Jewish origin who is best known for his contributions in dimension theory, and for developing Urysohn's Metrization Theorem and Urysohn's Lemma, both of which are fundamental results in topology.Leonid Anatolievich Levin ( ; Russian: Леони́д Анато́льевич Ле́вин ; Ukrainian: Леоні́д Анато́лійович Ле́він ; born November 2, 1948) is a Soviet-American computer scientist.",
       "ground_truth": "no",
-      "model_generated_answer": "Pavel Samuilovich Urysohn was a Soviet mathematician known for his contributions in dimension theory, and for developing Urysohn's Metrization Theorem and Urysohn's Lemma, both of which are fundamental results in topology. Leonid Anatolievich Levin is a Soviet-American computer scientist.\n\nTherefore, they were not known for the same type of work.",
-      "reasoning": "The Model Generated Answer correctly identifies Pavel Urysohn as a mathematician known for his work in dimension theory and topology, and Leonid Levin as a computer scientist. The answer accurately concludes that they were not known for the same type of work based on the information provided in the Reference Context. The answer does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "No.",
+      "reasoning": "The Model Generated Answer states that Pavel Urysohn and Leonid Levin were not known for the same type of work. According to the Reference Context, Pavel Urysohn was a mathematician known for his contributions in dimension theory and topology, while Leonid Levin is a computer scientist. This supports the Model Generated Answer's claim that they were not known for the same type of work. The answer does not contain any unverified or unsupported facts, and it does not contradict the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 28,
       "question": "Are both The New Pornographers and Kings of Leon American rock bands?",
       "context": "The New Pornographers is a Canadian indie rock band formed in 1997 in Vancouver, British Columbia.Kings of Leon is an American rock band that formed in Nashville, Tennessee, in 1999.",
       "ground_truth": "no",
-      "model_generated_answer": "The context states that Kings of Leon is an American rock band. The context does not state whether The New Pornographers is American. Therefore, I do not know if both are American rock bands.",
-      "reasoning": "The Model Generated Answer correctly identifies that the context states Kings of Leon is an American rock band. However, it fails to explicitly state that The New Pornographers is a Canadian indie rock band, which directly contradicts the claim of being American. The correct answer should have stated that The New Pornographers is not an American rock band, but rather a Canadian one.",
-      "is_hallucinated": false
+      "model_generated_answer": "No.",
+      "reasoning": "The Model Generated Answer states that both The New Pornographers and Kings of Leon are not American rock bands. According to the Reference Context, The New Pornographers is a Canadian indie rock band, which supports the Model's answer. However, the Reference Context also states that Kings of Leon is an American rock band, which contradicts the Model's implication that neither band is American. The Model's answer is a negation and does not contain a positive factual assertion that is unverified or unsupported, but rather a correct assertion about The New Pornographers and an incorrect implication about Kings of Leon. However, the answer itself is a simple 'No', which does not contain any positive factual assertions that are unverified or unsupported.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 29,
       "question": "750 7th Avenue and 101 Park Avenue, are located in which city?",
       "context": "750 Seventh Avenue is a 615 ft (187m) tall Class-A office skyscraper in New York City.101 Park Avenue is a 629 ft tall skyscraper in New York City, New York.",
       "ground_truth": "New York City",
-      "model_generated_answer": "New York City.",
-      "reasoning": "The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are located in New York City. The Reference Context confirms this information, as it mentions that 750 Seventh Avenue is a skyscraper in New York City and 101 Park Avenue is a skyscraper in New York City, New York. Since both buildings are indeed located in New York City, the answer is accurate.",
-      "is_hallucinated": false
+      "model_generated_answer": "New York City",
+      "reasoning": "The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are located in New York City. The Reference Context supports this claim, as it mentions that both 750 Seventh Avenue and 101 Park Avenue are located in New York City. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 30,
       "question": "Which actress played the part of fictitious character Kimberly Ann Hart, in the franchise built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'?",
       "context": "Kimberly Ann Hart is a fictitious character in the \"Power Rangers\" universe. Played by actress Amy Jo Johnson during the first three seasons of the show, plus on the two feature films of the franchise, Kimberly has the longest tenure of any female ranger in the series' history, and fourth overall.Power Rangers is an American entertainment and merchandising franchise built around a live action superhero television series. Produced first by Saban Entertainment, later by BVS Entertainment, and today by SCG Power Rangers, the television series takes much of its footage from the Japanese tokusatsu \"Super Sentai\", produced by Toei Company.",
       "ground_truth": "Amy Jo Johnson",
-      "model_generated_answer": "Amy Jo Johnson played the part of fictitious character Kimberly Ann Hart.",
-      "reasoning": "The Model Generated Answer states that Amy Jo Johnson played the part of fictitious character Kimberly Ann Hart. This information is directly supported by the Reference Context, which mentions that Kimberly Ann Hart was played by actress Amy Jo Johnson during the first three seasons of the show. The Reference Context also mentions that the show is part of the Power Rangers franchise, which is built around a live action superhero television series taking much of its footage from the Japanese tokusatsu 'Super Sentai'. Therefore, the Model Generated Answer accurately reflects the information provided in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Amy Jo Johnson",
+      "reasoning": "The Model Generated Answer states that Amy Jo Johnson played the part of Kimberly Ann Hart. The Reference Context supports this claim by mentioning that Kimberly Ann Hart was played by actress Amy Jo Johnson during the first three seasons of the show. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 31,
       "question": "Who was born first, Pablo Trapero or Aleksander Ford?",
       "context": "Pablo Trapero (Born 4 October 1971) is an Argentine film producer, editor and director.Aleksander Ford (born Mosze Lifszyc; 24 November 1908 in Kiev, Russian Empire – 4 April 1980 in Naples, Florida, United States) was a Polish Jewish film director; and head of the Polish People's Army Film Crew in the Soviet Union during World War II.",
       "ground_truth": "Aleksander Ford",
-      "model_generated_answer": "Aleksander Ford was born first. He was born on 24 November 1908, and Pablo Trapero was born on 4 October 1971.",
-      "reasoning": "The Model Generated Answer claims that Aleksander Ford was born first, citing his birthdate as 24 November 1908, and Pablo Trapero's birthdate as 4 October 1971. This information is verified by the Reference Context, which also provides the birthdates of Aleksander Ford and Pablo Trapero as 24 November 1908 and 4 October 1971, respectively. The comparison of the birthdates is also correct, as 1908 is indeed before 1971.",
-      "is_hallucinated": false
+      "model_generated_answer": "Pablo Trapero was born first.",
+      "reasoning": "The Model Generated Answer claims that Pablo Trapero was born first. However, according to the Reference Context, Aleksander Ford was born on 24 November 1908, and Pablo Trapero was born on 4 October 1971. This indicates that Aleksander Ford was born first, contradicting the Model Generated Answer.",
+      "is_hallucinated": true,
+      "status": "success"
     },
     {
       "id": 32,
       "question": "Are Jane and First for Women both women's magazines?",
       "context": "Jane was an American magazine created to appeal to the women who grew up reading \"Sassy Magazine\"; Jane Pratt was the founding editor of each.First for Women is a woman's magazine published by Bauer Media Group in the USA.",
       "ground_truth": "yes",
-      "model_generated_answer": "Yes, Jane was the founding editor of a woman's magazine, and First for Women is a woman's magazine.",
-      "reasoning": "The Model Generated Answer claims that Jane was the founding editor of a woman's magazine, which is correct according to the Reference Context. However, the answer also implies that Jane is a woman's magazine, which is also correct according to the Reference Context. Additionally, the answer states that First for Women is a woman's magazine, which is also correct according to the Reference Context. The answer does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "Yes.",
+      "reasoning": "The Reference Context explicitly states that Jane was an American magazine created to appeal to women and First for Women is a woman's magazine, which supports the Model Generated Answer. The answer does not contain any unverified or unsupported claims, and it does not contradict the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 33,
       "question": "What profession does Nicholas Ray and Elia Kazan have in common?",
       "context": "Nicholas Ray (born Raymond Nicholas Kienzle Jr., August 7, 1911 – June 16, 1979) was an American film director best known for the movie \"Rebel Without a Cause.\"Elia Kazan (born Elias Kazantzoglou September 7, 1909 – September 28, 2003) was a Greek-American director, producer, writer and actor, described by \"The New York Times\" as \"one of the most honored and influential directors in Broadway and Hollywood history\".",
       "ground_truth": "director",
-      "model_generated_answer": "Both Nicholas Ray and Elia Kazan were directors.",
-      "reasoning": "The Model Generated Answer states that both Nicholas Ray and Elia Kazan were directors. According to the Reference Context, Nicholas Ray was an American film director and Elia Kazan was a Greek-American director, producer, writer, and actor. The Reference Context confirms that both individuals were indeed directors, which supports the Model Generated Answer. No unverified facts or contradictions were found.",
-      "is_hallucinated": false
+      "model_generated_answer": "Both Nicholas Ray and Elia Kazan are film directors.",
+      "reasoning": "The Reference Context states that Nicholas Ray was an American film director and Elia Kazan was a Greek-American director, among other professions. The Model Generated Answer claims that both Nicholas Ray and Elia Kazan are film directors. This claim is supported by the Reference Context, which explicitly mentions that both individuals were film directors.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 34,
       "question": "Where is the company that purchased Aixam based in?",
       "context": " On April 11, 2013, US based Polaris Industries announced that it had acquired Aixam-Mega. Polaris is based in Roseau, Minnesota, USA.",
       "ground_truth": "Roseau, Minnesota, USA",
-      "model_generated_answer": "Polaris Industries is based in Roseau, Minnesota, USA.",
-      "reasoning": "The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that Polaris Industries is based in Roseau, Minnesota, USA, and that it acquired Aixam-Mega. The Model Generated Answer directly matches this information, correctly identifying the location of Polaris Industries. No unverified facts or contradictions are found.",
-      "is_hallucinated": false
+      "model_generated_answer": "Roseau, Minnesota, USA.",
+      "reasoning": "The Model Generated Answer directly matches the information provided in the Reference Context, stating that Polaris, the company that purchased Aixam-Mega, is based in Roseau, Minnesota, USA. This answer is fully supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 35,
@@ -329,44 +367,49 @@
       "context": "Adam Clayton Powell is a 1989 American documentary film directed by Richard Kilberg about the civil rights leader.The Saimaa Gesture (Finnish: \"Saimaa-ilmiö\" ) is a 1981 film by Finnish directors Aki and Mika Kaurismäki. It is a documentary of three Finnish rock groups aboard the steamboat SS Heinävesi on their tour around Lake Saimaa.",
       "ground_truth": "The Saimaa Gesture",
       "model_generated_answer": "The Saimaa Gesture is about Finnish rock groups.",
-      "reasoning": "The Model Generated Answer claims that The Saimaa Gesture is about Finnish rock groups. According to the Reference Context, The Saimaa Gesture is indeed a documentary about three Finnish rock groups aboard the steamboat SS Heinävesi on their tour around Lake Saimaa. On the other hand, Adam Clayton Powell is a documentary about the civil rights leader. Therefore, the Model Generated Answer is consistent with the Reference Context.",
-      "is_hallucinated": false
+      "reasoning": "The Model Generated Answer claims that The Saimaa Gesture is about Finnish rock groups. This claim is supported by the Reference Context, which states that The Saimaa Gesture is a documentary of three Finnish rock groups aboard the steamboat SS Heinävesi on their tour around Lake Saimaa. The Reference Context also mentions Adam Clayton Powell as a documentary about the civil rights leader, which is unrelated to Finnish rock groups. Therefore, the Model Generated Answer is accurate and supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 36,
       "question": "Who was inducted into the Rock and Roll Hall of Fame, David Lee Roth or Cia Berg?",
       "context": "Cia Berg (born 2 December 1963), now known as Cia Soro, is a Swedish television presenter and singer. She was at one time the lead singer of the Swedish rock band Whale, who released the single \"Hobo Humpin' Slobo Babe\".David Lee Roth (born October 10, 1954) is an American rock vocalist, musician, songwriter, actor, author, and former radio personality. In 2007, he was inducted into the Rock and Roll Hall of Fame.",
       "ground_truth": "David Lee Roth",
-      "model_generated_answer": "David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007.",
-      "reasoning": "The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. This claim is directly supported by the Reference Context, which also mentions that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. The Reference Context does not mention Cia Berg being inducted into the Rock and Roll Hall of Fame. Therefore, the Model Generated Answer accurately reflects the information provided in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "David Lee Roth.",
+      "reasoning": "The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fame. This claim is supported by the Reference Context, which explicitly mentions that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. There is no mention of Cia Berg being inducted into the Rock and Roll Hall of Fame in the Reference Context. Therefore, the Model Generated Answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 37,
       "question": "Zimbabwe's Guwe Secondary School has a sister school in what New York cunty?",
       "context": " It has a sister school in Carle Place, New York, United States.Carle Place Middle/High School is a six-year comprehensive public high school located in the hamlet of Carle Place in Nassau County, New York.",
       "ground_truth": "Nassau County",
-      "model_generated_answer": "I do not know. The provided context only mentions Carle Place Middle/High School in Nassau County, New York. It does not mention Zimbabwe or Guwe Secondary School.",
-      "reasoning": "The Model Generated Answer correctly states that the provided context does not mention Zimbabwe or Guwe Secondary School, and it does not make any claims about Guwe Secondary School having a sister school in New York. The answer is based on the lack of information in the reference context, rather than providing unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "I do not know.",
+      "reasoning": "The Model Generated Answer is a refusal to answer, stating 'I do not know'. The Reference Context does not contain any information about Zimbabwe's Guwe Secondary School or its sister school. The context only mentions a sister school in Carle Place, New York, but it is related to an unnamed school, not Guwe Secondary School. Therefore, the Model Generated Answer is not making any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 38,
       "question": "The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?  ",
       "context": "The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the Mafia and New South Wales Police and the disappearance of anti-marijuana campaigner Donald Mackay.The Honoured Society (Italian: \"Onorata Società\" ) is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all Australia.",
       "ground_truth": "Australia",
-      "model_generated_answer": "The Honoured Society is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of Australia.",
-      "reasoning": "The Model Generated Answer is compared to the Reference Context. The answer states that The Honoured Society is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of Australia. This information is directly supported by the Reference Context, which also mentions that The Honoured Society is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all Australia. Therefore, the answer is accurate and does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "Australia",
+      "reasoning": "The Model Generated Answer states that The Honoured Society is currently active in all of Australia. This claim is supported by the Reference Context, which explicitly mentions that The Honoured Society is 'currently active in all Australia'. Therefore, the answer is not a refusal and does not contain any unverified or unsupported facts.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 39,
       "question": "The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state?",
       "context": "The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, California.McClellan Air Force Base (1935–2001) is a former United States Air Force base located in the North Highlands area of Sacramento County, 7 mi northeast of Sacramento, California.",
       "ground_truth": "California",
-      "model_generated_answer": "California.",
-      "reasoning": "The Model Generated Answer is analyzed step-by-step against the Reference Context. The Reference Context states that the 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, California. The Model Generated Answer directly answers the question by stating the US state where McClellan Air Force Base is located, which is California. This answer is directly supported by the Reference Context, which explicitly mentions California as the state where McClellan Air Force Base is located.",
-      "is_hallucinated": false
+      "model_generated_answer": "California",
+      "reasoning": "The Model Generated Answer states that the 337th Flight Test Squadron was based at McClellan Air Force Base in California. The Reference Context supports this claim, stating that McClellan Air Force Base is located in Sacramento County, 7 mi northeast of Sacramento, California. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 40,
@@ -374,89 +417,99 @@
       "context": "The Pirna 014 was an axial turbojet designed in East Germany (or the GDR) in the mid- to late 1950s by former Junkers engineers, who were repatriated to East Germany in 1954 after being held in custody in the Soviet Union following World War II.Junkers Flugzeug- und Motorenwerke AG (JFM, earlier JCO or JKO in World War I), more commonly Junkers, was a major German aircraft and aircraft engine manufacturer. It produced some of the world's most innovative and best-known airplanes over the course of its fifty-plus year history in Dessau, Germany.",
       "ground_truth": "Dessau",
       "model_generated_answer": "Dessau, Germany.",
-      "reasoning": "The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a German aircraft and aircraft engine manufacturer based in Dessau, Germany. According to the Reference Context, Junkers Flugzeug- und Motorenwerke AG, the manufacturer in question, was indeed based in Dessau, Germany. Additionally, the Reference Context mentions that former Junkers engineers designed the Pirna 014 after being repatriated to East Germany. Therefore, the Model Generated Answer is consistent with the Reference Context.",
-      "is_hallucinated": false
+      "reasoning": "The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a German aircraft and aircraft engine manufacturer based in Dessau, Germany. The Reference Context confirms that Junkers, the manufacturer, was based in Dessau, Germany, and that former Junkers engineers designed the Pirna 014. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 41,
       "question": "Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula? ",
       "context": "The University of Providence (UP) (renamed from University of Great Falls in July 2017), is a private Roman Catholic university located in Great Falls, Montana within the Diocese of Great Falls–Billings. The university is accredited by the Northwest Association of Schools and Colleges.Great Falls is a city in and the county seat of Cascade County, Montana, United States. Great Falls remained the second largest city in Montana until 2000, when it was passed by Missoula. Since then Great Falls has been the third largest city in the state.",
       "ground_truth": "Roman Catholic",
-      "model_generated_answer": "The University of Providence (UP) is a private Roman Catholic university.\n\nThe question states that Great Falls is the third largest city in Montana after being passed by Missoula. This information is provided in the context.\n\nI do not know if the university is still the third largest city in Montana.",
-      "reasoning": "The Model Generated Answer correctly identifies the University of Providence as a private Roman Catholic university, which is supported by the Reference Context. The answer also correctly states that Great Falls is the third largest city in Montana after being passed by Missoula, which is also supported by the Reference Context. However, the answer contains a statement 'I do not know if the university is still the third largest city in Montana', which is incorrect as the Reference Context clearly states that Great Falls, not the university, is the third largest city in Montana. This statement is unnecessary and introduces confusion, but it does not contradict the Reference Context. The answer does not contain any unverified facts or direct contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "Roman Catholic.",
+      "reasoning": "The Model Generated Answer states that the University of Providence is Roman Catholic. The Reference Context supports this claim, stating that the University of Providence is a private Roman Catholic university. The answer does not contain any unverified or unsupported facts, and it does not contradict the Reference Context. The answer is a direct match to the information provided in the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 42,
       "question": "Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from?",
       "context": "Pauline Henry (born 29 January 1961) is a British Jamaican recording artist. She was the vocalist in the Scottish band The Chimes, best known for their 1990 cover version of U2's \"I Still Haven't Found What I'm Looking For\", between 1988 and 1991.\"I Still Haven't Found What I'm Looking For\" is a song by Irish rock band U2. It is the second track from their 1987 album \"The Joshua Tree\" and was released as the album's second single in May 1987.",
       "ground_truth": "The Joshua Tree",
-      "model_generated_answer": "The song \"I Still Haven't Found What I'm Looking For\" is from U2's 1987 album \"The Joshua Tree\".",
-      "reasoning": "The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' is from U2's 1987 album 'The Joshua Tree'. According to the Reference Context, this information is accurate. The Reference Context mentions that Pauline Henry was the vocalist in the Scottish band The Chimes, best known for their 1990 cover version of U2's 'I Still Haven't Found What I'm Looking For', and that 'I Still Haven't Found What I'm Looking For' is a song by Irish rock band U2 from their 1987 album 'The Joshua Tree'. The Model Generated Answer correctly identifies the album the song is from, without adding any unverified information or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "The song \"I Still Haven't Found What I'm Looking For\" was from the album \"The Joshua Tree\".",
+      "reasoning": "The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' was from the album 'The Joshua Tree'. This information is directly supported by the Reference Context, which mentions that 'I Still Haven't Found What I'm Looking For' is the second track from U2's 1987 album 'The Joshua Tree'. Therefore, the answer is supported and does not contain any unverified facts or contradictions.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 43,
       "question": "Guitars for Wounded Warriors is an album that was recorded in the village in which New York county?",
       "context": " All tracks were recorded at Tarquin's Jungle Room Studios in New Paltz (village), New York.New Paltz is a village in Ulster County located in the U.S. state of New York.",
       "ground_truth": "Ulster County",
-      "model_generated_answer": "The context states that New Paltz is a village in Ulster County. Therefore, Guitars for Wounded Warriors was recorded in Ulster County.",
-      "reasoning": "The Model Generated Answer correctly identifies the county where the album was recorded by referencing the information provided in the Reference Context. It states that New Paltz is a village in Ulster County, and since the album was recorded in New Paltz, it logically follows that the album was recorded in Ulster County. The answer does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "Ulster County",
+      "reasoning": "The Model Generated Answer states that the album was recorded in Ulster County. The Reference Context mentions that New Paltz is a village in Ulster County, and also mentions that the tracks were recorded at Tarquin's Jungle Room Studios in New Paltz, New York. Therefore, the Model Generated Answer is supported by the Reference Context, as it correctly identifies the county where the album was recorded.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 44,
       "question": "What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song \"The Battle?\"",
       "context": "\"The Battle\" is a song by American country music artist George Jones. Meanwhile, the single \"Golden Ring,\" a duet with his estranged ex-wife Tammy Wynette, became a #1 hit that same year.Tammy Wynette (born Virginia Wynette Pugh; May 5, 1942 – April 6, 1998) was an American country music singer-songwriter and one of country music's best-known artists and biggest-selling female singers.",
       "ground_truth": "Tammy Wynette",
-      "model_generated_answer": "Tammy Wynette, born Virginia Wynette Pugh, sang a duet with her ex-husband the same year that George Jones released the song \"The Battle.\"",
-      "reasoning": "The Model Generated Answer claims that Tammy Wynette sang a duet with her ex-husband the same year that George Jones released the song 'The Battle.' The Reference Context confirms that Tammy Wynette sang a duet with her estranged ex-husband George Jones, titled 'Golden Ring,' which became a #1 hit the same year that George Jones released the song 'The Battle.' The Reference Context also confirms that Tammy Wynette was born in May 1942. Therefore, the Model Generated Answer is consistent with the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Tammy Wynette",
+      "reasoning": "The Model Generated Answer claims that Tammy Wynette sang a duet with her ex-husband the same year that he released the song 'The Battle.' The Reference Context supports this claim by stating that Tammy Wynette sang a duet with her estranged ex-husband George Jones, who released the song 'The Battle.' The Reference Context also confirms that Tammy Wynette was born in May 1942. Therefore, the Model Generated Answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 45,
       "question": "Who was born first, Francis Nethersole or Elizabeth Stuart?",
       "context": "Sir Francis Nethersole (1587–1659) was an English diplomat, secretary to the Electress Elizabeth, Member of Parliament for Corfe Castle, Dorset, and a Civil War political pamphleteer.Elizabeth Stuart (19 August 1596 – 13 February 1662) was Electress of the Palatinate and briefly Queen of Bohemia as the wife of Frederick V of the Palatinate.",
       "ground_truth": "Sir Francis Nethersole",
-      "model_generated_answer": "Sir Francis Nethersole (1587–1659) was born first. Elizabeth Stuart (19 August 1596 – 13 February 1662) was born later.",
-      "reasoning": "The Model Generated Answer claims that Sir Francis Nethersole was born first, citing his birth year as 1587, and Elizabeth Stuart was born later, citing her birth year as 1596. The Reference Context confirms these birth years, stating that Sir Francis Nethersole was born in 1587 and Elizabeth Stuart was born on 19 August 1596. Therefore, the Model Generated Answer accurately reflects the information in the Reference Context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Elizabeth Stuart was born first.",
+      "reasoning": "The Reference Context provides the birth years of both individuals: Francis Nethersole was born in 1587 and Elizabeth Stuart was born in 1596. Based on this information, Francis Nethersole was born first. However, the Model Generated Answer claims that Elizabeth Stuart was born first, which contradicts the Reference Context.",
+      "is_hallucinated": true,
+      "status": "success"
     },
     {
       "id": 46,
       "question": "What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations?",
       "context": "Hacker-Pschorr is a brewery in Munich, formed in 1972 out of the merger of two breweries, Hacker and Pschorr.The Reinheitsgebot (] , literally \"purity order\"), sometimes called the \"German Beer Purity Law\" in English, is the collective name for a series of regulations limiting the ingredients in beer in Germany and the states of the former Holy Roman Empire. The best-known version of the law was adopted in Bavaria in 1516, but similar regulations predate the Bavarian order, and modern regulations also significantly differ from the 1516 Bavarian version.",
       "ground_truth": "ingredients in beer",
-      "model_generated_answer": "The context states that the Reinheitsgebot (purity order) is a series of regulations limiting the ingredients in beer in Germany and the states of the former Holy Roman Empire. The Hacker-Pschorr brewery, formed in 1972 out of the merger of Hacker and Pschorr, must comply with these regulations. \n\nTherefore, the answer is: The Reinheitsgebot limits the ingredients in beer.",
-      "reasoning": "The Model Generated Answer correctly states that the Reinheitsgebot limits the ingredients in beer, which is supported by the Reference Context. The Reference Context mentions that the Reinheitsgebot is a series of regulations limiting the ingredients in beer in Germany and the states of the former Holy Roman Empire. The Model Generated Answer also correctly connects the Reinheitsgebot to the Hacker-Pschorr brewery, implying that the brewery must comply with these regulations. The answer does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "I do not know.",
+      "reasoning": "The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does not explicitly state what Hacker-Pschorr Brewery has to limit, it mentions the Reinheitsgebot regulations limiting the ingredients in beer in Germany. However, since the Model Generated Answer does not provide any information, it does not contain any unsupported or contradicted claims.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 47,
       "question": "Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016?",
       "context": " Associates of PSI include: Mathew Atha, Colin Angus, Brian Barritt, Michael Carmichael, Fraser Clark, Paul Devereux, the late John Entwistle, Paul Flynn MP, Ben Ganly, Lee Harris, Mike Jay, Howard Marks, Dr John Marks, Jonathan Ott, Dr Russell Newcombe, Richard Rudgley and Youth.Dennis Howard Marks (13 August 1945 – 10 April 2016) was a Welsh drug smuggler and author who achieved notoriety as an international cannabis smuggler through high-profile court cases.",
       "ground_truth": "Dennis Howard Marks",
-      "model_generated_answer": "I do not know. The provided context only lists the following individuals as associates of PSI: Mathew Atha, Colin Angus, Brian Barritt, Michael Carmichael, Fraser Clark, Paul Devereux, the late John Entwistle, Paul Flynn MP, Ben Ganly, Lee Harris, Mike Jay, Howard Marks, Dr John Marks, Jonathan Ott, Dr Russell Newcombe, Richard Rudgley and Youth.Dennis Howard Marks. The context also states that Howard Marks was a Welsh drug smuggler and author who died on 10 April 2016. However, it does not mention Barry Mason or any other members of PSI.",
-      "reasoning": "The Model Generated Answer correctly states that the provided context does not mention the founder of PSI. However, it fails to directly answer the question about the Welsh member of PSI who died on 10 April 2016. The context does mention that Howard Marks was a Welsh associate of PSI and that he died on 10 April 2016. The answer should have directly linked this information to the question. Despite this, the answer does not contain any unverified facts or contradictions, it simply does not fully utilize the provided context to answer the question.",
-      "is_hallucinated": false
+      "model_generated_answer": "Howard Marks",
+      "reasoning": "The Model Generated Answer claims that Howard Marks was the Welsh member who died on 10 April 2016. However, the Reference Context states that Dennis Howard Marks, a Welsh drug smuggler and author, died on 10 April 2016. The Reference Context does support the claim that a person named Howard Marks was a member of PSI, but it does not support the claim that he died on 10 April 2016. Instead, it was Dennis Howard Marks who died on that date. The Model Generated Answer contains an unverified fact, as it incorrectly identifies Howard Marks as the person who died on 10 April 2016.",
+      "is_hallucinated": true,
+      "status": "success"
     },
     {
       "id": 48,
       "question": "What male actor starred in The Messenger?",
       "context": "The Messenger is a 2015 British supernatural mystery horror film directed by David Blair, written by Andrew Kirk and starring Robert Sheehan and Lily Cole.Robert Michael Sheehan (Irish: \"Roibeárd Mícheál Ó Siodhacháin\" ; born 7 January 1988) is an Irish actor.",
       "ground_truth": "Robert Sheehan",
-      "model_generated_answer": "Robert Michael Sheehan starred in The Messenger.",
-      "reasoning": "The Model Generated Answer states that Robert Michael Sheehan starred in The Messenger. According to the Reference Context, Robert Sheehan is indeed the male actor who starred in The Messenger, and his full name is Robert Michael Sheehan. Therefore, the answer is consistent with the provided context.",
-      "is_hallucinated": false
+      "model_generated_answer": "Robert Sheehan",
+      "reasoning": "The Model Generated Answer states that Robert Sheehan starred in The Messenger. The Reference Context confirms this information, stating that Robert Sheehan is one of the starring actors in the film. Therefore, the answer is supported by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     },
     {
       "id": 49,
       "question": "Are Gin and tonic and Paloma both cocktails based on tequila?",
       "context": "A gin and tonic is a highball cocktail made with gin and tonic water poured over ice.The paloma (Spanish for \"dove\") is a tequila-based cocktail.",
       "ground_truth": "no",
-      "model_generated_answer": "No. Gin and tonic is a highball cocktail made with gin and tonic water, while the paloma is a tequila-based cocktail.",
-      "reasoning": "The Model Generated Answer correctly states that Gin and tonic is a highball cocktail made with gin and tonic water, which matches the Reference Context. Additionally, it correctly identifies the Paloma as a tequila-based cocktail, also consistent with the Reference Context. The answer accurately concludes that both cocktails are not based on tequila, as Gin and tonic is made with gin. The answer does not contain any unverified facts or contradictions.",
-      "is_hallucinated": false
+      "model_generated_answer": "I do not know.",
+      "reasoning": "The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference Context provides sufficient information to answer the question. According to the Reference Context, a gin and tonic is made with gin, and the paloma is a tequila-based cocktail. Therefore, the correct answer should be 'no', as only the paloma is based on tequila. Despite this, the Model Generated Answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context.",
+      "is_hallucinated": false,
+      "status": "success"
     }
   ]
 }
