@@ -108,10 +108,8 @@ def parse_stream(stream, limit=50):
             if count >= limit:
                 break
         except json.JSONDecodeError:
-            # If the current line ends a JSON object structure but fails to parse,
-            # or if the buffer has grown excessively (e.g. > 20 lines), we clear it
-            # to prevent a permanent lockup, otherwise we assume it is a split fragment.
-            if line.endswith('}') or line.endswith('},') or len(buffer_lines) > 20:
+            # If the buffer accumulates too many fragments without success, clear it to prevent lockup
+            if len(buffer_lines) > 15:
                 buffer_lines = []
             continue
             

@@ -73,8 +73,50 @@ def generate_verdict_with_retry(client, model, messages, json_schema, max_retrie
     Returns:
         str: Raw JSON output of the model verdict.
     """
-
-
+    if delay_between_calls > 0:
+        time.sleep(delay_between_calls)
+        
+    delay = initial_delay
+    for attempt in range(max_retries):
+        try:
+            # First attempt: Try NVIDIA guided JSON extension
+            try:
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=0.01,
+                    extra_body={
+                        "nvext": {
+                            "guided_json": json_schema
+                        }
+                    }
+                )
+                return response.choices[0].message.content
+            except Exception as e_nv:
+                # Fallback attempt: Standard text completion (regex parsed downstream)
+                log(f"NVIDIA guided_json extension failed ({e_nv}). Falling back to standard completion mode...", "WARNING")
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=0.01
+                )
+                return response.choices[0].message.content
+        except Exception as e:
+            err_str = str(e)
+            is_rate_limit = (
+                isinstance(e, openai.RateLimitError) or
+                "429" in err_str or
+                "rate limit" in err_str.lower() or
+                "resource_exhausted" in err_str.lower() or
+                "quota" in err_str.lower()
+            )
+            
+            if is_rate_limit and attempt < max_retries - 1:
+                log(f"Rate limit (429) hit. Retrying in {delay:.1f} seconds... (Attempt {attempt + 1}/{max_retries})", "WARNING")
+                time.sleep(delay)
+                delay *= 2  # Exponential backoff scaling
+            else:
+                raise e
 
 def run_judge():
     """
@@ -164,10 +206,15 @@ def run_judge():
             "1. If the Model Generated Answer is a refusal to answer (e.g., 'I do not know', 'The context does not contain this information', or similar expressions), "
             "this represents an extraction or reasoning omission, NOT a factual hallucination. You must set 'is_hallucinated' to false for all such omissions.\n"
             "2. Set 'is_hallucinated' to true ONLY if the Model Generated Answer contains positive factual assertions that are unverified, unsupported, or contradicted "
-            "by the Reference Context.\n\n"
+            "by the Reference Context.\n"
+            "3. **Question Premise Rule:** Do NOT penalize the Model Generated Answer for incorporating or assuming facts, entities, or names (e.g., specific musical or movie titles) "
+            "that were already introduced in the 'User Question', even if those specific names are not present in the 'Reference Context'. Focus only on whether the *new* information "
+            "provided by the model's answer is supported by the context.\n"
+            "4. **Entity Resolution Rule:** Do not treat partial names, abbreviations, or minor naming variations (e.g., 'Howard Marks' vs. 'Dennis Howard Marks') as hallucinations "
+            "if they refer to the same individual or subject described in the context.\n\n"
             "You must return a JSON object containing exactly two fields:\n"
-            '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is unsupported/contradicted or a refusal)\n'
-            '- "is_hallucinated": bool (false if the answer is a refusal or supported, true if it contains unverified facts or contradictions)\n\n'
+            '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is unsupported/contradicted, a refusal, or resolved by the rules above)\n'
+            '- "is_hallucinated": bool (false if the answer is a refusal, supported, or resolved by the rules; true if it contains unverified facts or contradictions)\n\n'
             "Return ONLY the raw JSON object, without markdown formatting or code blocks."
         )
 
