@@ -109,7 +109,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Introduces a massive collection of 52,000 human-annotated and LLM-generated hallucination samples.51 It systematically categorizes hallucinations across distinct tasks (question answering, dialogue, summarization) and isolates specific failure patterns (comprehension, factualness, inference).52  
 * **Limitations:** The static nature of the 5,000-query test set risks data contamination, as newer models may have incorporated this exact dataset into their pre-training corpora.52  
 * **Open Research Questions:** How can evaluation frameworks automatically synthesize dynamic, adversarial benchmarks that prevent memorization?  
-* **Architectural Relevance:** Provides the structural schema and generation methodology necessary to build robust ingestion pipelines, heavily influencing the data normalization logic currently implemented in the evaluation phase.1
+* **Architectural Relevance:** Provides the structural schema and generation methodology necessary to build robust ingestion pipelines, heavily influencing the data normalization logic currently implemented in the evaluation phase.1  
+* **Link:** [arXiv:2305.11747](https://arxiv.org/abs/2305.11747)
 
 ### **2\. "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena" (Zheng et al., 2023\)**
 
@@ -118,7 +119,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Empirically demonstrates that models like GPT-4 can achieve over 80% agreement with human judges.2 It openly dissects critical systemic vulnerabilities, thoroughly analyzing position bias, verbosity bias, and self-preference bias.2  
 * **Limitations:** The effectiveness of the judge degrades exponentially when evaluating domains that exceed its own internal reasoning capabilities, making it difficult to score highly complex technical outputs.53  
 * **Open Research Questions:** Can bias-mitigation techniques (such as prompt permutation) completely neutralize systemic biases, or is architectural decoupling strictly required?  
-* **Architectural Relevance:** Justifies the dual-model architecture utilized in the evaluation pipeline, proving that a larger model can reliably audit the outputs of a smaller target model.1
+* **Architectural Relevance:** Justifies the dual-model architecture utilized in the evaluation pipeline, proving that a larger model can reliably audit the outputs of a smaller target model.1  
+* **Link:** [arXiv:2306.05685](https://arxiv.org/abs/2306.05685) / [Hugging Face](https://huggingface.co/papers/2306.05685)
 
 ### **3\. "G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment" (Liu et al., 2023\)**
 
@@ -127,7 +129,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Eliminates rigid, hardcoded scoring rubrics by employing a dynamic Chain-of-Thought form-filling paradigm.9 It mathematically calculates continuous scores by normalizing the log probabilities of the output tokens and computing the expected value, effectively solving the integer-variance problem.8  
 * **Limitations:** Exhibits a notable bias toward LLM-generated text over human-written text, potentially over-penalizing natural human cadence.57  
 * **Open Research Questions:** How can probability-weighted scoring be calibrated to account for the model's absolute confidence versus its relative distribution?  
-* **Architectural Relevance:** Provides the exact mathematical formulation required to upgrade the current binary is\_hallucinated boolean into a continuous, differentiable quality gradient.1
+* **Architectural Relevance:** Provides the exact mathematical formulation required to upgrade the current binary is\_hallucinated boolean into a continuous, differentiable quality gradient.1  
+* **Link:** [arXiv:2303.16634](https://arxiv.org/abs/2303.16634)
 
 ### **4\. "RAGAS: Automated Evaluation of Retrieval Augmented Generation" (Es et al., 2023\)**
 
@@ -136,7 +139,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Beautifully decouples the RAG triad into discrete formulas without requiring ground-truth datasets.59 Faithfulness isolates intrinsic hallucination by dividing supported claims by total claims, while Answer Relevance isolates extrinsic hallucination by measuring the cosine similarity of reverse-engineered questions.16  
 * **Limitations:** The initial LLM extraction step—pulling discrete "claims" from a paragraph—can be highly stochastic, leading to fluctuating Faithfulness scores across identical text.16  
 * **Open Research Questions:** Can embedding models reliably capture subtle logical negations when calculating the cosine similarity for Answer Relevance?  
-* **Architectural Relevance:** Maps the precise metrics required for the transition from Phase 1 to Phase 2, ensuring that context retrieval and text generation are measured as independent variables.15
+* **Architectural Relevance:** Maps the precise metrics required for the transition from Phase 1 to Phase 2, ensuring that context retrieval and text generation are measured as independent variables.15  
+* **Link:** [arXiv:2309.15217](https://arxiv.org/abs/2309.15217)
 
 ### **5\. "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models" (Manakul et al., 2023\)**
 
@@ -145,7 +149,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Requires absolutely zero external databases or ground truth.7 By drawing multiple samples at a high temperature and measuring the semantic contradiction rate against the primary response using Natural Language Inference, it effectively turns the model into its own fact-checker.6  
 * **Limitations:** Extremely computationally expensive and latency-heavy, as it requires ![][image6] independent generations for every single user query.7  
 * **Open Research Questions:** How does system prompt engineering (e.g., demanding absolute certainty) artificially compress the sampling variance, thereby defeating the detection mechanism?  
-* **Architectural Relevance:** Provides a vital fallback evaluation mechanism for edge cases where the Phase 2 retrieval database fails to provide adequate context for verification.6
+* **Architectural Relevance:** Provides a vital fallback evaluation mechanism for edge cases where the Phase 2 retrieval database fails to provide adequate context for verification.6  
+* **Link:** [arXiv:2303.08896](https://arxiv.org/abs/2303.08896)
 
 ### **6\. "Retrieval-Augmented Generation for AI-Generated Content: A Survey" (Zhao et al., 2024 / Gao et al., 2023\)**
 
@@ -154,7 +159,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Clearly delineates the progression from Naive RAG (linear retrieval) to Advanced RAG (pre-retrieval optimization) to Modular RAG (iterative routing and filtering).24 It maps specific algorithmic enhancements to distinct robustness and efficiency frontiers.23  
 * **Limitations:** A highly broad survey paper that maps the ecosystem rather than proposing a specific algorithmic breakthrough.64  
 * **Open Research Questions:** How can multimodal data structures (images, audio) be seamlessly embedded and reranked within text-heavy Modular RAG pipelines?  
-* **Architectural Relevance:** Acts as the strategic blueprint for Phase 2, dictating that the project bypass Naive implementations and immediately adopt Modular, Cross-Encoder-backed retrieval.24
+* **Architectural Relevance:** Acts as the strategic blueprint for Phase 2, dictating that the project bypass Naive implementations and immediately adopt Modular, Cross-Encoder-backed retrieval.24  
+* **Link:** [arXiv:2402.19473 (Zhao et al.)](https://arxiv.org/abs/2402.19473) / [arXiv:2312.10997 (Gao et al.)](https://arxiv.org/abs/2312.10997)
 
 ### **7\. "Lost in the Middle: How Language Models Use Long Contexts" (Liu et al., 2023\)**
 
@@ -163,7 +169,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Empirically proves the U-shaped performance degradation curve.25 It decisively demonstrates that utilizing extended-context models (e.g., 16K or 32K token windows) does not solve the problem; models still fail to extract relevant facts buried in the middle of long sequences.25  
 * **Limitations:** The experiments focus heavily on synthetic key-value retrieval and multi-document question answering; the effect severity varies slightly on non-transformer models.28  
 * **Open Research Questions:** Is this context degradation an inescapable mathematical flaw of the softmax attention mechanism, or merely an artifact of how models are fine-tuned on sequentially biased data?  
-* **Architectural Relevance:** Validates the strict requirement for aggressive reranking and filtering in Phase 2, proving that simply expanding the vector retrieval count will directly induce hallucinations.25
+* **Architectural Relevance:** Validates the strict requirement for aggressive reranking and filtering in Phase 2, proving that simply expanding the vector retrieval count will directly induce hallucinations.25  
+* **Link:** [arXiv:2307.03172](https://arxiv.org/abs/2307.03172)
 
 ### **8\. "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection" (Asai et al., 2023\)**
 
@@ -172,7 +179,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Replaces indiscriminate retrieval with on-demand retrieval.30 By emitting specialized reflection tokens (, , \`\`), the model actively criticizes the retrieved context, allowing the system to enforce hard constraints and discard irrelevant noise before generating.29  
 * **Limitations:** Exceedingly difficult to implement on un-tuned models. Domain-specific applications often confuse the critic module, leading to poor generalization and the rejection of valid evidence.32  
 * **Open Research Questions:** Can the behavioral control achieved through reflection-token fine-tuning be replicated consistently using only complex inference-time prompt engineering?  
-* **Architectural Relevance:** Explores the ultimate mitigation strategy, blending Phase 1 evaluation logic directly into the Phase 2 generation loop via self-reflection.29
+* **Architectural Relevance:** Explores the ultimate mitigation strategy, blending Phase 1 evaluation logic directly into the Phase 2 generation loop via self-reflection.29  
+* **Link:** [arXiv:2310.11511](https://arxiv.org/abs/2310.11511)
 
 ### **9\. "Locating and Editing Factual Associations in GPT" (Meng et al., 2022\)**
 
@@ -181,7 +189,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Utilizes causal mediation analysis to pinpoint that mid-layer Multi-Layer Perceptron (MLP) modules act as linear key-value stores for facts.38 Introduces Rank-One Model Editing (ROME) to successfully manipulate and insert new knowledge vectors directly into the weights.39  
 * **Limitations:** While highly effective at editing single facts, attempting to rewrite thousands of associations simultaneously causes severe degradation of the model's general linguistic capabilities.39  
 * **Open Research Questions:** Do alternative architectures, such as State Space Models (Mamba), store factual associations utilizing identical geographic coordinate structures?.40  
-* **Architectural Relevance:** Defines the precise layer coordinate geometry required for Phase 3, ensuring that internal state probing specifically targets the mid-layer MLPs at the final subject token.39
+* **Architectural Relevance:** Defines the precise layer coordinate geometry required for Phase 3, ensuring that internal state probing specifically targets the mid-layer MLPs at the final subject token.39  
+* **Link:** [arXiv:2202.05262](https://arxiv.org/abs/2202.05262) / [Project Page](https://rome.baulab.info/)
 
 ### **10\. "The Geometry of Truth: Emergent Linear Structure in Large Language Model Representations of True/False Datasets" (Marks & Tegmark, 2023\)**
 
@@ -190,7 +199,8 @@ To construct a robust mental model bridging application engineering and deep lea
 * **Advantages:** Proves that the neural network's internal belief regarding truth is structured as a linearly separable vector space.33 Introduces Mass-Mean Probing—an optimization-free mathematical technique that robustly extracts the "truth direction" by simply subtracting the center of gravity of false activations from the center of gravity of true activations.34  
 * **Limitations:** Linear separability becomes unstable and heavily confounded when the probing dataset contains structural or syntactic biases, or when tested against entirely out-of-domain logical structures.33  
 * **Open Research Questions:** Is there a single, universal "truth vector" that applies across all human languages and technical domains, or does truth splinter into localized geometric representations?  
-* **Architectural Relevance:** Provides the optimal, computationally efficient mathematical algorithm for building the Phase 3 hallucination detector, avoiding the fragility of gradient-based loss functions.34
+* **Architectural Relevance:** Provides the optimal, computationally efficient mathematical algorithm for building the Phase 3 hallucination detector, avoiding the fragility of gradient-based loss functions.34  
+* **Link:** [arXiv:2310.06824](https://arxiv.org/abs/2310.06824) / [OpenReview](https://openreview.net/forum?id=aajyHYjjsk)
 
 ## **Strategic Synthesis**
 

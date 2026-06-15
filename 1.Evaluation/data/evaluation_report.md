@@ -1,6 +1,6 @@
 # Project Veracity: Evaluation Report
 
-Generated at: `2026-06-15 01:09:15`  
+Generated at: `2026-06-15 01:17:06`  
 Evaluator Model: `meta/llama-3.1-70b-instruct`
 
 ## Summary Metrics
@@ -19,7 +19,7 @@ Evaluator Model: `meta/llama-3.1-70b-instruct`
 
 | ID | Question | Verdict | Reasoning |
 | :--- | :--- | :--- | :--- |
-| 0 | Which magazine was started first Arthur's Magazine or First for Women? | Pass | The Model Generated Answer states that Arthur's Magazine was started first. The Reference Context pr... |
+| 0 | Which magazine was started first Arthur's Magazine or First for Women? | Pass | The Model Generated Answer claims that Arthur's Magazine was started first. The Reference Context pr... |
 | 1 | The Oberoi family is part of a hotel company that has a head office in what city? | Pass | The Model Generated Answer states that the Oberoi family's hotel company has a head office in Delhi.... |
 | 2 | Musician and satirist Allie Goertz wrote a song about the "The Simpsons" character Milhouse, who Matt Groening named after who? | Pass | The Model Generated Answer directly quotes the Reference Context, stating that Matt Groening named t... |
 | 3 |  What nationality was James Henry Miller's wife? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference C... |
@@ -27,20 +27,20 @@ Evaluator Model: `meta/llama-3.1-70b-instruct`
 | 5 | Which tennis player won more Grand Slam titles, Henri Leconte or Jonathan Stark? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. This represents an extra... |
 | 6 | Which genus of moth in the world's seventh-largest country contains only one species? | Pass | The Model Generated Answer, 'Indogrammodes', directly corresponds to the information provided in the... |
 | 7 | Who was once considered the best kick boxer in the world, however he has been involved in a number of controversies relating to his "unsportsmanlike conducts" in the sport and crimes of violence outside of the ring. | Pass | The Model Generated Answer directly matches the information provided in the Reference Context. The d... |
-| 8 | The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year? | Fail | The Model Generated Answer claims that the Dutch-Belgian television series 'Het Huis Anubis' first a... |
-| 9 | What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged? | Pass | The Model Generated Answer directly quotes the Reference Context, providing the correct length of th... |
-| 10 | Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive? | Pass | The Model Generated Answer mentions El-P as the hip hop record executive with a guest appearance on ... |
+| 8 | The Dutch-Belgian television series that "House of Anubis" was based on first aired in what year? | Fail | The Model Generated Answer states that the Dutch-Belgian television series 'Het Huis Anubis' first a... |
+| 9 | What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged? | Pass | The Model Generated Answer directly quotes the length of the track from the Reference Context, stati... |
+| 10 | Fast Cars, Danger, Fire and Knives includes guest appearances from which hip hop record executive? | Pass | The Model Generated Answer states that the album 'Fast Cars, Danger, Fire and Knives' includes guest... |
 | 11 | Gunmen from Laredo starred which narrator of "Frontier"? | Pass | The Model Generated Answer directly references Walter Darwin Coy, who is mentioned in the Reference ... |
 | 12 | Where did the form of music played by Die Rhöner Säuwäntzt originate? | Pass | The Model Generated Answer states that the form of music played by Die Rhöner Säuwäntzt originated i... |
-| 13 | In which American football game was Malcolm Smith named Most Valuable player? | Pass | The Model Generated Answer directly states that Malcolm Smith was named Most Valuable Player in Supe... |
+| 13 | In which American football game was Malcolm Smith named Most Valuable player? | Pass | The Model Generated Answer directly references Super Bowl XLVIII, which is supported by the Referenc... |
 | 14 | What U.S Highway gives access to Zilpo Road, and is also known as Midland Trail? | Pass | The Model Generated Answer states that U.S. Highway 60 gives access to Zilpo Road and is also known ... |
-| 15 | The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year? | Pass | The Model Generated Answer states that the four-time Academy Award nominee received a star on the Ho... |
+| 15 | The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year? | Pass | The Model Generated Answer directly answers the question by providing the year Annette Bening receiv... |
 | 16 | What are the names of the current members of  American heavy metal band who wrote the music for  Hurt Locker The Musical?  | Pass | The Model Generated Answer directly copies information from the Reference Context about Metallica's ... |
-| 17 | Human Error" is the season finale of the third season of a tv show that aired on what network? | Pass | The Model Generated Answer provides the network name 'Fox' as the answer. The Reference Context supp... |
-| 18 | Dua Lipa, an English singer, songwriter and model, the album spawned the number-one single "New Rules" is a song by English singer Dua Lipa from her eponymous debut studio album, released in what year? | Pass | The Model Generated Answer provides the release year of Dua Lipa's eponymous debut studio album as 2... |
-| 19 | American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto, a woman who previously served as the 32nd Attorney General of where? | Pass | The Model Generated Answer directly references information present in the Reference Context. The Ref... |
+| 17 | Human Error" is the season finale of the third season of a tv show that aired on what network? | Pass | The Model Generated Answer states that the tv show aired on Fox. The Reference Context supports this... |
+| 18 | Dua Lipa, an English singer, songwriter and model, the album spawned the number-one single "New Rules" is a song by English singer Dua Lipa from her eponymous debut studio album, released in what year? | Pass | The Model Generated Answer provides the year of release for Dua Lipa's eponymous debut studio album ... |
+| 19 | American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto, a woman who previously served as the 32nd Attorney General of where? | Pass | The Model Generated Answer directly matches the information provided in the Reference Context, which... |
 | 20 | Which state does the drug stores, of which the CEO is Warren Bryant, are located? | Pass | The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context ... |
-| 21 | Which  American politician did Donahue replaced  | Pass | The Model Generated Answer directly states that Donahue replaced Kelli Ward. This information is sup... |
+| 21 | Which  American politician did Donahue replaced  | Pass | The Model Generated Answer directly states that Donahue replaced Kelli Ward. This information is exp... |
 | 22 | Which band was founded first, Hole, the rock band that Courtney Love was a frontwoman of, or The Wolfhounds? | Pass | The Model Generated Answer states that The Wolfhounds were formed first. According to the Reference ... |
 | 23 | How old is the female main protagonist of Catching Fire? | Pass | The Model Generated Answer states that the female main protagonist of Catching Fire is 16 years old.... |
 | 24 | Chang Ucchin was born in korea during a time that ended with the conclusion of what?  | Pass | The Model Generated Answer states that Chang Ucchin was born in Korea during a time that ended with ... |
@@ -53,20 +53,20 @@ Evaluator Model: `meta/llama-3.1-70b-instruct`
 | 31 | Who was born first, Pablo Trapero or Aleksander Ford? | Fail | The Model Generated Answer claims that Pablo Trapero was born first. However, according to the Refer... |
 | 32 | Are Jane and First for Women both women's magazines? | Pass | The Model Generated Answer claims that both Jane and First for Women are women's magazines. The Refe... |
 | 33 | What profession does Nicholas Ray and Elia Kazan have in common? | Pass | The Model Generated Answer states that both Nicholas Ray and Elia Kazan are film directors. The Refe... |
-| 34 | Where is the company that purchased Aixam based in? | Audit Error | Audit failed: Connection error. |
-| 35 | Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture? | Audit Error | Audit failed: Connection error. |
+| 34 | Where is the company that purchased Aixam based in? | Pass | The Model Generated Answer directly matches the information provided in the Reference Context, which... |
+| 35 | Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture? | Pass | The Model Generated Answer directly answers the question by stating that The Saimaa Gesture is the d... |
 | 36 | Who was inducted into the Rock and Roll Hall of Fame, David Lee Roth or Cia Berg? | Pass | The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fa... |
 | 37 | Zimbabwe's Guwe Secondary School has a sister school in what New York cunty? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference C... |
-| 38 | The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?   | Pass | The Model Generated Answer states that The Honoured Society is currently active in all of Australia.... |
-| 39 | The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state? | Pass | The Model Generated Answer provides the state where McClellan Air Force Base is located. The Referen... |
+| 38 | The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?   | Audit Error | Audit failed: Connection error. |
+| 39 | The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state? | Audit Error | Audit failed: Connection error. |
 | 40 | The axial turbojet Pirna 014 was designed by engineers from this German aircraft and aircraft engine manufacturer based in which city? | Pass | The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a... |
 | 41 | Which faith is designated to the University of Providence, private university accredited by the NW association of Schools and Colleges and located in a third largest city in Montana after being passed by Missoula?  | Pass | The Model Generated Answer states that the University of Providence is Roman Catholic. This informat... |
-| 42 | Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from? | Pass | The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' was fro... |
-| 43 | Guitars for Wounded Warriors is an album that was recorded in the village in which New York county? | Pass | The Model Generated Answer states that the album was recorded in Ulster County. The Reference Contex... |
+| 42 | Pauline Henry was known as the vocalist of a very popular cover song. Which album was this song from? | Pass | The Model Generated Answer directly references information present in the Reference Context. The son... |
+| 43 | Guitars for Wounded Warriors is an album that was recorded in the village in which New York county? | Pass | The Model Generated Answer provides the county where the album was recorded, which is Ulster County.... |
 | 44 | What American country music singer-songwriter, born in May of 1942, sang a duet with her ex-husband the same year that he released the song "The Battle?" | Pass | The Model Generated Answer directly refers to Tammy Wynette, who is mentioned in the Reference Conte... |
-| 45 | Who was born first, Francis Nethersole or Elizabeth Stuart? | Pass | The Model Generated Answer claims that Elizabeth Stuart was born first. According to the Reference C... |
+| 45 | Who was born first, Francis Nethersole or Elizabeth Stuart? | Pass | The Model Generated Answer states that Elizabeth Stuart was born first. According to the Reference C... |
 | 46 | What does the Hacker-Pschorr Brewery have to limit in order to comply with German regulations? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference C... |
-| 47 | Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016? | Pass | The Model Generated Answer is 'Howard Marks'. The Reference Context mentions Dennis Howard Marks, a ... |
+| 47 | Don Barry Mason was the founder of the Psychedelic Shamanistic Institute (PSI), which other member that's Welsh, that died on 10 April 2016? | Pass | The Model Generated Answer provides the name 'Howard Marks' as the Welsh member of PSI who died on 1... |
 | 48 | What male actor starred in The Messenger? | Pass | The Model Generated Answer states that Robert Sheehan starred in The Messenger. This information is ... |
 | 49 | Are Gin and tonic and Paloma both cocktails based on tequila? | Pass | The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference C... |
 
@@ -87,7 +87,7 @@ Arthur's Magazine (1844–1846) was an American literary periodical published in
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Arthur's Magazine was started first. The Reference Context provides the publication years for Arthur's Magazine as 1844-1846, but does not provide the exact start year for First for Women. However, since the Reference Context does not provide any information that contradicts the statement that Arthur's Magazine was started first, and the User Question premise introduces both magazine names, the answer is supported by the context. The answer does not contain any unverified or unsupported facts.
+The Model Generated Answer claims that Arthur's Magazine was started first. The Reference Context provides the publication years for Arthur's Magazine (1844-1846) but does not provide the publication start year for First for Women. However, since the Reference Context does not provide any information that contradicts the claim that Arthur's Magazine was started first, and the User Question premise introduces both magazine names, the answer is resolved by the Question Premise Rule. The answer does not contain any unverified or unsupported facts.
 
 ---
 
@@ -104,7 +104,7 @@ The Oberoi family is an Indian family that is famous for its involvement in hote
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the Oberoi family's hotel company has a head office in Delhi. This information is directly supported by the Reference Context, which mentions that The Oberoi Group has its head office in Delhi. Therefore, the answer is supported by the context.
+The Model Generated Answer states that the Oberoi family's hotel company has a head office in Delhi. This information is directly supported by the Reference Context, which mentions that The Oberoi Group has its head office in Delhi. Therefore, the answer is supported by the context and does not contain any unverified facts or contradictions.
 
 ---
 
@@ -121,7 +121,7 @@ Allison Beth "Allie" Goertz (born March 2, 1991) is an American musician. Goertz
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly quotes the Reference Context, stating that Matt Groening named the character Milhouse after President Richard Nixon's middle name. This information is supported by the Reference Context, which explicitly mentions this fact. Therefore, the answer does not contain any unverified or unsupported claims. The User Question introduced the topic of 'The Simpsons' character Milhouse and Allie Goertz, but the Model Generated Answer only provided information that is present in the Reference Context.
+The Model Generated Answer directly quotes the Reference Context, stating that Matt Groening named the character Milhouse after President Richard Nixon's middle name. This information is supported by the Reference Context, which explicitly mentions the same fact. The answer does not introduce any new, unverified information or contradictions. Therefore, the answer is fully supported by the context.
 
 ---
 
@@ -138,7 +138,7 @@ Margaret "Peggy" Seeger (born June 17, 1935) is an American folksinger. She is a
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference Context does provide information about James Henry Miller's wife, Margaret 'Peggy' Seeger, stating she is an American folksinger. Despite this, according to the strict rubric rules, a refusal to answer represents an extraction or reasoning omission, not a factual hallucination.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference Context does provide information about James Henry Miller's wife, Margaret 'Peggy' Seeger, stating she is an American folksinger. Despite this, the answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context. Therefore, it is considered an extraction or reasoning omission rather than a factual hallucination.
 
 ---
 
@@ -155,7 +155,7 @@ The Model Generated Answer is a refusal to answer, stating 'I do not know'. Howe
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is a refusal to answer, stating 'I do not know'. This represents an extraction or reasoning omission, rather than a factual hallucination. The Reference Context does not provide information about Cadmium Chloride's solubility in relation to the chemical in question, but it does mention that the chemical is 'slightly soluble in alcohol'. However, since the model's answer is a refusal, it does not contain any positive factual assertions that can be verified or contradicted by the Reference Context.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. This represents an extraction or reasoning omission, rather than a factual hallucination. The Reference Context does not provide information about Cadmium Chloride's solubility in relation to the chemical in question, but it does mention that the chemical is 'slightly soluble in alcohol'. However, the model's answer does not provide any new information that could be verified or contradicted by the Reference Context.
 
 ---
 
@@ -172,7 +172,7 @@ Jonathan Stark (born April 3, 1971) is a former professional tennis player from 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is a refusal to answer, stating 'I do not know'. This represents an extraction or reasoning omission, as it does not provide any positive factual assertions that can be verified or contradicted by the Reference Context. The Reference Context does not contain information about Henri Leconte's Grand Slam titles, making it impossible for the model to provide a definitive answer. However, according to the strict rubric rules, a refusal to answer is not considered a factual hallucination.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. This represents an extraction or reasoning omission, as it does not provide any positive factual assertions that can be verified or contradicted by the Reference Context. The answer does not contain any new information that can be evaluated against the context. Therefore, according to the strict rubric rules, this answer should not be penalized for hallucination.
 
 ---
 
@@ -189,7 +189,7 @@ Indogrammodes is a genus of moths of the Crambidae family. It contains only one 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer, 'Indogrammodes', directly corresponds to the information provided in the Reference Context. The context states that Indogrammodes is a genus of moths in the Crambidae family and is found in India, which is the seventh-largest country. The answer does not introduce any new, unverified information. It only provides the name of the genus, which is supported by the context.
+The Model Generated Answer, 'Indogrammodes', directly corresponds to the information provided in the Reference Context. The context states that Indogrammodes is a genus of moths in the Crambidae family and is found in India, which is the seventh-largest country by area. The answer does not introduce any new, unverified information. Instead, it correctly identifies the genus of moth mentioned in the context.
 
 ---
 
@@ -223,7 +223,7 @@ House of Anubis is a mystery television series developed for Nickelodeon based o
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that the Dutch-Belgian television series 'Het Huis Anubis' first aired in 2006. However, the Reference Context does not provide the first air date of 'Het Huis Anubis'. Instead, it mentions that 'House of Anubis' first aired in September 2006. Since the Model Generated Answer provides new information that is not present in the Reference Context, it is considered a factual assertion. However, this assertion is unverified and unsupported by the Reference Context. Therefore, it is considered a hallucination.
+The Model Generated Answer states that the Dutch-Belgian television series 'Het Huis Anubis' first aired in 2006. However, the Reference Context does not provide the first air date of 'Het Huis Anubis'. Instead, it mentions that 'House of Anubis' first aired in September 2006. Since the Model Generated Answer provides new information that is not present in the Reference Context, it is considered a factual assertion. However, this assertion is unverified and unsupported by the Reference Context. Therefore, it is considered a hallucination.
 
 ---
 
@@ -232,7 +232,7 @@ The Model Generated Answer claims that the Dutch-Belgian television series 'Het 
 - **Question**: What is the length of the track where the 2013 Liqui Moly Bathurst 12 Hour was staged?
 - **Verdict**: Faithful
 - **Ground Truth**: `6.213 km long`
-- **Model Generated Answer**: `The 6.213 km long track is technically a street circuit, and is a public road, with normal speed restrictions, when no racing events are being run, and there are many residences which can only be accessed from the circuit.`
+- **Model Generated Answer**: `The 6.213 km long track is technically a street circuit.`
 
 #### Context:
 ```text
@@ -240,7 +240,7 @@ The 2013 Liqui Moly Bathurst 12 Hour was an endurance race for a variety of GT a
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly quotes the Reference Context, providing the correct length of the track (6.213 km) and additional information about the track being a street circuit and a public road. However, the question only asks for the length of the track. The additional information is present in the Reference Context, but it is not directly relevant to the question. Since the Model Generated Answer does not introduce any new, unverified, or unsupported information, it does not contain any hallucinations.
+The Model Generated Answer directly quotes the length of the track from the Reference Context, stating that the track is 6.213 km long. This information is supported by the Reference Context, which mentions the same length. The answer also mentions that the track is technically a street circuit, which is also supported by the Reference Context. Therefore, the answer does not contain any unverified or unsupported facts.
 
 ---
 
@@ -257,7 +257,7 @@ The Model Generated Answer directly quotes the Reference Context, providing the 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer mentions El-P as the hip hop record executive with a guest appearance on the album. The Reference Context confirms that El-P is indeed a hip hop record executive and also mentions that he made a guest appearance on the album. Therefore, the answer is supported by the context.
+The Model Generated Answer states that the album 'Fast Cars, Danger, Fire and Knives' includes guest appearances from El-P, who is a hip hop record executive. The Reference Context confirms that El-P is indeed a record executive and also mentions that he made guest appearances on the album. Therefore, the answer is supported by the context.
 
 ---
 
@@ -274,7 +274,7 @@ Gunmen from Laredo is a 1959 American western film produced and directed by Wall
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly references Walter Darwin Coy, who is mentioned in the Reference Context as the narrator of the NBC western anthology series 'Frontier'. The Reference Context also mentions that Walter Coy starred in the film 'Gunmen from Laredo'. Since the Model Generated Answer only connects the information already present in the Reference Context, it does not contain any unverified or unsupported claims.
+The Model Generated Answer directly references Walter Darwin Coy, who is mentioned in the Reference Context as the narrator of the NBC western anthology series 'Frontier'. The Reference Context also mentions that Walter Coy starred in the film 'Gunmen from Laredo'. The Entity Resolution Rule allows for minor naming variations, and in this case, 'Walter Darwin Coy' and 'Walter Coy' refer to the same individual. Therefore, the Model Generated Answer is supported by the Reference Context.
 
 ---
 
@@ -308,7 +308,7 @@ The Model Generated Answer states that the form of music played by Die Rhöner S
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly states that Malcolm Smith was named Most Valuable Player in Super Bowl XLVIII. However, the Reference Context does not explicitly mention Malcolm Smith. Instead, it mentions 'Smith' as the MVP. By the Entity Resolution Rule, 'Smith' can be resolved to Malcolm Smith, assuming the model is referring to the same individual. The User Question introduces the name 'Malcolm Smith', which is not present in the Reference Context, but by the Question Premise Rule, this is allowed. The answer does not contain any new unverified or unsupported facts beyond the resolution of 'Smith' to Malcolm Smith. Therefore, the answer is not considered a hallucination.
+The Model Generated Answer directly references Super Bowl XLVIII, which is supported by the Reference Context. The context explicitly states that Smith was named the Most Valuable Player of Super Bowl XLVIII. Although the Reference Context does not explicitly mention Malcolm Smith, the User Question introduces this name, and according to the Question Premise Rule, we do not penalize the Model Generated Answer for incorporating or assuming facts already introduced in the User Question. Therefore, the answer is supported and resolved by the rules.
 
 ---
 
@@ -325,7 +325,7 @@ The Model Generated Answer directly states that Malcolm Smith was named Most Val
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that U.S. Highway 60 gives access to Zilpo Road and is also known as Midland Trail. However, the Reference Context does not explicitly mention Zilpo Road. It does mention that the nine mile byway starts south of Morehead, Kentucky and can be accessed by U.S. Highway 60, and that U.S. Highway 60 is also known as the historic Midland Trail. Since the question premise rule allows for the incorporation of facts introduced in the User Question, we focus on whether the new information provided by the model's answer is supported by the context. The model's answer assumes that Zilpo Road is the nine mile byway mentioned in the context, which is not explicitly stated. However, this assumption is not contradicted by the context either. Therefore, this is not a clear-cut case of hallucination. Nevertheless, the model's answer does contain an unverified assumption. However, according to the rules, we should not penalize for this assumption as it is not a positive factual assertion that is clearly contradicted by the Reference Context. Therefore, we will not consider this as a hallucination.
+The Model Generated Answer states that U.S. Highway 60 gives access to Zilpo Road and is also known as Midland Trail. However, the Reference Context does not explicitly mention Zilpo Road. It does mention that the nine mile byway starts south of Morehead, Kentucky and can be accessed by U.S. Highway 60, and that U.S. Highway 60 is also known as the historic Midland Trail. Since the User Question introduced the name 'Zilpo Road', which is not present in the Reference Context, we should focus on whether the new information provided by the model's answer is supported by the context. The model's answer does not provide any new information that is unsupported or contradicted by the Reference Context, given the Question Premise Rule. Therefore, the answer is not considered a hallucination.
 
 ---
 
@@ -334,7 +334,7 @@ The Model Generated Answer states that U.S. Highway 60 gives access to Zilpo Roa
 - **Question**: The 1988 American comedy film, The Great Outdoors, starred a four-time Academy Award nominee, who received a star on the Hollywood Walk of Fame in what year?
 - **Verdict**: Faithful
 - **Ground Truth**: `2006`
-- **Model Generated Answer**: `2006`
+- **Model Generated Answer**: `2006.`
 
 #### Context:
 ```text
@@ -342,7 +342,7 @@ The Great Outdoors is a 1988 American comedy film directed by Howard Deutch, and
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the four-time Academy Award nominee received a star on the Hollywood Walk of Fame in 2006. The Reference Context supports this claim, as it mentions that Annette Bening, a four-time Academy Award nominee, received a star on the Hollywood Walk of Fame in 2006. Therefore, the answer is supported by the context.
+The Model Generated Answer directly answers the question by providing the year Annette Bening received a star on the Hollywood Walk of Fame. The Reference Context supports this claim, stating that Annette Bening received a star on the Hollywood Walk of Fame in 2006. The answer does not contain any new, unverified information and is a direct match to the information provided in the Reference Context.
 
 ---
 
@@ -359,7 +359,7 @@ The Model Generated Answer states that the four-time Academy Award nominee recei
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly copies information from the Reference Context about Metallica's current lineup, which includes founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo. The User Question introduces the name 'Hurt Locker The Musical', but this is not verified or contradicted by the Reference Context. However, according to the Question Premise Rule, we do not penalize the Model Generated Answer for incorporating or assuming facts introduced in the User Question. The Model Generated Answer does not provide any new information that is unverified, unsupported, or contradicted by the Reference Context. Therefore, the answer is supported by the context.
+The Model Generated Answer directly copies information from the Reference Context about Metallica's current lineup, which includes founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett, and bassist Robert Trujillo. The answer does not introduce any new information that is unverified or contradicted by the Reference Context. The User Question assumes the band wrote the music for Hurt Locker The Musical, but the Reference Context actually states they wrote the music for a different musical. However, according to the Question Premise Rule, we do not penalize the Model Generated Answer for incorporating or assuming facts already introduced in the User Question. Therefore, the answer is supported by the context and does not contain any hallucinations.
 
 ---
 
@@ -376,7 +376,7 @@ The Model Generated Answer directly copies information from the Reference Contex
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer provides the network name 'Fox' as the answer. The Reference Context supports this claim by stating that 'House' originally ran on the Fox network. Therefore, the answer is supported by the context.
+The Model Generated Answer states that the tv show aired on Fox. The Reference Context supports this claim by stating that House (the tv show) originally ran on the Fox network. Therefore, the answer is supported by the context.
 
 ---
 
@@ -393,7 +393,7 @@ The Model Generated Answer provides the network name 'Fox' as the answer. The Re
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer provides the release year of Dua Lipa's eponymous debut studio album as 2017. This information is directly supported by the Reference Context, which states that her self-titled debut studio album was released on 2 June 2017. The User Question also mentions the album, and the model's answer resolves this query without introducing any new, unverified information. Therefore, the answer is supported by the context.
+The Model Generated Answer provides the year of release for Dua Lipa's eponymous debut studio album as 2017. This information is directly supported by the Reference Context, which states that the album was released in 2017. Therefore, the answer is supported by the context.
 
 ---
 
@@ -410,7 +410,7 @@ Joseph John “Joe” Heck (born October 30, 1961) is an American politician, ph
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly references information present in the Reference Context. The Reference Context states that Catherine Cortez Masto 'previously served as the 32nd Attorney General of Nevada from 2007 to 2015.' The Model Generated Answer correctly identifies the location as 'Nevada', which is supported by the context. Therefore, the answer does not contain any unverified facts or contradictions.
+The Model Generated Answer directly matches the information provided in the Reference Context, which states that Catherine Cortez Masto 'previously served as the 32nd Attorney General of Nevada'. The answer does not introduce any new, unverified, or unsupported information. Therefore, it is supported by the context.
 
 ---
 
@@ -427,7 +427,7 @@ Warren Bryant was the CEO of Longs Drugs Store Corporation out of California pri
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context also mentions that Longs Drugs is an American chain with approximately 40 drug stores throughout the state of Hawaii. Therefore, the answer is supported by the context. Additionally, the User Question introduces the CEO Warren Bryant, which is also present in the Reference Context, but this is allowed by the Question Premise Rule. The answer does not contain any unverified or unsupported facts.
+The Model Generated Answer states that the drug stores are located in Hawaii. The Reference Context also mentions that Longs Drugs is an American chain with approximately 40 drug stores throughout the state of Hawaii. Therefore, the answer is supported by the context. Additionally, the User Question introduces the CEO Warren Bryant, which is also present in the Reference Context, but this is allowed according to the Question Premise Rule.
 
 ---
 
@@ -444,7 +444,7 @@ The Model Generated Answer states that the drug stores are located in Hawaii. Th
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly states that Donahue replaced Kelli Ward. This information is supported by the Reference Context, which explicitly mentions that Donahue replaced Kelli Ward who resigned to run for the United States Senate. Therefore, the answer does not contain any unverified or unsupported facts.
+The Model Generated Answer directly states that Donahue replaced Kelli Ward. This information is explicitly supported by the Reference Context, which mentions that 'Donahue replaced Kelli Ward who resigned to run for the United States Senate.' Therefore, the answer does not contain any unverified or unsupported facts. The information provided by the model's answer is entirely consistent with the context.
 
 ---
 
@@ -461,7 +461,7 @@ Courtney Michelle Love (born Courtney Michelle Harrison; July 9, 1964) is an Ame
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that The Wolfhounds were formed first. According to the Reference Context, Hole was formed in 1989, while The Wolfhounds were formed in 1985. This information is supported by the context, and the answer does not contain any unverified or contradicted facts. Therefore, the answer is not a hallucination.
+The Model Generated Answer states that The Wolfhounds were formed first. According to the Reference Context, Hole was formed in 1989, while The Wolfhounds were formed in 1985. This information is supported by the context, and the model's answer is a direct comparison of the formation years of the two bands, which is a logical conclusion based on the provided information.
 
 ---
 
@@ -495,7 +495,7 @@ The Model Generated Answer states that the female main protagonist of Catching F
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Chang Ucchin was born in Korea during a time that ended with the conclusion of World War II. The Reference Context supports this claim by stating that Korea under Japanese rule ended at the conclusion of World War II in 1945. The User Question premise introduces the fact that Chang Ucchin was born in Korea during a certain time period, and the Model Generated Answer provides a supported answer by referencing the end of that time period as World War II, which is consistent with the Reference Context.
+The Model Generated Answer states that Chang Ucchin was born in Korea during a time that ended with the conclusion of World War II. The Reference Context supports this claim by stating that Korea under Japanese rule, during which Chang was born, ended at the conclusion of World War II in 1945. The User Question premise introduces the fact that Chang Ucchin was born in Korea during this time period, and the Model Generated Answer provides a supported answer based on the Reference Context.
 
 ---
 
@@ -512,7 +512,7 @@ The Quality Cafe (also known as Quality Diner) is a now-defunct diner at 1236 We
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Todd Phillips is the director of the 2003 film with scenes filmed at the Quality Cafe in Los Angeles. The Reference Context supports this claim by mentioning that the Quality Cafe appeared in the film 'Old School', which was directed by Todd Phillips and released in 2003. Therefore, the answer is supported by the context.
+The Model Generated Answer states that Todd Phillips is the director of the 2003 film with scenes filmed at the Quality Cafe in Los Angeles. The Reference Context supports this claim by mentioning that the Quality Cafe appeared in the 2003 film 'Old School', which was directed by Todd Phillips. Therefore, the answer is supported by the context.
 
 ---
 
@@ -529,7 +529,7 @@ The Model Generated Answer states that Todd Phillips is the director of the 2003
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Carol Lawrence is the young performer and American actress whose career was jump-started by New Faces of 1952. The Reference Context supports this claim, mentioning Carol Lawrence as one of the performers whose career was helped by the musical revue. The User Question premise already introduces the musical revue New Faces of 1952, so the model's answer is focused on providing the name of the performer, which is verified by the context.
+The Model Generated Answer states that Carol Lawrence is the young performer and American actress whose career was jump-started by New Faces of 1952. The Reference Context supports this claim, mentioning Carol Lawrence as one of the performers whose career was helped by the musical revue. The User Question premise already introduces the musical revue New Faces of 1952, so the model's answer is focused on providing the name of the performer, which is verified by the Reference Context.
 
 ---
 
@@ -563,7 +563,7 @@ The New Pornographers is a Canadian indie rock band formed in 1997 in Vancouver,
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that The New Pornographers and Kings of Leon are not both American rock bands. The Reference Context supports this claim by stating that The New Pornographers is a Canadian indie rock band, while Kings of Leon is an American rock band. The answer does not contain any new, unverified, or unsupported information. It is a direct inference from the context.
+The Model Generated Answer states that The New Pornographers and Kings of Leon are not both American rock bands. This is supported by the Reference Context, which states that The New Pornographers is a Canadian indie rock band, while Kings of Leon is an American rock band. The answer does not provide any new information that is unverified or contradicted by the context. Instead, it correctly identifies the difference in nationality between the two bands.
 
 ---
 
@@ -580,7 +580,7 @@ The Model Generated Answer states that The New Pornographers and Kings of Leon a
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are located in New York City. The Reference Context supports this claim, as it mentions that 750 Seventh Avenue is in New York City and 101 Park Avenue is in New York City, New York. Since the city name is directly mentioned in the context, the answer is supported.
+The Model Generated Answer states that 750 7th Avenue and 101 Park Avenue are located in New York City. The Reference Context supports this claim, as it mentions that both 750 Seventh Avenue and 101 Park Avenue are located in New York City. Therefore, the answer is supported by the context.
 
 ---
 
@@ -597,7 +597,7 @@ Kimberly Ann Hart is a fictitious character in the "Power Rangers" universe. Pla
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly states that Amy Jo Johnson played the part of Kimberly Ann Hart. This information is supported by the Reference Context, which explicitly mentions that Kimberly Ann Hart was played by actress Amy Jo Johnson during the first three seasons of the show. The answer does not introduce any new, unverified information and is a direct match to the information provided in the Reference Context.
+The Model Generated Answer directly states that Amy Jo Johnson played the part of Kimberly Ann Hart. This information is supported by the Reference Context, which explicitly mentions that Kimberly Ann Hart was played by actress Amy Jo Johnson during the first three seasons of the show and the two feature films of the franchise. The question premise is also consistent with the Reference Context, as it refers to the Power Rangers franchise and its connection to the Japanese tokusatsu 'Super Sentai'. Therefore, the answer does not contain any unverified facts or contradictions.
 
 ---
 
@@ -648,14 +648,14 @@ Nicholas Ray (born Raymond Nicholas Kienzle Jr., August 7, 1911 – June 16, 197
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that both Nicholas Ray and Elia Kazan are film directors. The Reference Context supports this claim, as it describes Nicholas Ray as an 'American film director' and Elia Kazan as a 'Greek-American director'. The answer does not introduce any new, unverified information. Therefore, the answer is supported by the context.
+The Model Generated Answer states that both Nicholas Ray and Elia Kazan are film directors. The Reference Context supports this claim, as it describes Nicholas Ray as an American film director and Elia Kazan as a Greek-American director. Since the answer only asserts information that is present in the Reference Context, it does not contain any unverified or unsupported facts. Therefore, the answer is not a hallucination.
 
 ---
 
 ### Sample ID: 34
 
 - **Question**: Where is the company that purchased Aixam based in?
-- **Verdict**: Audit Error (Judge)
+- **Verdict**: Faithful
 - **Ground Truth**: `Roseau, Minnesota, USA`
 - **Model Generated Answer**: `Roseau, Minnesota, USA.`
 
@@ -665,14 +665,14 @@ The Model Generated Answer states that both Nicholas Ray and Elia Kazan are film
 ```
 
 #### Judge Reasoning:
-Audit failed: Connection error.
+The Model Generated Answer directly matches the information provided in the Reference Context, which states that Polaris is based in Roseau, Minnesota, USA. Since the answer is supported by the context, it does not contain any unverified facts or contradictions.
 
 ---
 
 ### Sample ID: 35
 
 - **Question**: Which documentary is about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture?
-- **Verdict**: Audit Error (Judge)
+- **Verdict**: Faithful
 - **Ground Truth**: `The Saimaa Gesture`
 - **Model Generated Answer**: `The Saimaa Gesture`
 
@@ -682,7 +682,7 @@ Adam Clayton Powell is a 1989 American documentary film directed by Richard Kilb
 ```
 
 #### Judge Reasoning:
-Audit failed: Connection error.
+The Model Generated Answer directly answers the question by stating that The Saimaa Gesture is the documentary about Finnish rock groups. This information is supported by the Reference Context, which explicitly states that The Saimaa Gesture is a documentary about three Finnish rock groups. The answer does not contain any unverified or unsupported facts, and it does not contradict the Reference Context. Therefore, the answer is resolved as supported.
 
 ---
 
@@ -699,7 +699,7 @@ Cia Berg (born 2 December 1963), now known as Cia Soro, is a Swedish television 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fame. This information is supported by the Reference Context, which explicitly mentions that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. The answer does not provide any new information that is unverified or contradicted by the context. Therefore, the answer is supported by the context.
+The Model Generated Answer states that David Lee Roth was inducted into the Rock and Roll Hall of Fame. This information is directly supported by the Reference Context, which explicitly mentions that David Lee Roth was inducted into the Rock and Roll Hall of Fame in 2007. The answer does not provide any new information that is unverified or contradicted by the context. Therefore, the answer is supported by the context.
 
 ---
 
@@ -716,14 +716,14 @@ The Model Generated Answer states that David Lee Roth was inducted into the Rock
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does contain information about a sister school in New York, it does not explicitly mention Zimbabwe's Guwe Secondary School. However, according to the rules, a refusal to answer does not represent a factual hallucination. Therefore, the answer is not considered hallucinated.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does contain information about a sister school in New York, it does not explicitly mention Zimbabwe's Guwe Secondary School. However, according to the rules, a refusal to answer is not considered a hallucination. Therefore, the answer does not contain any unverified or unsupported facts.
 
 ---
 
 ### Sample ID: 38
 
 - **Question**: The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commission was a royal commission initiated by the New South Wales Government to investigate drug trafficking in New South Wales, Australia, especially links between the New South Wales Police and Mafia, The Honoured Society, is a Calabrian 'Ndrangheta criminal confederation, started in Melbourne and currently active in all of which country?  
-- **Verdict**: Faithful
+- **Verdict**: Audit Error (Judge)
 - **Ground Truth**: `Australia`
 - **Model Generated Answer**: `Australia`
 
@@ -733,14 +733,14 @@ The Royal Commission into Drug Trafficking (1977–1979) or Woodward Royal Commi
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that The Honoured Society is currently active in all of Australia. This information is directly supported by the Reference Context, which mentions that The Honoured Society is 'currently active in all Australia'. Therefore, the answer does not contain any unverified or unsupported facts.
+Audit failed: Connection error.
 
 ---
 
 ### Sample ID: 39
 
 - **Question**: The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, a former United States Air Force base located in the North Highlands area of Sacramento County, in which US state?
-- **Verdict**: Faithful
+- **Verdict**: Audit Error (Judge)
 - **Ground Truth**: `California`
 - **Model Generated Answer**: `California`
 
@@ -750,7 +750,7 @@ The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Tes
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer provides the state where McClellan Air Force Base is located. The Reference Context explicitly mentions that McClellan Air Force Base is located in Sacramento County, California. Therefore, the Model Generated Answer is supported by the Reference Context.
+Audit failed: Connection error.
 
 ---
 
@@ -767,7 +767,7 @@ The Pirna 014 was an axial turbojet designed in East Germany (or the GDR) in the
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a German aircraft and aircraft engine manufacturer based in Dessau, Germany. According to the Reference Context, Junkers Flugzeug- und Motorenwerke AG, the manufacturer in question, was indeed based in Dessau, Germany. The Reference Context also mentions that the Pirna 014 was designed by former Junkers engineers. Therefore, the Model Generated Answer is supported by the Reference Context and does not contain any unverified or contradicted facts.
+The Model Generated Answer states that the axial turbojet Pirna 014 was designed by engineers from a German aircraft and aircraft engine manufacturer based in Dessau, Germany. According to the Reference Context, Junkers, the German aircraft and aircraft engine manufacturer, was indeed based in Dessau, Germany. The Reference Context also mentions that the Pirna 014 was designed by former Junkers engineers. Therefore, the Model Generated Answer is supported by the Reference Context and does not contain any unverified or contradicted facts.
 
 ---
 
@@ -784,7 +784,7 @@ The University of Providence (UP) (renamed from University of Great Falls in Jul
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the University of Providence is Roman Catholic. This information is directly supported by the Reference Context, which explicitly mentions that the University of Providence is a private Roman Catholic university. The answer does not introduce any new, unverified information. The question premise already establishes the university's location in a third largest city in Montana and its accreditation by the Northwest Association of Schools and Colleges, which is also supported by the Reference Context. Therefore, the answer is fully supported by the context.
+The Model Generated Answer states that the University of Providence is Roman Catholic. This information is directly supported by the Reference Context, which explicitly mentions that the University of Providence is a private Roman Catholic university. The answer does not introduce any new, unverified information. The question premise already establishes the university's accreditation and location, which are also supported by the Reference Context. Therefore, the answer is fully supported by the context.
 
 ---
 
@@ -801,7 +801,7 @@ Pauline Henry (born 29 January 1961) is a British Jamaican recording artist. She
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the song 'I Still Haven't Found What I'm Looking For' was from the album 'The Joshua Tree'. This information is directly supported by the Reference Context, which mentions that 'I Still Haven't Found What I'm Looking For' is the second track from U2's 1987 album 'The Joshua Tree'. The User Question premise already introduces Pauline Henry as the vocalist of a popular cover song, and the Reference Context provides the necessary information to answer the question. Therefore, the Model Generated Answer does not contain any unverified or unsupported facts.
+The Model Generated Answer directly references information present in the Reference Context. The song 'I Still Haven't Found What I'm Looking For' is indeed stated to be from the album 'The Joshua Tree' in the context. The answer does not introduce any new, unverified information or contradict the context. Therefore, the answer is supported by the context.
 
 ---
 
@@ -818,7 +818,7 @@ The Model Generated Answer states that the song 'I Still Haven't Found What I'm 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that the album was recorded in Ulster County. The Reference Context mentions that New Paltz is a village in Ulster County, New York, and that the tracks were recorded at Tarquin's Jungle Room Studios in New Paltz. Since the User Question already introduced the fact that the album was recorded in the village, and the Reference Context supports the fact that the village is in Ulster County, the Model Generated Answer is supported by the context.
+The Model Generated Answer provides the county where the album was recorded, which is Ulster County. This information is directly supported by the Reference Context, which states that New Paltz is a village in Ulster County. Therefore, the answer is supported by the context.
 
 ---
 
@@ -835,7 +835,7 @@ The Model Generated Answer states that the album was recorded in Ulster County. 
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer directly refers to Tammy Wynette, who is mentioned in the Reference Context as an American country music singer-songwriter born in May 1942. The context also mentions that Tammy Wynette sang a duet with her estranged ex-husband George Jones, the same artist who released the song 'The Battle.' Since the answer only provides information that is directly supported by the Reference Context, and does not introduce any new, unverified facts, it does not contain any hallucinations.
+The Model Generated Answer directly refers to Tammy Wynette, who is mentioned in the Reference Context as an American country music singer-songwriter born in May 1942. The context also mentions that she sang a duet with her estranged ex-husband George Jones, the same year he released a song. Although the Reference Context does not explicitly state that the song released by George Jones is 'The Battle' in the same sentence as the duet, it does mention both 'The Battle' and the duet 'Golden Ring' in the same paragraph, implying a connection. The Model Generated Answer does not introduce any new, unverified information and is supported by the Reference Context. Therefore, no hallucination is detected.
 
 ---
 
@@ -852,7 +852,7 @@ Sir Francis Nethersole (1587–1659) was an English diplomat, secretary to the E
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer claims that Elizabeth Stuart was born first. According to the Reference Context, Sir Francis Nethersole was born in 1587 and Elizabeth Stuart was born in 1596. This information supports the Model Generated Answer. Therefore, the answer is not a refusal, and it does not contain unverified facts or contradictions.
+The Model Generated Answer states that Elizabeth Stuart was born first. According to the Reference Context, Sir Francis Nethersole was born in 1587 and Elizabeth Stuart was born in 1596. This information supports the Model Generated Answer, as Elizabeth Stuart was indeed born after Francis Nethersole. Therefore, the answer is supported by the context.
 
 ---
 
@@ -869,7 +869,7 @@ Hacker-Pschorr is a brewery in Munich, formed in 1972 out of the merger of two b
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does not explicitly mention Hacker-Pschorr Brewery in relation to the Reinheitsgebot, it does mention that the Reinheitsgebot is a collective name for regulations limiting the ingredients in beer in Germany. Since the Model Generated Answer does not provide any positive factual assertions, it does not contain any unverified or unsupported claims.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. Although the Reference Context does not explicitly mention Hacker-Pschorr Brewery in relation to the Reinheitsgebot, it does mention that the Reinheitsgebot is a collective name for regulations limiting the ingredients in beer in Germany. However, since the Model Generated Answer does not provide any positive factual assertions, it does not contain any unverified or unsupported claims. According to the strict rubric rules, a refusal to answer represents an extraction or reasoning omission, not a factual hallucination.
 
 ---
 
@@ -886,7 +886,7 @@ The Model Generated Answer is a refusal to answer, stating 'I do not know'. Alth
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is 'Howard Marks'. The Reference Context mentions Dennis Howard Marks, a Welsh individual who died on 10 April 2016. Although the model's answer uses the partial name 'Howard Marks', according to the Entity Resolution Rule, this is considered a minor naming variation and refers to the same individual described in the context. Therefore, the answer is supported by the context.
+The Model Generated Answer provides the name 'Howard Marks' as the Welsh member of PSI who died on 10 April 2016. The Reference Context confirms that Dennis Howard Marks, a Welsh individual, was a member of PSI and died on 10 April 2016. Although the Model Generated Answer uses the partial name 'Howard Marks', according to the Entity Resolution Rule, this is considered a minor naming variation and refers to the same individual described in the context. Therefore, the answer is supported by the Reference Context.
 
 ---
 
@@ -903,7 +903,7 @@ The Messenger is a 2015 British supernatural mystery horror film directed by Dav
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer states that Robert Sheehan starred in The Messenger. This information is directly supported by the Reference Context, which lists Robert Sheehan as the star of the film. Therefore, the answer is supported and does not contain any unverified facts or contradictions.
+The Model Generated Answer states that Robert Sheehan starred in The Messenger. This information is directly supported by the Reference Context, which lists Robert Sheehan as the star of the film. Therefore, the answer is supported by the context.
 
 ---
 
@@ -920,7 +920,7 @@ A gin and tonic is a highball cocktail made with gin and tonic water poured over
 ```
 
 #### Judge Reasoning:
-The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference Context provides sufficient information to answer the question. The context explicitly states that a gin and tonic is made with gin, not tequila, and the paloma is a tequila-based cocktail. Despite this, the model's refusal to answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context. Therefore, this is considered an extraction or reasoning omission rather than a factual hallucination.
+The Model Generated Answer is a refusal to answer, stating 'I do not know'. However, the Reference Context provides sufficient information to answer the question. The context explicitly states that a gin and tonic is made with gin, and the paloma is a tequila-based cocktail. Therefore, the correct answer should be 'no', as only the paloma is based on tequila. Despite this, the model's refusal to answer does not contain any positive factual assertions that are unverified, unsupported, or contradicted by the Reference Context.
 
 ---
 
