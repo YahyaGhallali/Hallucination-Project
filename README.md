@@ -7,7 +7,7 @@
 
 ---
 
-## 🗺️ Architectural Roadmap
+## Architectural Roadmap
 
 The project is structured linearly to ensure that each stage builds on the findings and data of the previous one.
 
@@ -21,21 +21,21 @@ graph TD
     style C fill:#0284C7,stroke:#075985,stroke-width:2px,color:#fff
 ```
 
-### 📊 Phase 1: Automated Evaluation (Current Phase)
+### Phase 1: Automated Evaluation (Current Phase)
 * **Goal**: Shift from subjective "vibe-checking" to reproducible, objective, and statistical metrics.
 * **Mechanism**: Runs target model inference on normalized benchmark datasets (e.g., HaluEval) and audits the outputs using an independent, frontier LLM-as-a-Judge with strict schema enforcement.
 
-### 🛡️ Phase 2: Advanced RAG Mitigation (Future)
+### Phase 2: Advanced RAG Mitigation (Future)
 * **Goal**: Provide non-parametric memory access to ground generations.
 * **Mechanism**: Uses query expansion/decomposition, hierarchical parent-child indexing (via LlamaIndex/Qdrant), cross-encoder re-ranking, and self-reflective correction guardrails.
 
-### 🧠 Phase 3: Internal State Probing (Future)
+### Phase 3: Internal State Probing (Future)
 * **Goal**: Detect if a transformer model internally "knows" it is fabricating claims before token generation finishes.
 * **Mechanism**: Hook residual streams (using `TransformerLens`) during forward passes, cache hidden state tensors, and train regularized linear probes (logistic regression) to classify truthfulness.
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 The current codebase focuses on the implementation and validation of **Phase 1: Automated Evaluation**.
 
@@ -62,7 +62,7 @@ Hallucination/
 
 ---
 
-## ⚙️ Component Deep-Dive (Phase 1)
+## Component Deep-Dive (Phase 1)
 
 ### 1. Ingestion: [download_data.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/download_data.py)
 * **Purpose**: Downloads and structures evaluation data streamingly.
@@ -95,13 +95,13 @@ Hallucination/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 📋 Prerequisites
+### Prerequisites
 * Python 3.14+ (as configured in `pyproject.toml`)
 * [uv](https://github.com/astral-sh/uv) or `pip` for dependency management.
 
-### 🔧 Installation & Setup
+### Installation & Setup
 
 1. **Clone the repository and navigate to its root directory:**
    ```bash
@@ -124,7 +124,7 @@ Hallucination/
    NVIDIA_API_KEY=your_nvidia_api_key_here
    ```
 
-### 🏃 Running the Evaluation Pipeline
+### Running the Evaluation Pipeline
 
 Execute the pipeline sequentially:
 
@@ -148,7 +148,7 @@ Execute the pipeline sequentially:
 
 ---
 
-## 🛡️ R&D Resilience Patterns
+## R&D Resilience Patterns
 
 * **Graceful Fallbacks**: The data downloader falls back sequentially (Primary HTTP -> Fallback HTTP -> Local full JSON file -> Local 100-sample JSON file) to avoid setup blockages.
 * **Exponential Backoff**: APIs are rate-limited heavily; the pipeline features exponential retry loops specifically catching rate limit exceptions (`429`).

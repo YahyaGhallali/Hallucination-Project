@@ -4,7 +4,7 @@ Welcome to **Project Veracity**. This architectural guide outlines a modular, pr
 
 ---
 
-## 📊 Phase 1: Automated Hallucination Evaluation (The Baseline Layer)
+## Phase 1: Automated Hallucination Evaluation (The Baseline Layer)
 
 ### 1. Objectives
 
@@ -104,7 +104,7 @@ To validate your evaluation framework, you must perform a **Meta-Evaluation**.
 
 ---
 
-## 🛡️ Phase 2: Hallucination Mitigation Through Advanced RAG (The Mitigation Layer)
+## Phase 2: Hallucination Mitigation Through Advanced RAG (The Mitigation Layer)
 
 ### 1. Objectives
 
@@ -196,7 +196,7 @@ Your primary validation metric shifts here from general accuracy to the specific
 
 ---
 
-## 🧠 Phase 3: Internal State Probing (The Detection Layer)
+## Phase 3: Internal State Probing (The Detection Layer)
 
 ### 1. Objectives
 
@@ -283,7 +283,7 @@ This layer works inside the model execution loop.
 
 ---
 
-## 🏁 Final System Analysis
+## Final System Analysis
 
 To help you manage the overall development cycle of **Project Veracity**, here is a comprehensive strategic overview across all three phases:
 
