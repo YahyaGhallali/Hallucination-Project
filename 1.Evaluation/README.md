@@ -31,13 +31,19 @@ graph TD
 1.Evaluation/
 ├── data/
 │   ├── eval_set.jsonl              # Streamed, parsed, and normalized HaluEval QA subset (50 samples)
-│   ├── generation_outputs.jsonl    # Target model responses with source context and ground truth
-│   ├── evaluation_report.json      # Structured audit metrics and verdicts database
-│   └── evaluation_report.md        # Professional Markdown summary and detailed audit logs
+│   ├── perturbed_eval_set.jsonl    # Perturbed evaluation set (20 samples) for OOD / contamination tests
+│   ├── generation_outputs.jsonl    # Target model responses for standard dataset
+│   ├── generation_outputs_perturbed.jsonl # Target model responses for perturbed dataset
+│   ├── evaluation_report.json      # Standard audit metrics and verdicts database
+│   ├── evaluation_report.md        # Standard professional Markdown summary and detailed audit logs
+│   ├── evaluation_report_perturbed.json   # Perturbed audit metrics and verdicts database
+│   └── evaluation_report_perturbed.md     # Perturbed professional Markdown summary and detailed audit logs
 │
 ├── download_data.py                # Ingestion: Downloads, filters, and standardizes raw dataset
-├── eval_runner.py                  # Inference: Runs batch queries on target model (Gemma 3) via NVIDIA API
-└── judge.py                        # Audit: Stronger LLM-as-a-Judge (Llama 3 70B) scoring output factuality
+├── eval_runner.py                  # Inference: Runs batch queries on standard dataset via NVIDIA API
+├── eval_runner_perturbed.py        # Inference: Runs batch queries on perturbed dataset via NVIDIA API
+├── judge.py                        # Audit: LLM-as-a-Judge for standard dataset
+└── judge_perturbed.py              # Audit: LLM-as-a-Judge for perturbed dataset with special OOD prompts
 ```
 
 ---
@@ -118,26 +124,44 @@ Ensure that the parent directory has a configured `.env` file containing:
 NVIDIA_API_KEY=your_nvidia_api_key_here
 ```
 
-### Step 1: Download & Ingest Benchmark Data
+### Option A: Standard Evaluation Pipeline
+
+#### Step 1: Download & Ingest Benchmark Data
 Fetch the raw datasets and compile the evaluation set:
 ```bash
-python 1.Evaluation/download_data.py
+py 1.Evaluation/download_data.py
 ```
 *Generates: `1.Evaluation/data/eval_set.jsonl`*
 
-### Step 2: Run Target Inference
+#### Step 2: Run Target Inference
 Run batch generation on the target model:
 ```bash
-python 1.Evaluation/eval_runner.py
+py 1.Evaluation/eval_runner.py
 ```
 *Generates: `1.Evaluation/data/generation_outputs.jsonl`*
 
-### Step 3: Run LLM-as-a-Judge Auditing
+#### Step 3: Run LLM-as-a-Judge Auditing
 Grade target outputs and calculate the hallucination rate:
 ```bash
-python 1.Evaluation/judge.py
+py 1.Evaluation/judge.py
 ```
 *Calculates and prints the final pipeline metrics in the terminal.*
+
+### Option B: Perturbed Evaluation Pipeline (OOD / Benchmark Leakage Test)
+
+#### Step 1: Run Target Inference on Perturbed Dataset
+Run batch generation on the target model:
+```bash
+py 1.Evaluation/eval_runner_perturbed.py
+```
+*Generates: `1.Evaluation/data/generation_outputs_perturbed.jsonl`*
+
+#### Step 2: Run LLM-as-a-Judge Auditing on Perturbed Dataset
+Grade target outputs with the specialized judge that handles fictional entities and logical negation:
+```bash
+py 1.Evaluation/judge_perturbed.py
+```
+*Calculates and prints the final perturbed pipeline metrics in the terminal.*
 
 ---
 

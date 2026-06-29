@@ -1,9 +1,9 @@
 """
 Project Veracity: Automated Hallucination Evaluation (Phase 1)
-Script: judge.py
+Script: judge_perturbed.py
 
-This script implements the LLM-as-a-Judge verification protocol using NLI categorization.
-It reads the model-generated answers from `data/generation_outputs.jsonl`, prompts a stronger
+This script implements the LLM-as-a-Judge verification protocol using NLI categorization for the perturbed evaluation dataset.
+It reads the model-generated answers from `data/generation_outputs_perturbed.jsonl`, prompts a stronger
 evaluator model (Llama-3.1-70b-instruct) to audit those answers against the reference context,
 and outputs structured audit verdicts.
 
@@ -12,6 +12,7 @@ Key features:
 2. Utilizes NVIDIA's guided_json schema extension, falling back to standard JSON mode with manual stripping.
 3. Implements rate-limit retry handlers with exponential backoff.
 4. Exporting summary metrics and detailed logs to JSON and Markdown reports without emojis.
+5. Employs special instructions for auditing out-of-distribution fictional entities and logically inverted relational questions.
 """
 
 import os
@@ -28,7 +29,7 @@ import openai
 
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "generation_outputs.jsonl")
+INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "generation_outputs_perturbed.jsonl")
 MODEL_NAME = 'meta/llama-3.1-70b-instruct'
 
 # Load API credentials from the project root .env file
@@ -123,9 +124,9 @@ def generate_verdict_with_retry(client, model, messages, json_schema, max_retrie
 
 def run_judge():
     """
-    Executes the LLM-as-a-Judge verification pipeline:
+    Executes the LLM-as-a-Judge verification pipeline for the perturbed evaluation set:
     1. Validates presence of the NVIDIA API credential.
-    2. Reads target outputs from `generation_outputs.jsonl`.
+    2. Reads target outputs from `generation_outputs_perturbed.jsonl`.
     3. Runs individual evaluations through Llama 3.1 70B under strict NLI JSON rubrics.
     4. Logs verdicts to stdout.
     5. Computes statistics (Abstention Rate, Coverage, Factuality, QAFY, F_0.5-Factuality).
@@ -147,7 +148,7 @@ def run_judge():
         sys.exit(1)
 
     if not os.path.exists(INPUT_FILE):
-        log(f"Input file not found at: {INPUT_FILE}. Please run eval_runner.py first to generate outputs.", "ERROR")
+        log(f"Input file not found at: {INPUT_FILE}. Please run eval_runner_perturbed.py first to generate outputs.", "ERROR")
         sys.exit(1)
 
     log(f"Reading generation outputs from {INPUT_FILE}...")
@@ -211,13 +212,19 @@ def run_judge():
             "2. CONTRADICTION: The candidate answer contains active hallucinations, unverified factual assertions, or direct contradictions against the reference context.\n"
             "3. NEUTRALITY: The candidate answer represents a safe refusal, an explicit abstention (e.g., 'I do not know', 'The context does not contain this information'), or a complete extraction omission where no positive factual assertions are made. Polite or verbose evasions that contain no actionable information must be cleanly categorized here.\n\n"
             "Strict Rubric Rules:\n"
-            "- **Question Premise Rule:** Do NOT penalize the Model Generated Answer for incorporating or assuming facts, entities, or names (e.g., specific musical or movie titles) "
+            "- **Question Premise Rule:** Do NOT penalize the Model Generated Answer for incorporating or assuming facts, entities, or names (e.g., specific titles or fictional names) "
             "that were already introduced in the 'User Question', even if those specific names are not present in the 'Reference Context'. Focus only on whether the *new* information "
             "provided by the model's answer is supported by the context.\n"
-            "- **Entity Resolution Rule:** Do not treat partial names, abbreviations, or minor naming variations (e.g., 'Howard Marks' vs. 'Dennis Howard Marks') as contradictions "
-            "if they refer to the same individual or subject described in the context.\n\n"
+            "- **Entity Resolution Rule:** Do not treat partial names, abbreviations, or minor naming variations as contradictions "
+            "if they refer to the same individual, entity, or subject described in the context.\n"
+            "- **Fictional Entities / Out-of-Distribution Rule:** The context and question may contain fictional entities, characters, locations, or dates (Entity Substitution). "
+            "You must evaluate factuality strictly based on the provided context, even if the names or facts contradict real-world history or general knowledge. "
+            "Do not use real-world facts to override or penalize assertions that are fully supported by the fictional context.\n"
+            "- **Logical Inversion / Negation Rule:** The question and context may use inverted or negated relational logic (e.g., asking what is NOT the case, or asking for the 'last' "
+            "or 'least' instead of 'first' or 'most'). Pay close attention to negative qualifiers, comparative terms, and inverted relationships in both the question and context. "
+            "Ensure the model's answer correctly aligns with this inverted logic as defined in the context.\n\n"
             "You must return a JSON object containing exactly two fields:\n"
-            '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, and resolving naming or premise rules)\n'
+            '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, and resolving naming, fictional, inverted, or premise rules)\n'
             '- "category": str (must be exactly one of: "ENTAILMENT", "CONTRADICTION", "NEUTRALITY")\n\n'
             "Return ONLY the raw JSON object, without markdown formatting or code blocks."
         )
@@ -292,7 +299,7 @@ def run_judge():
 
     # Generate performance summaries
     log("="*60)
-    log("EVALUATION RUN SUMMARY", "SUCCESS")
+    log("PERTURBED EVALUATION RUN SUMMARY", "SUCCESS")
     log("="*60)
     log(f"Total Records Processed: {len(records)}")
     log(f"Successfully Evaluated: {total_evaluated}")
@@ -352,7 +359,7 @@ def run_judge():
     }
     
     try:
-        report_json_path = os.path.join(SCRIPT_DIR, "data", "evaluation_report.json")
+        report_json_path = os.path.join(SCRIPT_DIR, "data", "evaluation_report_perturbed.json")
         with open(report_json_path, 'w', encoding='utf-8') as f:
             json.dump(summary_data, f, indent=2, ensure_ascii=False)
         log(f"JSON evaluation report saved to {report_json_path}", "SUCCESS")
@@ -361,9 +368,9 @@ def run_judge():
 
     # Export metrics and logs as a professional Markdown document without emojis
     try:
-        report_md_path = os.path.join(SCRIPT_DIR, "data", "evaluation_report.md")
+        report_md_path = os.path.join(SCRIPT_DIR, "data", "evaluation_report_perturbed.md")
         with open(report_md_path, 'w', encoding='utf-8') as f:
-            f.write("# Project Veracity: Evaluation Report\n\n")
+            f.write("# Project Veracity: Perturbed Evaluation Report\n\n")
             f.write(f"Generated at: `{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`  \n")
             f.write(f"Evaluator Model: `{MODEL_NAME}`\n\n")
             
