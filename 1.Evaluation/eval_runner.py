@@ -23,7 +23,7 @@ import openai
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "eval_set.jsonl")
-OUTPUT_DIR = os.path.join(SCRIPT_DIR, "data")
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, "output")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "generation_outputs.jsonl")
 
 # Target evaluation model configurations

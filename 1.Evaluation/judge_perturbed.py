@@ -3,7 +3,7 @@ Project Veracity: Automated Hallucination Evaluation (Phase 1)
 Script: judge_perturbed.py
 
 This script implements the LLM-as-a-Judge verification protocol using NLI categorization for the perturbed evaluation dataset.
-It reads the model-generated answers from `data/generation_outputs_perturbed.jsonl`, prompts a stronger
+It reads the model-generated answers from `output/generation_outputs_perturbed.jsonl`, prompts a stronger
 evaluator model (Llama-3.1-70b-instruct) to audit those answers against the reference context,
 and outputs structured audit verdicts.
 
@@ -29,7 +29,7 @@ import openai
 
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "generation_outputs_perturbed.jsonl")
+INPUT_FILE = os.path.join(SCRIPT_DIR, "output", "generation_outputs_perturbed.jsonl")
 MODEL_NAME = 'meta/llama-3.1-70b-instruct'
 
 # Load API credentials from the project root .env file
@@ -335,7 +335,7 @@ def run_judge():
     log("="*60)
 
     # Make output directories if they do not exist
-    os.makedirs(os.path.join(SCRIPT_DIR, "data"), exist_ok=True)
+    os.makedirs(os.path.join(SCRIPT_DIR, "output"), exist_ok=True)
     
     # Export metrics as a structured JSON object
     summary_data = {
@@ -359,7 +359,7 @@ def run_judge():
     }
     
     try:
-        report_json_path = os.path.join(SCRIPT_DIR, "data", "evaluation_report_perturbed.json")
+        report_json_path = os.path.join(SCRIPT_DIR, "output", "evaluation_report_perturbed.json")
         with open(report_json_path, 'w', encoding='utf-8') as f:
             json.dump(summary_data, f, indent=2, ensure_ascii=False)
         log(f"JSON evaluation report saved to {report_json_path}", "SUCCESS")
@@ -368,7 +368,7 @@ def run_judge():
 
     # Export metrics and logs as a professional Markdown document without emojis
     try:
-        report_md_path = os.path.join(SCRIPT_DIR, "data", "evaluation_report_perturbed.md")
+        report_md_path = os.path.join(SCRIPT_DIR, "output", "evaluation_report_perturbed.md")
         with open(report_md_path, 'w', encoding='utf-8') as f:
             f.write("# Project Veracity: Perturbed Evaluation Report\n\n")
             f.write(f"Generated at: `{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`  \n")

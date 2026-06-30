@@ -14,9 +14,9 @@ The automated evaluation pipeline is executed in three sequential steps:
 graph TD
     A[1. Ingestion: download_data.py] -->|Downloads & Normalizes HaluEval QA| B(data/eval_set.jsonl)
     B --> C[2. Inference: eval_runner.py]
-    C -->|Generates Target Answers| D(data/generation_outputs.jsonl)
+    C -->|Generates Target Answers| D(output/generation_outputs.jsonl)
     D --> E[3. Verification: judge.py]
-    E -->|Audits Outputs & Computes Metrics| F(data/evaluation_report.md)
+    E -->|Audits Outputs & Computes Metrics| F(output/evaluation_report.md)
 
     style A fill:#4F46E5,stroke:#312E81,stroke-width:2px,color:#fff
     style C fill:#0D9488,stroke:#115E59,stroke-width:2px,color:#fff
@@ -31,7 +31,8 @@ graph TD
 1.Evaluation/
 ├── data/
 │   ├── eval_set.jsonl              # Streamed, parsed, and normalized HaluEval QA subset (50 samples)
-│   ├── perturbed_eval_set.jsonl    # Perturbed evaluation set (20 samples) for OOD / contamination tests
+│   └── perturbed_eval_set.jsonl    # Perturbed evaluation set (20 samples) for OOD / contamination tests
+├── output/
 │   ├── generation_outputs.jsonl    # Target model responses for standard dataset
 │   ├── generation_outputs_perturbed.jsonl # Target model responses for perturbed dataset
 │   ├── evaluation_report.json      # Standard audit metrics and verdicts database
@@ -92,7 +93,7 @@ Each line is a JSON object representing a normalized HaluEval sample:
 }
 ```
 
-### Generation Outputs (`data/generation_outputs.jsonl`)
+### Generation Outputs (`output/generation_outputs.jsonl`)
 Each line is a JSON object mapping the generated responses and baselines:
 ```json
 {
@@ -138,7 +139,7 @@ Run batch generation on the target model:
 ```bash
 py 1.Evaluation/eval_runner.py
 ```
-*Generates: `1.Evaluation/data/generation_outputs.jsonl`*
+*Generates: `1.Evaluation/output/generation_outputs.jsonl`*
 
 #### Step 3: Run LLM-as-a-Judge Auditing
 Grade target outputs and calculate the hallucination rate:
@@ -154,7 +155,7 @@ Run batch generation on the target model:
 ```bash
 py 1.Evaluation/eval_runner_perturbed.py
 ```
-*Generates: `1.Evaluation/data/generation_outputs_perturbed.jsonl`*
+*Generates: `1.Evaluation/output/generation_outputs_perturbed.jsonl`*
 
 #### Step 2: Run LLM-as-a-Judge Auditing on Perturbed Dataset
 Grade target outputs with the specialized judge that handles fictional entities and logical negation:
