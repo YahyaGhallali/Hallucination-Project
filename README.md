@@ -1,6 +1,7 @@
 # Project Veracity: LLM Hallucination Evaluation, Mitigation, and Detection
 
 **Project Veracity** is a modular, production-grade framework designed to systematically measure, mitigate, and detect hallucinations in Large Language Models (LLMs). Rather than treating hallucinations as an unpredictable glitch, this framework approaches the problem scientifically across three developmental layers:
+
 1. **Engineering Measurement Problem** (Phase 1 - *Current Baseline Layer*)
 2. **Architectural Data Delivery Problem** (Phase 2 - *Mitigation Layer*)
 3. **Mechanistic Feature Extraction Problem** (Phase 3 - *Detection Layer*)
@@ -22,14 +23,17 @@ graph TD
 ```
 
 ### Phase 1: Automated Evaluation (Current Phase)
+
 * **Goal**: Shift from subjective "vibe-checking" to reproducible, objective, and statistical metrics.
 * **Mechanism**: Runs target model inference on normalized benchmark datasets (e.g., HaluEval) and audits the outputs using an independent, frontier LLM-as-a-Judge with strict schema enforcement.
 
 ### Phase 2: Advanced RAG Mitigation (Future)
+
 * **Goal**: Provide non-parametric memory access to ground generations.
 * **Mechanism**: Uses query expansion/decomposition, hierarchical parent-child indexing (via LlamaIndex/Qdrant), cross-encoder re-ranking, and self-reflective correction guardrails.
 
 ### Phase 3: Internal State Probing (Future)
+
 * **Goal**: Detect if a transformer model internally "knows" it is fabricating claims before token generation finishes.
 * **Mechanism**: Hook residual streams (using `TransformerLens`) during forward passes, cache hidden state tensors, and train regularized linear probes (logistic regression) to classify truthfulness.
 
@@ -43,11 +47,14 @@ The current codebase focuses on the implementation and validation of **Phase 1: 
 Hallucination/
 │
 ├── 1.Evaluation/                # Phase 1: Evaluation Pipeline
-│   ├── data/                    # Evaluation inputs, intermediates, and outputs
+│   ├── data/                    # Evaluation inputs and raw files
 │   │   ├── eval_set.jsonl       # Streaming subset of normalized HaluEval QA (50 samples)
-│   │   ├── generation_outputs.jsonl # Inference answers from Llama-3.1-8B-Instruct
 │   │   ├── gemini_qa_eval_results.json # Historic evaluation results
 │   │   └── [halueval_raw_jsons] # Raw HaluEval datasets (qa, dialogue, summarization, etc.)
+│   ├── output/                  # Generated evaluation outputs and reports
+│   │   ├── generation_outputs.jsonl # Inference answers from target model
+│   │   ├── evaluation_report.json # Detailed metrics JSON
+│   │   └── evaluation_report.md  # Detailed metrics markdown report
 │   │
 │   ├── download_data.py         # Stream, parse, and normalize HaluEval QA subset
 │   ├── eval_runner.py           # Run batch inference on target models via NVIDIA API
@@ -65,6 +72,7 @@ Hallucination/
 ## Component Deep-Dive (Phase 1)
 
 ### 1. Ingestion: [download_data.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/download_data.py)
+
 * **Purpose**: Downloads and structures evaluation data streamingly.
 * **How it works**:
   * Attempts to stream the HaluEval QA dataset from github endpoints (primary and fallback repositories) line-by-line.
@@ -74,15 +82,17 @@ Hallucination/
   * Saves the first **50 entries** to `data/eval_set.jsonl`.
 
 ### 2. Inference: [eval_runner.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/eval_runner.py)
+
 * **Purpose**: Generates answers from the target evaluation model.
 * **How it works**:
   * Loads configurations and uses the OpenAI SDK to interact with the high-performance NVIDIA API hosted endpoints.
   * Uses target model `meta/llama-3.1-8b-instruct` under temperature `0.0` to ensure deterministic, reproducible results.
   * Constrains the target model via system instructions to answer *only* using the provided context, or state "I do not know" if context is insufficient.
   * Integrates proactive sleep intervals and an exponential backoff loop to elegantly handle rate limits (`429` errors).
-  * Writes structured generation lines containing question, context, ground truth, baseline hallucination, and model answer into `data/generation_outputs.jsonl`.
+  * Writes structured generation lines containing question, context, ground truth, baseline hallucination, and model answer into `output/generation_outputs.jsonl`.
 
 ### 3. Verification: [judge.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/judge.py)
+
 * **Purpose**: Implements the LLM-as-a-Judge protocol.
 * **How it works**:
   * Reads generated outputs and uses a stronger evaluator model, `meta/llama-3.1-70b-instruct`.
@@ -98,28 +108,34 @@ Hallucination/
 ## Getting Started
 
 ### Prerequisites
+
 * Python 3.14+ (as configured in `pyproject.toml`)
 * [uv](https://github.com/astral-sh/uv) or `pip` for dependency management.
 
 ### Installation & Setup
 
 1. **Clone the repository and navigate to its root directory:**
+
    ```bash
    cd Hallucination
    ```
 
 2. **Install dependencies:**
    Using `uv` (recommended):
+
    ```bash
    uv sync
    ```
+
    Or using standard `pip`:
+
    ```bash
    pip install -e .
    ```
 
 3. **Configure Environment Variables:**
    Create a `.env` file in the project root:
+
    ```env
    NVIDIA_API_KEY=your_nvidia_api_key_here
    ```
@@ -129,21 +145,27 @@ Hallucination/
 Execute the pipeline sequentially:
 
 1. **Step 1: Download and Prepare the Data**
+
    ```bash
    python 1.Evaluation/download_data.py
    ```
+
    This streams and normalizes the raw dataset, outputting `1.Evaluation/data/eval_set.jsonl`.
 
 2. **Step 2: Run Target Model Inference**
+
    ```bash
    python 1.Evaluation/eval_runner.py
    ```
-   This prompts `llama-3.1-8b-instruct` to answer the evaluation questions, outputting results into `1.Evaluation/data/generation_outputs.jsonl`.
+
+   This prompts `llama-3.1-8b-instruct` to answer the evaluation questions, outputting results into `1.Evaluation/output/generation_outputs.jsonl`.
 
 3. **Step 3: Audit and Score Results**
+
    ```bash
    python 1.Evaluation/judge.py
    ```
+
    This will run `llama-3.1-70b-instruct` as a judge to assess correctness and output the final statistics, concluding with the baseline hallucination rate.
 
 ---

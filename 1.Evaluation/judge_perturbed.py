@@ -30,7 +30,7 @@ import openai
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, "output", "generation_outputs_perturbed.jsonl")
-MODEL_NAME = 'meta/llama-3.1-70b-instruct'
+MODEL_NAME = 'meta/llama-3.1-8b-instruct'
 
 # Load API credentials from the project root .env file
 ENV_PATH = os.path.join(SCRIPT_DIR, "..", ".env")

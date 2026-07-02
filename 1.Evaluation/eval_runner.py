@@ -141,6 +141,10 @@ def run_evaluation():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     # Loop through evaluation items and execute inference
+    process_start_time = time.time()
+    last_10_time = process_start_time
+    completed = 0
+    
     try:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as out_f:
             for idx, item in enumerate(items):
@@ -188,7 +192,16 @@ def run_evaluation():
                 # Save item immediately to preserve state on execution interruptions
                 out_f.write(json.dumps(output_row, ensure_ascii=False) + '\n')
                 
-        log(f"Inference completed successfully. Outputs saved to {OUTPUT_FILE}", "SUCCESS")
+                completed += 1
+                if completed % 10 == 0:
+                    current_time = time.time()
+                    batch_duration = current_time - last_10_time
+                    log(f"Timer: Processed {completed}/{len(items)} items. Last 10 took {batch_duration:.2f} seconds.", "TIMER")
+                    last_10_time = current_time
+                
+        process_end_time = time.time()
+        total_duration = process_end_time - process_start_time
+        log(f"Inference completed successfully in {total_duration:.2f} seconds. Outputs saved to {OUTPUT_FILE}", "SUCCESS")
     except Exception as e:
         log(f"Failed to write outputs to file: {e}", "ERROR")
         sys.exit(1)

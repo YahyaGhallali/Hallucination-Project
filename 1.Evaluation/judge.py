@@ -29,7 +29,7 @@ import openai
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, "output", "generation_outputs.jsonl")
-MODEL_NAME = 'meta/llama-3.1-70b-instruct'
+MODEL_NAME = 'meta/llama-3.1-8b-instruct'
 
 # Load API credentials from the project root .env file
 ENV_PATH = os.path.join(SCRIPT_DIR, "..", ".env")
@@ -172,6 +172,10 @@ def run_judge():
     json_schema = AuditVerdict.model_json_schema()
     verdicts_list = []
 
+    process_start_time = time.time()
+    last_10_time = process_start_time
+    completed = 0
+
     # Loop through each output item
     for idx, record in enumerate(records):
         context = record.get('context', '')
@@ -192,6 +196,14 @@ def run_judge():
                 "category": None,
                 "status": "error"
             })
+            
+            completed += 1
+            if completed % 10 == 0:
+                current_time = time.time()
+                batch_duration = current_time - last_10_time
+                log(f"Timer: Audited {completed}/{len(records)} items. Last 10 took {batch_duration:.2f} seconds.", "TIMER")
+                last_10_time = current_time
+                
             continue
 
         # Build prompt incorporating context, question, and candidate answer
@@ -290,6 +302,16 @@ def run_judge():
                 "status": "failed_audit"
             })
 
+        completed += 1
+        if completed % 10 == 0:
+            current_time = time.time()
+            batch_duration = current_time - last_10_time
+            log(f"Timer: Audited {completed}/{len(records)} items. Last 10 took {batch_duration:.2f} seconds.", "TIMER")
+            last_10_time = current_time
+
+    process_end_time = time.time()
+    total_duration = process_end_time - process_start_time
+
     # Generate performance summaries
     log("="*60)
     log("EVALUATION RUN SUMMARY", "SUCCESS")
@@ -325,6 +347,7 @@ def run_judge():
     log(f"Factuality Rate: {factuality_rate * 100:.2f}%")
     log(f"Quality-Adjusted Factual Yield (QAFY): {qafy * 100:.2f}%")
     log(f"F_0.5-Factuality: {f05_factuality:.4f}")
+    log(f"Total Audit Time: {total_duration:.2f} seconds", "TIMER")
     log("="*60)
 
     # Make output directories if they do not exist

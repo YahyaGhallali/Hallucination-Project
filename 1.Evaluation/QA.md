@@ -1,69 +1,55 @@
-Viewed evaluation_report.json:1-800
-Listed directory output
-Listed directory data
-Viewed evaluation_report_perturbed.json:1-20
-Edited ci_calc.py
-Ran command: `python ci_calc.py`
-Used tool: manage_task
-Ran command: `py ci_calc.py`
-Used tool: manage_task
+# LLM Evaluation Phase 1: Statistical Analysis Report
 
-Here is the statistical report comparing the Standard Baseline with the Perturbed Baseline based on exact Clopper-Pearson 95% Confidence Intervals.
+This report compares the performance of the model on the Standard Baseline dataset against the Perturbed Baseline dataset. Exact 95% Confidence Intervals (CIs) were calculated using the Clopper-Pearson method to account for constrained sample sizes.
 
-### LLM Evaluation: Phase 1 Statistical Report
+## 1. Data Summary
 
-**Dataset Sample Sizes**
-
-- **Standard Baseline**: 100 total samples
-- **Perturbed Baseline**: 40 total samples
+| Metric | Standard Baseline | Perturbed Baseline |
+| :--- | :--- | :--- |
+| **Total Samples evaluated** | 100 | 40 |
+| **Abstentions (Neutral)** | 15 | 10 |
+| **Factual Answers (Entailed)** | 79 | 26 |
+| **Total Answered (Total - Abstentions)** | 85 | 30 |
 
 ---
 
-#### 1. Abstention Rate
+## 2. Confidence Interval Estimates (95% CI)
+
+### Abstention Rate
 
 *(Successes = Abstentions, Trials = Total Samples)*
 
-- **Standard Baseline**:
-  - Rate: **13.00%** (13 / 100)
-  - 95% CI: **[7.11%, 21.20%]**
-- **Perturbed Baseline**:
-  - Rate: **27.50%** (11 / 40)
-  - 95% CI: **[14.60%, 43.89%]**
+- **Standard Baseline**: 15.00% &nbsp; `[95% CI: 8.65%, 23.53%]`
+- **Perturbed Baseline**: 25.00% &nbsp; `[95% CI: 12.69%, 41.20%]`
 
-*Observation*: The perturbed dataset leads to a noticeably higher abstention rate, and their confidence intervals do overlap slightly, though the shift in the point estimate is substantial.
-
-#### 2. Quality-Adjusted Factual Yield (QAFY)
+### Quality-Adjusted Factual Yield (QAFY)
 
 *(Successes = Factual Answers, Trials = Total Samples)*
 
-- **Standard Baseline**:
-  - Rate: **84.00%** (84 / 100)
-  - 95% CI: **[75.32%, 90.57%]**
-- **Perturbed Baseline**:
-  - Rate: **62.50%** (25 / 40)
-  - 95% CI: **[45.80%, 77.27%]**
+- **Standard Baseline**: 79.00% &nbsp; `[95% CI: 69.71%, 86.51%]`
+- **Perturbed Baseline**: 65.00% &nbsp; `[95% CI: 48.32%, 79.37%]`
 
-*Observation*: The QAFY has dropped by over 20 percentage points in the perturbed dataset. The 95% CIs overlap very slightly (between 75.32% and 77.27%), suggesting a strong likely degradation in overall yield.
-
-#### 3. Factuality Rate
+### Factuality Rate
 
 *(Successes = Factual Answers, Trials = Samples Answered)*
 
-- **Standard Baseline**:
-  - Rate: **96.55%** (84 / 87)
-  - 95% CI: **[90.25%, 99.28%]**
-- **Perturbed Baseline**:
-  - Rate: **86.21%** (25 / 29)
-  - 95% CI: **[68.34%, 96.11%]**
+- **Standard Baseline**: 92.94% &nbsp; `[95% CI: 85.27%, 97.37%]`
+- **Perturbed Baseline**: 86.67% &nbsp; `[95% CI: 69.28%, 96.24%]`
 
 ---
 
-### Statistical Conclusion
+## 3. Statistical Conclusion
 
-**Do the Factuality Rate CIs overlap?**
-Yes, the 95% Confidence Intervals overlap significantly. The Standard Baseline CI is **[90.25%, 99.28%]**, while the Perturbed Baseline CI is **[68.34%, 96.11%]**. The overlapping region is between **90.25%** and **96.11%**.
+**Analyze the Factuality Rate CIs. Do they overlap?**
+Yes, the 95% Confidence Intervals for the Factuality Rate **overlap significantly**.
+
+- Standard CI ranges from **85.27%** to **97.37%**
+- Perturbed CI ranges from **69.28%** to **96.24%**
+
+The overlapping region is between `85.27%` and `96.24%`.
+
+**Explain what overlapping means and implies:**
+When 95% confidence intervals overlap, it means that the ranges of plausible values for the true underlying metric in both groups share common values. In hypothesis testing, overlapping intervals typically imply that the difference between the two sample proportions might simply be due to random sampling variability rather than a true underlying difference.
 
 **Can we statistically conclude that the perturbation degraded the model's factuality?**
-Based purely on the 95% Clopper-Pearson Confidence Intervals, we **cannot statistically conclude** with a high degree of confidence that the model's factuality was degraded. The wide confidence interval for the Perturbed Baseline (caused by the heavily constrained sample size of $N=29$ answered queries) completely envelops the lower bound of the Standard Baseline's interval.
-
-While the point estimate dropped from ~96.5% to ~86.2%—hinting that the model might be struggling more with the perturbed entities—the small sample size does not provide enough statistical power to separate these distributions at a 95% confidence level.
+**No.** Because the confidence intervals for the Factuality Rate overlap, we do not have enough statistical evidence at the 95% confidence level to conclude that the perturbation caused a definitive degradation in factuality. While the point estimate dropped from 92.94% to 86.67%, the small sample size (especially the 30 answered questions in the perturbed set) results in a very wide confidence interval. We cannot rule out the possibility that the true factuality rate remains the same across both scenarios.

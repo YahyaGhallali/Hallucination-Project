@@ -32,7 +32,7 @@ OUTPUT_DIR = os.path.join(SCRIPT_DIR, "data")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "eval_set.jsonl")
 
 # Capping size of the evaluation set for controlled inference testing
-LIMIT = 100
+LIMIT = 200
 
 def log(msg, level="INFO"):
     """
