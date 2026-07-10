@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 0,
+    "context": "Mount Everest is Earth's highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas. The international border between China and Nepal runs across its summit point.",
+    "question": "In which mountain range is Mount Everest located?",
+    "ground_truth": "The Himalayas",
+    "known_hallucination_baseline": "The Andes",
+    "model_generated_answer": "The Mahalangur Himal sub-range of the Himalayas."
+  },
+  {
+    "id": 1,
+    "context": "The Sahara is a desert on the African continent. With an area of 9,200,000 square kilometers, it is the largest hot desert in the world.",
+    "question": "On which continent is the Sahara desert located?",
+    "ground_truth": "Africa",
+    "known_hallucination_baseline": "South America",
+    "model_generated_answer": "The Sahara desert is located on the African continent."
+  },
+  {
+    "id": 2,
+    "context": "The Mariana Trench is located in the western Pacific Ocean about 200 kilometers east of the Mariana Islands. It is the deepest oceanic trench on Earth.",
+    "question": "In which ocean is the Mariana Trench located?",
+    "ground_truth": "The Pacific Ocean",
+    "known_hallucination_baseline": "The Atlantic Ocean",
+    "model_generated_answer": "The Mariana Trench is located in the **Pacific Ocean**."
+  },
+  {
+    "id": 3,
+    "context": "The Amazon River in South America is the largest river by discharge volume of water in the world. It flows through Peru, Colombia, and Brazil before emptying into the Atlantic Ocean.",
+    "question": "Which river has the largest discharge volume of water in the world?",
+    "ground_truth": "The Amazon River",
+    "known_hallucination_baseline": "The Nile River",
+    "model_generated_answer": "The Amazon River."
+  },
+  {
+    "id": 4,
+    "context": "The Great Barrier Reef is the world's largest coral reef system composed of over 2,900 individual reefs. It is located in the Coral Sea, off the coast of Queensland, Australia.",
+    "question": "Off the coast of which country is the Great Barrier Reef located?",
+    "ground_truth": "Australia",
+    "known_hallucination_baseline": "New Zealand",
+    "model_generated_answer": "Australia"
+  },
+  {
+    "id": 5,
+    "context": "Lake Baikal is a rift lake in Russia, situated in southern Siberia. It is the largest freshwater lake by volume in the world, containing 22 to 23 percent of the world's fresh surface water.",
+    "question": "Where is Lake Baikal situated?",
+    "ground_truth": "Southern Siberia, Russia",
+    "known_hallucination_baseline": "Northern Ontario, Canada",
+    "model_generated_answer": "Southern Siberia, Russia."
+  },
+  {
+    "id": 6,
+    "context": "The Andes represent the longest continental mountain range in the world, forming a continuous highland along the western edge of South America. The range spans seven countries including Venezuela, Colombia, and Ecuador.",
+    "question": "Along which edge of South America do the Andes run?",
+    "ground_truth": "The western edge",
+    "known_hallucination_baseline": "The eastern edge",
+    "model_generated_answer": "The Andes run along the western edge of South America."
+  },
+  {
+    "id": 7,
+    "context": "Greenland is the world's largest island that is not a continent. It is an autonomous territory within the Kingdom of Denmark.",
+    "question": "Which country does Greenland belong to as an autonomous territory?",
+    "ground_truth": "Denmark",
+    "known_hallucination_baseline": "Norway",
+    "model_generated_answer": "Denmark."
+  },
+  {
+    "id": 8,
+    "context": "The Dead Sea is a salt lake bordered by Jordan to the east and Israel to the west. Its surface and shores are 430.5 meters below sea level, Earth's lowest elevation on land.",
+    "question": "Which countries border the Dead Sea?",
+    "ground_truth": "Jordan and Israel",
+    "known_hallucination_baseline": "Egypt and Lebanon",
+    "model_generated_answer": "Jordan and Israel."
+  },
+  {
+    "id": 9,
+    "context": "Victoria Falls is a waterfall on the Zambezi River in southern Africa. It provides habitat for several unique species of plants and animals.",
+    "question": "On which river is Victoria Falls located?",
+    "ground_truth": "The Zambezi River",
+    "known_hallucination_baseline": "The Congo River",
+    "model_generated_answer": "The Zambezi River."
+  },
+  {
+    "id": 10,
+    "context": "The Battle of Hastings was fought on 14 October 1066 between the Norman-French army of William, the Duke of Normandy, and an English army under the Anglo-Saxon King Harold Godwinson. It resulted in a decisive Norman victory.",
+    "question": "In what year was the Battle of Hastings fought?",
+    "ground_truth": "1066",
+    "known_hallucination_baseline": "1215",
+    "model_generated_answer": "1066"
+  },
+  {
+    "id": 11,
+    "context": "Magna Carta is a royal charter of rights agreed to by King John of England at Runnymede, near Windsor, on 15 June 1215. It was drafted to make peace between the unpopular king and a group of rebel barons.",
+    "question": "Which English king agreed to the Magna Carta?",
+    "ground_truth": "King John",
+    "known_hallucination_baseline": "King Henry VIII",
+    "model_generated_answer": "King John of England."
+  },
+  {
+    "id": 12,
+    "context": "The fall of the Aztec Empire occurred in 1521 following a long siege of the capital, Tenochtitlan. The Spanish forces were led by Hernán Cortés.",
+    "question": "Who led the Spanish forces during the fall of the Aztec Empire?",
+    "ground_truth": "Hernán Cortés",
+    "known_hallucination_baseline": "Francisco Pizarro",
+    "model_generated_answer": "Hernán Cortés."
+  },
+  {
+    "id": 13,
+    "context": "The Meiji Restoration was an event that restored practical imperial rule to the Empire of Japan in 1868 under Emperor Meiji. It led to enormous changes in Japan's political and social structure.",
+    "question": "In what year did the Meiji Restoration occur?",
+    "ground_truth": "1868",
+    "known_hallucination_baseline": "1912",
+    "model_generated_answer": "1868"
+  },
+  {
+    "id": 14,
+    "context": "The Rosetta Stone is a granodiorite stele discovered in 1799. It is inscribed with three versions of a decree issued in Memphis, Egypt, in 196 BC during the Ptolemaic dynasty on behalf of King Ptolemy V Epiphanes.",
+    "question": "In what year was the Rosetta Stone discovered?",
+    "ground_truth": "1799",
+    "known_hallucination_baseline": "1822",
+    "model_generated_answer": "1799"
+  },
+  {
+    "id": 15,
+    "context": "Charlemagne was King of the Franks from 768, King of the Lombards from 774, and Emperor of the Romans from 800. He united the majority of western and central Europe.",
+    "question": "When was Charlemagne crowned Emperor of the Romans?",
+    "ground_truth": "800",
+    "known_hallucination_baseline": "1066",
+    "model_generated_answer": "800."
+  },
+  {
+    "id": 16,
+    "context": "The French Revolution was a period of radical political and societal change in France that began with the Estates General of 1789. It ended with the formation of the French Consulate in November 1799.",
+    "question": "What event marked the beginning of the French Revolution in 1789?",
+    "ground_truth": "The Estates General",
+    "known_hallucination_baseline": "The Storming of the Bastille in 1793",
+    "model_generated_answer": "The Estates General of 1789."
+  },
+  {
+    "id": 17,
+    "context": "The Fall of Constantinople was the capture of the capital of the Byzantine Empire by the Ottoman Empire. The city fell on 29 May 1453, concluding a 53-day siege.",
+    "question": "Which empire captured Constantinople in 1453?",
+    "ground_truth": "The Ottoman Empire",
+    "known_hallucination_baseline": "The Persian Empire",
+    "model_generated_answer": "The Ottoman Empire."
+  },
+  {
+    "id": 18,
+    "context": "Apollo 11 was the American spaceflight that first landed humans on the Moon on July 20, 1969. Commander Neil Armstrong and lunar module pilot Buzz Aldrin formed the American crew that landed the Apollo Lunar Module Eagle.",
+    "question": "Who were the two astronauts that landed the Lunar Module Eagle on the Moon?",
+    "ground_truth": "Neil Armstrong and Buzz Aldrin",
+    "known_hallucination_baseline": "Yuri Gagarin and Alan Shepard",
+    "model_generated_answer": "Neil Armstrong and Buzz Aldrin."
+  },
+  {
+    "id": 19,
+    "context": "Johannes Gutenberg introduced letterpress printing to Europe with his movable-type printing press in the 15th century. His work started the Printing Revolution and is regarded as a milestone of the second millennium.",
+    "question": "Who introduced letterpress printing to Europe in the 15th century?",
+    "ground_truth": "Johannes Gutenberg",
+    "known_hallucination_baseline": "Leonardo da Vinci",
+    "model_generated_answer": "Johannes Gutenberg"
+  },
+  {
+    "id": 20,
+    "context": "Photosynthesis is a process used by plants, algae, and certain bacteria to harness energy from sunlight and turn it into chemical energy. Oxygen is released as a byproduct during this process.",
+    "question": "What gas is released as a byproduct of photosynthesis?",
+    "ground_truth": "Oxygen",
+    "known_hallucination_baseline": "Carbon dioxide",
+    "model_generated_answer": "Oxygen"
+  },
+  {
+    "id": 21,
+    "context": "Ribosomes are macromolecular machines found within all living cells that perform biological protein synthesis. They link amino acids together in the order specified by the codons of messenger RNA.",
+    "question": "What biological process is performed by ribosomes?",
+    "ground_truth": "Protein synthesis",
+    "known_hallucination_baseline": "Cellular respiration",
+    "model_generated_answer": "Biological protein synthesis."
+  },
+  {
+    "id": 22,
+    "context": "Mitochondria are double-membrane-bound organelles found in most eukaryotic organisms. They generate most of the cell's supply of adenosine triphosphate (ATP), used as a source of chemical energy.",
+    "question": "What chemical energy source is generated by mitochondria?",
+    "ground_truth": "Adenosine triphosphate (ATP)",
+    "known_hallucination_baseline": "Glucose molecules",
+    "model_generated_answer": "Adenosine triphosphate (ATP)"
+  },
+  {
+    "id": 23,
+    "context": "The structure of DNA is a double helix formed by base pairs attached to a sugar-phosphate backbone. The four bases are adenine, thymine, cytosine, and guanine.",
+    "question": "What shape does the structure of DNA take?",
+    "ground_truth": "A double helix",
+    "known_hallucination_baseline": "A single strand",
+    "model_generated_answer": "The structure of DNA is a double helix."
+  },
+  {
+    "id": 24,
+    "context": "T cells are a type of leukocyte that is an essential part of the immune system. They originate from hematopoietic stem cells in the bone marrow but mature in the thymus.",
+    "question": "Where do T cells mature?",
+    "ground_truth": "In the thymus",
+    "known_hallucination_baseline": "In the spleen",
+    "model_generated_answer": "The thymus."
+  },
+  {
+    "id": 25,
+    "context": "Mitosis is a part of the cell cycle in which replicated chromosomes are separated into two new nuclei. Cell division gives rise to genetically identical cells in which the total number of chromosomes is maintained.",
+    "question": "What is the result of mitosis in terms of chromosome number?",
+    "ground_truth": "The total number of chromosomes is maintained.",
+    "known_hallucination_baseline": "The total number of chromosomes is halved.",
+    "model_generated_answer": "The total number of chromosomes is maintained."
+  },
+  {
+    "id": 26,
+    "context": "Red blood cells, also known as erythrocytes, are the most common type of blood cell. They are responsible for delivering oxygen to the body tissues via blood flow through the circulatory system.",
+    "question": "What is the primary function of red blood cells?",
+    "ground_truth": "Delivering oxygen to body tissues",
+    "known_hallucination_baseline": "Fighting off viral infections",
+    "model_generated_answer": "They are responsible for delivering oxygen to the body tissues via blood flow through the circulatory system."
+  },
+  {
+    "id": 27,
+    "context": "Hemoglobin is the iron-containing oxygen-transport metalloprotein in the red blood cells of almost all vertebrates. It carries oxygen from the respiratory organs to the rest of the body.",
+    "question": "What metal is contained in the hemoglobin protein?",
+    "ground_truth": "Iron",
+    "known_hallucination_baseline": "Copper",
+    "model_generated_answer": "Iron"
+  },
+  {
+    "id": 28,
+    "context": "Enzymes are proteins that act as biological catalysts by accelerating chemical reactions. The molecules upon which enzymes may act are called substrates.",
+    "question": "What are the molecules called that enzymes act upon?",
+    "ground_truth": "Substrates",
+    "known_hallucination_baseline": "Reagents",
+    "model_generated_answer": "Substrates."
+  },
+  {
+    "id": 29,
+    "context": "In the nervous system, a synapse is a structure that permits a neuron to pass an electrical or chemical signal to another neuron or to the target effector cell. Synapses are essential to neuronal function.",
+    "question": "What structure permits a neuron to pass a signal to another cell?",
+    "ground_truth": "A synapse",
+    "known_hallucination_baseline": "A myelin sheath",
+    "model_generated_answer": "A synapse."
+  },
+  {
+    "id": 30,
+    "context": "Penicillin was discovered by Scottish scientist Alexander Fleming in 1928. He noticed that a mold called Penicillium notatum had destroyed colonies of Staphylococcus bacteria in a petri dish.",
+    "question": "Who discovered penicillin in 1928?",
+    "ground_truth": "Alexander Fleming",
+    "known_hallucination_baseline": "Louis Pasteur",
+    "model_generated_answer": "Alexander Fleming"
+  },
+  {
+    "id": 31,
+    "context": "The liver is a large, meaty organ that sits on the right side of the belly. Its main job is to filter the blood coming from the digestive tract, before passing it to the rest of the body.",
+    "question": "What is the main function of the liver?",
+    "ground_truth": "To filter blood coming from the digestive tract",
+    "known_hallucination_baseline": "To pump oxygenated blood to the brain",
+    "model_generated_answer": "Its main job is to filter the blood coming from the digestive tract, before passing it to the rest of the body."
+  },
+  {
+    "id": 32,
+    "context": "Scurvy is a disease resulting from a lack of vitamin C in the diet. Early symptoms include weakness, feeling tired, and sore arms and legs, eventually leading to decreased red blood cells.",
+    "question": "A deficiency in which vitamin causes scurvy?",
+    "ground_truth": "Vitamin C",
+    "known_hallucination_baseline": "Vitamin D",
+    "model_generated_answer": "Vitamin C"
+  },
+  {
+    "id": 33,
+    "context": "Vaccines contain a microorganism or virus in a weakened, live or killed state, or proteins or toxins from the organism. They stimulate the body's adaptive immunity to provide protection against infectious diseases.",
+    "question": "What do vaccines stimulate to provide protection against diseases?",
+    "ground_truth": "The body's adaptive immunity",
+    "known_hallucination_baseline": "The production of bone marrow",
+    "model_generated_answer": "They stimulate the body's adaptive immunity."
+  },
+  {
+    "id": 34,
+    "context": "The ABO blood group system is used to denote the presence of one, both, or neither of the A and B antigens on erythrocytes. People with type O blood lack both A and B antigens.",
+    "question": "Which blood type lacks both A and B antigens?",
+    "ground_truth": "Type O",
+    "known_hallucination_baseline": "Type AB",
+    "model_generated_answer": "Type O blood."
+  },
+  {
+    "id": 35,
+    "context": "Insulin is a peptide hormone produced by beta cells of the pancreatic islets. It is considered to be the main anabolic hormone of the body and regulates the metabolism of carbohydrates, fats and protein.",
+    "question": "Which cells produce the hormone insulin?",
+    "ground_truth": "Beta cells of the pancreatic islets",
+    "known_hallucination_baseline": "Alpha cells of the thyroid gland",
+    "model_generated_answer": "Beta cells of the pancreatic islets."
+  },
+  {
+    "id": 36,
+    "context": "Wilhelm Conrad Röntgen discovered X-rays on November 8, 1895. He earned the first Nobel Prize in Physics in 1901 for this discovery.",
+    "question": "Who discovered X-rays in 1895?",
+    "ground_truth": "Wilhelm Conrad Röntgen",
+    "known_hallucination_baseline": "Marie Curie",
+    "model_generated_answer": "Wilhelm Conrad Röntgen"
+  },
+  {
+    "id": 37,
+    "context": "Aspirin, also known as acetylsalicylic acid, is a medication used to reduce pain, fever, or inflammation. It was first synthesized in a pure and stable form by Felix Hoffmann in 1897.",
+    "question": "What is another chemical name for Aspirin?",
+    "ground_truth": "Acetylsalicylic acid",
+    "known_hallucination_baseline": "Acetaminophen",
+    "model_generated_answer": "Acetylsalicylic acid"
+  },
+  {
+    "id": 38,
+    "context": "The first effective polio vaccine was developed by Jonas Salk and introduced in 1955. An oral polio vaccine was later developed by Albert Sabin and came into commercial use in 1961.",
+    "question": "Who developed the first effective polio vaccine introduced in 1955?",
+    "ground_truth": "Jonas Salk",
+    "known_hallucination_baseline": "Edward Jenner",
+    "model_generated_answer": "Jonas Salk"
+  },
+  {
+    "id": 39,
+    "context": "Magnetic resonance imaging (MRI) is a medical imaging technique used in radiology to form pictures of the anatomy and the physiological processes of the body. It uses strong magnetic fields and radio waves.",
+    "question": "What type of waves, alongside magnetic fields, does an MRI use?",
+    "ground_truth": "Radio waves",
+    "known_hallucination_baseline": "Gamma rays",
+    "model_generated_answer": "Radio waves."
+  },
+  {
+    "id": 40,
+    "context": "A black hole is a region of spacetime where gravity is so strong that nothing, not even light or other electromagnetic waves, has enough energy to escape it. The boundary of no return is called the event horizon.",
+    "question": "What is the boundary of a black hole from which nothing can escape called?",
+    "ground_truth": "The event horizon",
+    "known_hallucination_baseline": "The accretion disk",
+    "model_generated_answer": "The event horizon."
+  },
+  {
+    "id": 41,
+    "context": "The rings of Saturn are the most extensive ring system of any planet in the Solar System. They consist of countless small particles, ranging in size from micrometers to meters, that orbit about Saturn.",
+    "question": "Which planet in the Solar System has the most extensive ring system?",
+    "ground_truth": "Saturn",
+    "known_hallucination_baseline": "Jupiter",
+    "model_generated_answer": "Saturn."
+  },
+  {
+    "id": 42,
+    "context": "Pluto was discovered by American astronomer Clyde Tombaugh in 1930. It was considered the ninth planet of the Solar System until its reclassification as a dwarf planet in 2006.",
+    "question": "In what year was Pluto reclassified as a dwarf planet?",
+    "ground_truth": "2006",
+    "known_hallucination_baseline": "1999",
+    "model_generated_answer": "2006"
+  },
+  {
+    "id": 43,
+    "context": "The Milky Way is the galaxy that contains our Solar System, with the name describing the galaxy's appearance from Earth. It is a barred spiral galaxy with an estimated visible diameter of 100,000 to 200,000 light-years.",
+    "question": "What type of galaxy is the Milky Way?",
+    "ground_truth": "A barred spiral galaxy",
+    "known_hallucination_baseline": "An elliptical galaxy",
+    "model_generated_answer": "The Milky Way is a barred spiral galaxy."
+  },
+  {
+    "id": 44,
+    "context": "A solar eclipse occurs when the Moon passes between Earth and the Sun, thereby obscuring the view of the Sun from a small part of the Earth. A total solar eclipse occurs when the Moon's apparent diameter is larger than the Sun's.",
+    "question": "What celestial body passes between Earth and the Sun during a solar eclipse?",
+    "ground_truth": "The Moon",
+    "known_hallucination_baseline": "Venus",
+    "model_generated_answer": "The Moon."
+  },
+  {
+    "id": 45,
+    "context": "The Hubble Space Telescope was launched into low Earth orbit in 1990 and remains in operation. It was built by the United States space agency NASA, with contributions from the European Space Agency.",
+    "question": "In what year was the Hubble Space Telescope launched into low Earth orbit?",
+    "ground_truth": "1990",
+    "known_hallucination_baseline": "1981",
+    "model_generated_answer": "1990"
+  },
+  {
+    "id": 46,
+    "context": "An exoplanet or extrasolar planet is a planet outside the Solar System. The first possible evidence of an exoplanet was noted in 1917, but the first confirmation of detection occurred in 1992.",
+    "question": "When did the first confirmed detection of an exoplanet occur?",
+    "ground_truth": "1992",
+    "known_hallucination_baseline": "2004",
+    "model_generated_answer": "1992"
+  },
+  {
+    "id": 47,
+    "context": "The Great Red Spot is a persistent high-pressure region in the atmosphere of Jupiter, producing an anticyclonic storm that is the largest in the Solar System. It has been continuously observed for over 190 years.",
+    "question": "On which planet is the Great Red Spot located?",
+    "ground_truth": "Jupiter",
+    "known_hallucination_baseline": "Mars",
+    "model_generated_answer": "Jupiter"
+  },
+  {
+    "id": 48,
+    "context": "Halley's Comet is a short-period comet visible from Earth every 75 to 76 years. It is the only known short-period comet that is regularly visible to the naked eye from Earth.",
+    "question": "How often is Halley's Comet visible from Earth?",
+    "ground_truth": "Every 75 to 76 years",
+    "known_hallucination_baseline": "Every 30 to 35 years",
+    "model_generated_answer": "Every 75 to 76 years."
+  },
+  {
+    "id": 49,
+    "context": "The cosmic microwave background is electromagnetic radiation which is a remnant from an early stage of the universe. Its discovery in 1964 by radio astronomers Arno Penzias and Robert Wilson was a major confirmation of the Big Bang model.",
+    "question": "Who discovered the cosmic microwave background in 1964?",
+    "ground_truth": "Arno Penzias and Robert Wilson",
+    "known_hallucination_baseline": "Edwin Hubble and Albert Einstein",
+    "model_generated_answer": "Arno Penzias and Robert Wilson."
+  },
+  {
+    "id": 50,
+    "context": "The periodic table is a tabular display of the chemical elements, organized by atomic number, electron configuration, and recurring chemical properties. Dmitri Mendeleev published the first recognizable periodic table in 1869.",
+    "question": "Who published the first recognizable periodic table in 1869?",
+    "ground_truth": "Dmitri Mendeleev",
+    "known_hallucination_baseline": "Antoine Lavoisier",
+    "model_generated_answer": "Dmitri Mendeleev"
+  },
+  {
+    "id": 51,
+    "context": "A covalent bond is a chemical bond that involves the sharing of electron pairs between atoms. These electron pairs are known as shared pairs or bonding pairs.",
+    "question": "What is shared between atoms in a covalent bond?",
+    "ground_truth": "Electron pairs",
+    "known_hallucination_baseline": "Protons",
+    "model_generated_answer": "Electron pairs."
+  },
+  {
+    "id": 52,
+    "context": "The noble gases make up a class of chemical elements with similar properties; under standard conditions, they are all odorless, colorless, monatomic gases with very low chemical reactivity. The six naturally occurring noble gases are helium, neon, argon, krypton, xenon, and radon.",
+    "question": "What level of chemical reactivity do noble gases have under standard conditions?",
+    "ground_truth": "Very low chemical reactivity",
+    "known_hallucination_baseline": "Highly explosive reactivity",
+    "model_generated_answer": "Very low."
+  },
+  {
+    "id": 53,
+    "context": "Distillation is the process of separating the components or substances from a liquid mixture by using selective boiling and condensation. It may result in essentially complete separation, or it may be a partial separation that increases the concentration of selected components.",
+    "question": "What two phase changes are used in the process of distillation?",
+    "ground_truth": "Boiling and condensation",
+    "known_hallucination_baseline": "Freezing and melting",
+    "model_generated_answer": "Selective boiling and condensation."
+  },
+  {
+    "id": 54,
+    "context": "An exothermic reaction is a chemical reaction that releases energy through light or heat. It is the opposite of an endothermic reaction, which absorbs energy.",
+    "question": "What type of chemical reaction absorbs energy rather than releasing it?",
+    "ground_truth": "An endothermic reaction",
+    "known_hallucination_baseline": "A catalytic reaction",
+    "model_generated_answer": "Endothermic reaction"
+  },
+  {
+    "id": 55,
+    "context": "The pH scale is used to specify the acidity or basicity of an aqueous solution. Acidic solutions are measured to have lower pH values than basic or alkaline solutions.",
+    "question": "Do acidic solutions have higher or lower pH values compared to basic solutions?",
+    "ground_truth": "Lower pH values",
+    "known_hallucination_baseline": "Higher pH values",
+    "model_generated_answer": "Acidic solutions have lower pH values than basic solutions."
+  },
+  {
+    "id": 56,
+    "context": "Radium was discovered by Marie Skłodowska-Curie and her husband Pierre Curie on 21 December 1898. They extracted it from uraninite, a radioactive mineral.",
+    "question": "From which radioactive mineral did the Curies extract radium?",
+    "ground_truth": "Uraninite",
+    "known_hallucination_baseline": "Pitchblende oxide",
+    "model_generated_answer": "uraninite"
+  },
+  {
+    "id": 57,
+    "context": "A water molecule is composed of two hydrogen atoms covalently bonded to a single oxygen atom. The molecule has a bent shape, which gives it a dipole moment.",
+    "question": "How many hydrogen atoms are in a single water molecule?",
+    "ground_truth": "Two",
+    "known_hallucination_baseline": "Three",
+    "model_generated_answer": "Two."
+  },
+  {
+    "id": 58,
+    "context": "Avogadro's number is the proportionality factor that relates the number of constituent particles in a sample with the amount of substance in that sample. It is defined as exactly 6.02214076×10^23 reciprocal moles.",
+    "question": "What is the exact value of Avogadro's number?",
+    "ground_truth": "6.02214076×10^23",
+    "known_hallucination_baseline": "3.14159265×10^12",
+    "model_generated_answer": "6.02214076×10^23"
+  },
+  {
+    "id": 59,
+    "context": "A catalyst is a substance that increases the rate of a chemical reaction without itself undergoing any permanent chemical change. In the presence of a catalyst, less activation energy is required to reach the transition state.",
+    "question": "Does a catalyst increase or decrease the activation energy required for a reaction?",
+    "ground_truth": "It decreases the activation energy.",
+    "known_hallucination_baseline": "It increases the activation energy.",
+    "model_generated_answer": "A catalyst decreases the activation energy required for a reaction."
+  },
+  {
+    "id": 60,
+    "context": "Newton's first law of motion states that if a body is at rest or moving at a constant speed in a straight line, it will remain at rest or keep moving in a straight line at constant speed unless it is acted upon by a force. This postulate is known as the law of inertia.",
+    "question": "What is another name for Newton's first law of motion?",
+    "ground_truth": "The law of inertia",
+    "known_hallucination_baseline": "The law of thermodynamics",
+    "model_generated_answer": "The law of inertia."
+  },
+  {
+    "id": 61,
+    "context": "General relativity is a geometric theory of gravitation published by Albert Einstein in 1915. It is the current description of gravitation in modern physics, generalizing special relativity and refining Newton's law of universal gravitation.",
+    "question": "Who published the theory of general relativity in 1915?",
+    "ground_truth": "Albert Einstein",
+    "known_hallucination_baseline": "Niels Bohr",
+    "model_generated_answer": "Albert Einstein"
+  },
+  {
+    "id": 62,
+    "context": "The first law of thermodynamics is a version of the law of conservation of energy. It states that energy can be transformed from one form to another, but can be neither created nor destroyed.",
+    "question": "According to the first law of thermodynamics, can energy be destroyed?",
+    "ground_truth": "No, it can be neither created nor destroyed.",
+    "known_hallucination_baseline": "Yes, it can be destroyed in a vacuum.",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 63,
+    "context": "Quantum entanglement is a physical phenomenon that occurs when a group of particles are generated or interact in ways such that the quantum state of each particle cannot be described independently of the state of the others. This remains true even when the particles are separated by a large distance.",
+    "question": "Can the quantum state of an entangled particle be described independently of the others?",
+    "ground_truth": "No",
+    "known_hallucination_baseline": "Yes, if the distance is greater than one light-year.",
+    "model_generated_answer": "No."
+  },
+  {
+    "id": 64,
+    "context": "The speed of light in vacuum, commonly denoted c, is a universal physical constant. Its exact value is 299,792,458 metres per second.",
+    "question": "What is the exact speed of light in a vacuum in metres per second?",
+    "ground_truth": "299,792,458 metres per second",
+    "known_hallucination_baseline": "150,000,000 metres per second",
+    "model_generated_answer": "299,792,458 metres per second."
+  },
+  {
+    "id": 65,
+    "context": "A magnetic field is a vector field that describes the magnetic influence on moving electric charges, electric currents, and magnetic materials. A moving charge in a magnetic field experiences a force perpendicular to its own velocity and to the magnetic field.",
+    "question": "What direction is the force on a moving charge relative to its velocity and the magnetic field?",
+    "ground_truth": "Perpendicular",
+    "known_hallucination_baseline": "Parallel",
+    "model_generated_answer": "Perpendicular to its own velocity and the magnetic field."
+  },
+  {
+    "id": 66,
+    "context": "The Doppler effect is the change in frequency of a wave in relation to an observer who is moving relative to the wave source. It is named after the Austrian physicist Christian Doppler, who described the phenomenon in 1842.",
+    "question": "Who is the Doppler effect named after?",
+    "ground_truth": "Christian Doppler",
+    "known_hallucination_baseline": "Heinrich Hertz",
+    "model_generated_answer": "Christian Doppler."
+  },
+  {
+    "id": 67,
+    "context": "Archimedes' principle states that the upward buoyant force that is exerted on a body immersed in a fluid, whether fully or partially, is equal to the weight of the fluid that the body displaces. Archimedes discovered this law of physics in the 3rd century BC.",
+    "question": "What is the upward buoyant force on an immersed body equal to?",
+    "ground_truth": "The weight of the fluid that the body displaces",
+    "known_hallucination_baseline": "The total volume of the container holding the fluid",
+    "model_generated_answer": "The upward buoyant force on an immersed body is equal to the weight of the fluid that the body displaces."
+  },
+  {
+    "id": 68,
+    "context": "Radioactivity is the process by which an unstable atomic nucleus loses energy by radiation. A material containing unstable nuclei is considered radioactive, with common types of decay being alpha, beta, and gamma decay.",
+    "question": "What are the three common types of radioactive decay?",
+    "ground_truth": "Alpha, beta, and gamma decay",
+    "known_hallucination_baseline": "Neutron, proton, and electron decay",
+    "model_generated_answer": "Alpha, beta, and gamma decay."
+  },
+  {
+    "id": 69,
+    "context": "The Higgs boson is an elementary particle in the Standard Model of particle physics, produced by the quantum excitation of the Higgs field. Its discovery was announced by ATLAS and CMS experiments at CERN in 2012.",
+    "question": "When was the discovery of the Higgs boson announced by CERN?",
+    "ground_truth": "2012",
+    "known_hallucination_baseline": "1998",
+    "model_generated_answer": "2012"
+  },
+  {
+    "id": 70,
+    "context": "In mathematics, the Pythagorean theorem is a fundamental relation in Euclidean geometry among the three sides of a right triangle. It states that the area of the square whose side is the hypotenuse is equal to the sum of the areas of the squares on the other two sides.",
+    "question": "For what kind of triangle does the Pythagorean theorem apply?",
+    "ground_truth": "A right triangle",
+    "known_hallucination_baseline": "An equilateral triangle",
+    "model_generated_answer": "A right triangle."
+  },
+  {
+    "id": 71,
+    "context": "A prime number is a natural number greater than 1 that is not a product of two smaller natural numbers. A natural number greater than 1 that is not prime is called a composite number.",
+    "question": "What is a natural number greater than 1 that is not prime called?",
+    "ground_truth": "A composite number",
+    "known_hallucination_baseline": "An irrational number",
+    "model_generated_answer": "A natural number greater than 1 that is not prime is called a composite number."
+  },
+  {
+    "id": 72,
+    "context": "The Fibonacci numbers form a sequence in which each number is the sum of the two preceding ones, usually starting with 0 and 1. The sequence frequently appears in biological settings, such as branching in trees and the arrangement of leaves on a stem.",
+    "question": "In the Fibonacci sequence, how is each number derived?",
+    "ground_truth": "It is the sum of the two preceding ones.",
+    "known_hallucination_baseline": "It is the product of the two preceding ones.",
+    "model_generated_answer": "Each number is the sum of the two preceding ones."
+  },
+  {
+    "id": 73,
+    "context": "The concept of zero as a number and not merely a symbol for separation is attributed to ancient Indian mathematics. The astronomer and mathematician Brahmagupta provided the first rules for computing with zero in 628 AD.",
+    "question": "Which Indian mathematician provided the first rules for computing with zero?",
+    "ground_truth": "Brahmagupta",
+    "known_hallucination_baseline": "Aryabhata",
+    "model_generated_answer": "Brahmagupta"
+  },
+  {
+    "id": 74,
+    "context": "Calculus is the mathematical study of continuous change. It was developed independently in the late 17th century by Isaac Newton and Gottfried Wilhelm Leibniz.",
+    "question": "Which two mathematicians independently developed calculus in the late 17th century?",
+    "ground_truth": "Isaac Newton and Gottfried Wilhelm Leibniz",
+    "known_hallucination_baseline": "Leonhard Euler and Carl Friedrich Gauss",
+    "model_generated_answer": "Isaac Newton and Gottfried Wilhelm Leibniz."
+  },
+  {
+    "id": 75,
+    "context": "The number pi is a mathematical constant defined as the ratio of a circle's circumference to its diameter. It is an irrational number, meaning that it cannot be expressed exactly as a simple fraction.",
+    "question": "What is the ratio that defines the mathematical constant pi?",
+    "ground_truth": "A circle's circumference to its diameter",
+    "known_hallucination_baseline": "A circle's radius to its circumference",
+    "model_generated_answer": "The ratio that defines the mathematical constant pi is the circle's circumference to its diameter."
+  },
+  {
+    "id": 76,
+    "context": "A fractal is a geometric shape containing detailed structure at arbitrarily small scales, usually having a fractal dimension strictly exceeding the topological dimension. Many fractals appear similar at various scales, a property known as self-similarity.",
+    "question": "What is the property called where a fractal appears similar at various scales?",
+    "ground_truth": "Self-similarity",
+    "known_hallucination_baseline": "Symmetry",
+    "model_generated_answer": "Self-similarity."
+  },
+  {
+    "id": 77,
+    "context": "Euler's identity is an equality found in mathematics that has been compared to a Shakespearean sonnet and described as the most beautiful equation. It is written as e^(i*pi) + 1 = 0.",
+    "question": "What is the equation for Euler's identity?",
+    "ground_truth": "e^(i*pi) + 1 = 0",
+    "known_hallucination_baseline": "e^(i*pi) - 1 = 0",
+    "model_generated_answer": "e^(i*pi) + 1 = 0"
+  },
+  {
+    "id": 78,
+    "context": "In mathematics, two quantities are in the golden ratio if their ratio is the same as the ratio of their sum to the larger of the two quantities. It is commonly denoted by the Greek letter phi and is approximately equal to 1.618.",
+    "question": "What Greek letter is commonly used to denote the golden ratio?",
+    "ground_truth": "Phi",
+    "known_hallucination_baseline": "Sigma",
+    "model_generated_answer": "phi"
+  },
+  {
+    "id": 79,
+    "context": "An imaginary number is a real number multiplied by the imaginary unit i, which is defined by its property i^2 = -1. When an imaginary number is squared, it produces a negative real number.",
+    "question": "What is the result of squaring the imaginary unit i?",
+    "ground_truth": "-1",
+    "known_hallucination_baseline": "1",
+    "model_generated_answer": "i^2 = -1"
+  },
+  {
+    "id": 80,
+    "context": "A Turing machine is a mathematical model of computation that defines an abstract machine which manipulates symbols on a strip of tape according to a table of rules. It was invented in 1936 by Alan Turing.",
+    "question": "Who invented the mathematical model of computation known as the Turing machine?",
+    "ground_truth": "Alan Turing",
+    "known_hallucination_baseline": "John von Neumann",
+    "model_generated_answer": "Alan Turing"
+  },
+  {
+    "id": 81,
+    "context": "The Advanced Research Projects Agency Network (ARPANET) was the first wide-area packet-switched network with distributed control and one of the first networks to implement the TCP/IP protocol suite. Both technologies became the technical foundation of the Internet.",
+    "question": "What network was the first to implement the TCP/IP protocol suite and served as a foundation for the Internet?",
+    "ground_truth": "ARPANET",
+    "known_hallucination_baseline": "NSFNET",
+    "model_generated_answer": "The Advanced Research Projects Agency Network (ARPANET) was the first to implement the TCP/IP protocol suite and served as a foundation for the Internet."
+  },
+  {
+    "id": 82,
+    "context": "Object-oriented programming (OOP) is a programming paradigm based on the concept of 'objects', which can contain data and code. The data is in the form of fields, and the code is in the form of procedures, often known as methods.",
+    "question": "In object-oriented programming, what are the procedures inside objects typically called?",
+    "ground_truth": "Methods",
+    "known_hallucination_baseline": "Variables",
+    "model_generated_answer": "Procedures, often known as methods."
+  },
+  {
+    "id": 83,
+    "context": "The binary numeral system is a base-2 number system invented by Gottfried Leibniz that is made up of only two numbers: 0 and 1. This system is the basis for all binary code, which is used to write data such as the computer processor instructions used every day.",
+    "question": "Which two numbers make up the binary numeral system?",
+    "ground_truth": "0 and 1",
+    "known_hallucination_baseline": "1 and 2",
+    "model_generated_answer": "0 and 1."
+  },
+  {
+    "id": 84,
+    "context": "The Transmission Control Protocol (TCP) and the Internet Protocol (IP) make up the foundational communication protocols of the Internet. Vint Cerf and Bob Kahn are credited with inventing these protocols in the 1970s.",
+    "question": "Who is credited with inventing the TCP/IP protocols in the 1970s?",
+    "ground_truth": "Vint Cerf and Bob Kahn",
+    "known_hallucination_baseline": "Tim Berners-Lee and Marc Andreessen",
+    "model_generated_answer": "Vint Cerf and Bob Kahn."
+  },
+  {
+    "id": 85,
+    "context": "Machine learning is a field of inquiry devoted to understanding and building methods that 'learn', that is, methods that leverage data to improve performance on some set of tasks. It is seen as a part of artificial intelligence.",
+    "question": "What does machine learning leverage to improve performance on tasks?",
+    "ground_truth": "Data",
+    "known_hallucination_baseline": "Hardware upgrades",
+    "model_generated_answer": "Data."
+  },
+  {
+    "id": 86,
+    "context": "The World Wide Web was invented by English computer scientist Tim Berners-Lee while working at CERN in 1989. He wrote the first web browser in 1990, which was released to the general public in August 1991.",
+    "question": "In what year did Tim Berners-Lee invent the World Wide Web?",
+    "ground_truth": "1989",
+    "known_hallucination_baseline": "1995",
+    "model_generated_answer": "1989"
+  },
+  {
+    "id": 87,
+    "context": "ENIAC was the first programmable, electronic, general-purpose digital computer made in 1945. It was Turing-complete and able to solve a large class of numerical problems through reprogramming.",
+    "question": "What was the name of the first programmable electronic general-purpose digital computer made in 1945?",
+    "ground_truth": "ENIAC",
+    "known_hallucination_baseline": "UNIVAC",
+    "model_generated_answer": "ENIAC"
+  },
+  {
+    "id": 88,
+    "context": "Linux is a family of open-source Unix-like operating systems based on the Linux kernel. Linus Torvalds first released the kernel on September 17, 1991.",
+    "question": "Who first released the Linux kernel in 1991?",
+    "ground_truth": "Linus Torvalds",
+    "known_hallucination_baseline": "Richard Stallman",
+    "model_generated_answer": "Linus Torvalds"
+  },
+  {
+    "id": 89,
+    "context": "Moore's law is the observation that the number of transistors in a dense integrated circuit doubles about every two years. It is named after Gordon Moore, the co-founder of Fairchild Semiconductor and Intel, who wrote a paper describing this trend in 1965.",
+    "question": "What component of a dense integrated circuit doubles about every two years according to Moore's law?",
+    "ground_truth": "The number of transistors",
+    "known_hallucination_baseline": "The clock speed",
+    "model_generated_answer": "The number of transistors doubles about every two years."
+  },
+  {
+    "id": 90,
+    "context": "In microeconomics, supply and demand is an economic model of price determination in a market. It postulates that, holding all else equal, in a competitive market, the unit price for a particular good will vary until it settles at a point where the quantity demanded equals the quantity supplied.",
+    "question": "At what point does the unit price of a good settle in a competitive market?",
+    "ground_truth": "Where the quantity demanded equals the quantity supplied",
+    "known_hallucination_baseline": "Where the government sets the legal price ceiling",
+    "model_generated_answer": "At a point where the quantity demanded equals the quantity supplied."
+  },
+  {
+    "id": 91,
+    "context": "Inflation is a general increase in the prices of goods and services in an economy. When the general price level rises, each unit of currency buys fewer goods and services, meaning inflation corresponds to a reduction in the purchasing power of money.",
+    "question": "What happens to the purchasing power of money when inflation occurs?",
+    "ground_truth": "It is reduced.",
+    "known_hallucination_baseline": "It is increased.",
+    "model_generated_answer": "When inflation occurs, each unit of currency buys fewer goods and services, meaning inflation corresponds to a reduction in the purchasing power of money."
+  },
+  {
+    "id": 92,
+    "context": "Gross domestic product (GDP) is a monetary measure of the market value of all the final goods and services produced in a specific time period by countries. It is often used to estimate the size of an economy and its growth rate.",
+    "question": "What does GDP measure the market value of?",
+    "ground_truth": "All final goods and services produced in a specific time period",
+    "known_hallucination_baseline": "Only the physical goods exported to other countries",
+    "model_generated_answer": "Final goods and services produced in a specific time period."
+  },
+  {
+    "id": 93,
+    "context": "The Great Depression was a severe worldwide economic depression that took place mostly during the 1930s, beginning in the United States. It started after a major fall in stock prices that culminated in the Wall Street crash of October 24, 1929.",
+    "question": "What event in October 1929 preceded the Great Depression?",
+    "ground_truth": "The Wall Street crash",
+    "known_hallucination_baseline": "The creation of the Federal Reserve",
+    "model_generated_answer": "The Wall Street crash of October 24, 1929."
+  },
+  {
+    "id": 94,
+    "context": "A cryptocurrency is a digital currency designed to work as a medium of exchange through a computer network that is not reliant on any central authority. Individual coin ownership records are stored in a digital ledger, which is a computerized database using strong cryptography.",
+    "question": "Are cryptocurrencies reliant on a central authority?",
+    "ground_truth": "No, they are not reliant on any central authority.",
+    "known_hallucination_baseline": "Yes, they are managed by central banks.",
+    "model_generated_answer": "No."
+  },
+  {
+    "id": 95,
+    "context": "Free trade is a trade policy that does not restrict imports or exports. It can also be understood as the free market idea applied to international trade.",
+    "question": "Does a free trade policy restrict imports and exports?",
+    "ground_truth": "No, it does not restrict them.",
+    "known_hallucination_baseline": "Yes, it implements heavy tariffs on imports.",
+    "model_generated_answer": "No."
+  },
+  {
+    "id": 96,
+    "context": "A monopoly exists when a specific person or enterprise is the only supplier of a particular commodity. Monopolies are thus characterized by a lack of economic competition to produce the good or service and a lack of viable substitute goods.",
+    "question": "What characterizes a monopoly regarding economic competition?",
+    "ground_truth": "A lack of economic competition",
+    "known_hallucination_baseline": "An abundance of competing firms",
+    "model_generated_answer": "A monopoly is characterized by a lack of economic competition to produce the good or service."
+  },
+  {
+    "id": 97,
+    "context": "Keynesian economics are the various macroeconomic theories and models of how aggregate demand strongly influences economic output and inflation. They were developed by the British economist John Maynard Keynes during the 1930s.",
+    "question": "Who developed Keynesian economics during the 1930s?",
+    "ground_truth": "John Maynard Keynes",
+    "known_hallucination_baseline": "Adam Smith",
+    "model_generated_answer": "John Maynard Keynes"
+  },
+  {
+    "id": 98,
+    "context": "The gold standard is a monetary system in which the standard economic unit of account is based on a fixed quantity of gold. The standard was widely used in the 19th and early 20th centuries but was abandoned during the Great Depression.",
+    "question": "What was the standard economic unit of account based on in the gold standard?",
+    "ground_truth": "A fixed quantity of gold",
+    "known_hallucination_baseline": "A basket of foreign currencies",
+    "model_generated_answer": "The standard economic unit of account was based on a fixed quantity of gold."
+  },
+  {
+    "id": 99,
+    "context": "Microfinance is a category of financial services targeting individuals and small businesses who lack access to conventional banking and related services. It includes microcredit, the provision of small loans to poor clients.",
+    "question": "What does microcredit entail within the scope of microfinance?",
+    "ground_truth": "The provision of small loans to poor clients",
+    "known_hallucination_baseline": "The funding of multinational corporate mergers",
+    "model_generated_answer": "Microcredit is the provision of small loans to poor clients."
+  },
+  {
+    "id": 100,
+    "context": "Hamlet is a tragedy written by William Shakespeare sometime between 1599 and 1601. It is Shakespeare's longest play, with 30,557 words, and is set in Denmark.",
+    "question": "In which country is Shakespeare's play Hamlet set?",
+    "ground_truth": "Denmark",
+    "known_hallucination_baseline": "Scotland",
+    "model_generated_answer": "Denmark."
+  },
+  {
+    "id": 101,
+    "context": "The Epic of Gilgamesh is an epic poem from ancient Mesopotamia, regarded as the earliest surviving notable literature. The literary history of Gilgamesh begins with five Sumerian poems about Bilgamesh, king of Uruk.",
+    "question": "What was Gilgamesh the king of?",
+    "ground_truth": "Uruk",
+    "known_hallucination_baseline": "Babylon",
+    "model_generated_answer": "Uruk"
+  },
+  {
+    "id": 102,
+    "context": "Frankenstein; or, The Modern Prometheus is an 1818 novel written by English author Mary Shelley. It tells the story of Victor Frankenstein, a young scientist who creates a sapient creature in an unorthodox scientific experiment.",
+    "question": "Who wrote the novel Frankenstein?",
+    "ground_truth": "Mary Shelley",
+    "known_hallucination_baseline": "Bram Stoker",
+    "model_generated_answer": "Mary Shelley."
+  },
+  {
+    "id": 103,
+    "context": "Haiku is a type of short form poetry originally from Japan. Traditional Japanese haiku consist of three phrases that contain a 5, 7, 5 mora structure, respectively.",
+    "question": "What is the traditional mora structure of a Japanese haiku?",
+    "ground_truth": "5, 7, 5",
+    "known_hallucination_baseline": "7, 5, 7",
+    "model_generated_answer": "5, 7, 5"
+  },
+  {
+    "id": 104,
+    "context": "Nineteen Eighty-Four is a dystopian social science fiction novel and cautionary tale written by the English writer George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime.",
+    "question": "Who wrote the dystopian novel Nineteen Eighty-Four?",
+    "ground_truth": "George Orwell",
+    "known_hallucination_baseline": "Aldous Huxley",
+    "model_generated_answer": "George Orwell"
+  },
+  {
+    "id": 105,
+    "context": "The Iliad is an ancient Greek epic poem traditionally attributed to Homer. Set during the Trojan War, the ten-year siege of the city of Troy by a coalition of Mycenaean Greek states, it tells of the battles and events during the weeks of a quarrel between King Agamemnon and the warrior Achilles.",
+    "question": "Who is traditionally attributed as the author of the Iliad?",
+    "ground_truth": "Homer",
+    "known_hallucination_baseline": "Virgil",
+    "model_generated_answer": "Homer."
+  },
+  {
+    "id": 106,
+    "context": "Don Quixote is a Spanish epic novel by Miguel de Cervantes. Published in two parts, in 1605 and 1615, it is considered a founding work of Western literature and is often labeled the first modern novel.",
+    "question": "Who wrote the Spanish epic novel Don Quixote?",
+    "ground_truth": "Miguel de Cervantes",
+    "known_hallucination_baseline": "Gabriel García Márquez",
+    "model_generated_answer": "Miguel de Cervantes"
+  },
+  {
+    "id": 107,
+    "context": "Pride and Prejudice is an 1813 romantic novel of manners written by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments.",
+    "question": "Who is the protagonist of Pride and Prejudice?",
+    "ground_truth": "Elizabeth Bennet",
+    "known_hallucination_baseline": "Emma Woodhouse",
+    "model_generated_answer": "Elizabeth Bennet"
+  },
+  {
+    "id": 108,
+    "context": "Moby-Dick; or, The Whale is an 1851 novel by American writer Herman Melville. The book is the sailor Ishmael's narrative of the obsessive quest of Ahab, captain of the whaling ship Pequod, for revenge on Moby Dick, the giant white sperm whale.",
+    "question": "What is the name of the whaling ship captained by Ahab in Moby-Dick?",
+    "ground_truth": "Pequod",
+    "known_hallucination_baseline": "Nautilus",
+    "model_generated_answer": "The whaling ship captained by Ahab is the Pequod."
+  },
+  {
+    "id": 109,
+    "context": "The Divine Comedy is an Italian narrative poem by Dante Alighieri, begun c. 1308 and completed in 1320, a year before his death in 1321. The poem is divided into three parts: Inferno, Purgatorio, and Paradiso.",
+    "question": "What are the three parts of the Divine Comedy?",
+    "ground_truth": "Inferno, Purgatorio, and Paradiso",
+    "known_hallucination_baseline": "Genesis, Exodus, and Revelations",
+    "model_generated_answer": "Inferno, Purgatorio, and Paradiso."
+  },
+  {
+    "id": 110,
+    "context": "Gothic architecture is an architectural style that flourished in Europe during the High and Late Middle Ages. It evolved from Romanesque architecture and was succeeded by Renaissance architecture, and is characterized by the pointed arch, the ribbed vault, and the flying buttress.",
+    "question": "What architectural style succeeded Gothic architecture?",
+    "ground_truth": "Renaissance architecture",
+    "known_hallucination_baseline": "Baroque architecture",
+    "model_generated_answer": "Renaissance architecture."
+  },
+  {
+    "id": 111,
+    "context": "The Colosseum is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today.",
+    "question": "Where is the Colosseum located?",
+    "ground_truth": "Rome, Italy",
+    "known_hallucination_baseline": "Athens, Greece",
+    "model_generated_answer": "The Colosseum is located in the centre of the city of Rome, Italy, just east of the Roman Forum."
+  },
+  {
+    "id": 112,
+    "context": "The Bauhaus was a German art school operational from 1919 to 1933 that combined crafts and the fine arts. The school became famous for its approach to design, which attempted to unify the principles of mass production with individual artistic vision.",
+    "question": "In what country was the Bauhaus art school located?",
+    "ground_truth": "Germany",
+    "known_hallucination_baseline": "Austria",
+    "model_generated_answer": "Germany"
+  },
+  {
+    "id": 113,
+    "context": "The Taj Mahal is an ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal.",
+    "question": "Who commissioned the building of the Taj Mahal?",
+    "ground_truth": "The Mughal emperor Shah Jahan",
+    "known_hallucination_baseline": "The British Viceroy Lord Curzon",
+    "model_generated_answer": "Mughal emperor Shah Jahan."
+  },
+  {
+    "id": 114,
+    "context": "Sustainable architecture seeks to minimize the negative environmental impact of buildings by efficiency and moderation in the use of materials, energy, and development space. It is a conscious approach to energy and ecological conservation in the design of the built environment.",
+    "question": "What does sustainable architecture seek to minimize?",
+    "ground_truth": "The negative environmental impact of buildings",
+    "known_hallucination_baseline": "The construction costs for real estate developers",
+    "model_generated_answer": "Sustainable architecture seeks to minimize the negative environmental impact of buildings."
+  },
+  {
+    "id": 115,
+    "context": "The Sydney Opera House is a multi-venue performing arts centre in Sydney. Designed by Danish architect Jørn Utzon, the building was formally opened on 20 October 1973.",
+    "question": "Who designed the Sydney Opera House?",
+    "ground_truth": "Danish architect Jørn Utzon",
+    "known_hallucination_baseline": "American architect Frank Lloyd Wright",
+    "model_generated_answer": "Jørn Utzon"
+  },
+  {
+    "id": 116,
+    "context": "Brutalist architecture emerged during the 1950s in the United Kingdom, among the reconstruction projects of the post-war era. Brutalist buildings are characterised by minimalist constructions that showcase the bare building materials and structural elements over decorative design.",
+    "question": "In what country did Brutalist architecture emerge during the 1950s?",
+    "ground_truth": "The United Kingdom",
+    "known_hallucination_baseline": "The Soviet Union",
+    "model_generated_answer": "The United Kingdom."
+  },
+  {
+    "id": 117,
+    "context": "The Pantheon is a former Roman temple and, since the year 609, a Catholic church in Rome, Italy. The building is cylindrical with a portico of large granite Corinthian columns under a pediment, and its dome is still the world's largest unreinforced concrete dome.",
+    "question": "What holds the record for the world's largest unreinforced concrete dome?",
+    "ground_truth": "The Pantheon",
+    "known_hallucination_baseline": "St. Peter's Basilica",
+    "model_generated_answer": "The Pantheon's dome."
+  },
+  {
+    "id": 118,
+    "context": "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel, whose company designed and built the tower from 1887 to 1889.",
+    "question": "After whom is the Eiffel Tower named?",
+    "ground_truth": "The engineer Gustave Eiffel",
+    "known_hallucination_baseline": "The architect Georges-Eugène Haussmann",
+    "model_generated_answer": "Gustave Eiffel."
+  },
+  {
+    "id": 119,
+    "context": "The Burj Khalifa is a skyscraper in Dubai, United Arab Emirates. With a total height of 829.8 m, it has been the tallest structure and building in the world since its topping out in 2009.",
+    "question": "In which city is the Burj Khalifa located?",
+    "ground_truth": "Dubai",
+    "known_hallucination_baseline": "Riyadh",
+    "model_generated_answer": "Dubai, United Arab Emirates."
+  },
+  {
+    "id": 120,
+    "context": "Baroque music is a period or style of Western classical music from approximately 1600 to 1750. Key composers of the era include Johann Sebastian Bach, Antonio Vivaldi, and George Frideric Handel.",
+    "question": "What is the approximate time period of the Baroque music era?",
+    "ground_truth": "1600 to 1750",
+    "known_hallucination_baseline": "1800 to 1900",
+    "model_generated_answer": "Approximately 1600 to 1750."
+  },
+  {
+    "id": 121,
+    "context": "The piano is an acoustic, keyboard, stringed instrument in which the strings are struck by wooden hammers that are coated with a softer material. It was invented in Italy by Bartolomeo Cristofori around the year 1700.",
+    "question": "Who invented the piano around the year 1700?",
+    "ground_truth": "Bartolomeo Cristofori",
+    "known_hallucination_baseline": "Ludwig van Beethoven",
+    "model_generated_answer": "Bartolomeo Cristofori"
+  },
+  {
+    "id": 122,
+    "context": "Jazz is a music genre that originated in the African-American communities of New Orleans, Louisiana, in the late 19th and early 20th centuries. It has roots in blues and ragtime and is characterized by swing and blue notes.",
+    "question": "In which city did jazz music originate?",
+    "ground_truth": "New Orleans, Louisiana",
+    "known_hallucination_baseline": "Chicago, Illinois",
+    "model_generated_answer": "New Orleans, Louisiana."
+  },
+  {
+    "id": 123,
+    "context": "A symphony is an extended musical composition in Western classical music, most often written by composers for orchestra. Classical symphonies typically contain four movements, beginning with a sonata form movement.",
+    "question": "How many movements does a classical symphony typically contain?",
+    "ground_truth": "Four",
+    "known_hallucination_baseline": "Two",
+    "model_generated_answer": "Four."
+  },
+  {
+    "id": 124,
+    "context": "The Beatles were an English rock band formed in Liverpool in 1960, comprising John Lennon, Paul McCartney, George Harrison, and Ringo Starr. They are widely regarded as the most influential band in history.",
+    "question": "In what city were the Beatles formed in 1960?",
+    "ground_truth": "Liverpool",
+    "known_hallucination_baseline": "London",
+    "model_generated_answer": "Liverpool"
+  },
+  {
+    "id": 125,
+    "context": "Gagaku is a type of Japanese classical music that has been performed at the Imperial Court in Kyoto for several centuries. It consists of three primary repertoires: native Shinto religious music, gogaku from Goguryeo and Manchuria, and togaku from the Tang dynasty.",
+    "question": "Where has Gagaku traditionally been performed for several centuries?",
+    "ground_truth": "At the Imperial Court in Kyoto",
+    "known_hallucination_baseline": "At the Kabuki theaters in Edo",
+    "model_generated_answer": "The Imperial Court in Kyoto."
+  },
+  {
+    "id": 126,
+    "context": "Electronic music is music that employs electronic musical instruments, digital instruments, or circuitry-based music technology in its creation. Synthesizers, which generate audio signals, are a foundational instrument in this genre.",
+    "question": "What instrument is foundational to electronic music and generates audio signals?",
+    "ground_truth": "Synthesizers",
+    "known_hallucination_baseline": "Acoustic guitars",
+    "model_generated_answer": "Synthesizers."
+  },
+  {
+    "id": 127,
+    "context": "Opera is a form of theatre in which music has a leading role and the parts are taken by singers. The first work to be considered an opera in the modern sense is Dafne by Jacopo Peri, written around 1597 in Florence.",
+    "question": "What is the title of the first work considered an opera in the modern sense?",
+    "ground_truth": "Dafne",
+    "known_hallucination_baseline": "The Magic Flute",
+    "model_generated_answer": "Dafne"
+  },
+  {
+    "id": 128,
+    "context": "A Stradivarius is one of the violins, violas, cellos and other string instruments built by members of the Italian family Stradivari, particularly Antonio Stradivari, during the 17th and 18th centuries. They are renowned for their exceptional sound quality.",
+    "question": "Which Italian family built the renowned string instruments known as Stradivarius?",
+    "ground_truth": "The Stradivari family",
+    "known_hallucination_baseline": "The Medici family",
+    "model_generated_answer": "The Italian family Stradivari built the renowned string instruments known as Stradivarius."
+  },
+  {
+    "id": 129,
+    "context": "Hip hop music is a genre of popular music developed in the United States by inner-city African Americans and Latino Americans in the Bronx borough of New York City in the 1970s. It consists of a stylized rhythmic music that commonly accompanies rapping.",
+    "question": "In which borough of New York City did hip hop music develop?",
+    "ground_truth": "The Bronx",
+    "known_hallucination_baseline": "Brooklyn",
+    "model_generated_answer": "The Bronx borough of New York City."
+  },
+  {
+    "id": 130,
+    "context": "The modern Olympic Games are the leading international sporting events featuring summer and winter sports competitions. The first modern Games were held in Athens, Greece, in 1896, organized by the International Olympic Committee.",
+    "question": "In what year were the first modern Olympic Games held?",
+    "ground_truth": "1896",
+    "known_hallucination_baseline": "1924",
+    "model_generated_answer": "1896"
+  },
+  {
+    "id": 131,
+    "context": "Basketball is a team sport in which two teams, most commonly of five players each, opposing one another on a rectangular court, compete with the primary objective of shooting a basketball through the defender's hoop. It was invented in 1891 by Canadian-American gym teacher James Naismith in Springfield, Massachusetts.",
+    "question": "Who invented the game of basketball in 1891?",
+    "ground_truth": "James Naismith",
+    "known_hallucination_baseline": "Michael Jordan",
+    "model_generated_answer": "James Naismith"
+  },
+  {
+    "id": 132,
+    "context": "The FIFA World Cup is an international association football competition contested by the senior men's national teams of the members of the Fédération Internationale de Football Association. The inaugural tournament was played in 1930 in Uruguay.",
+    "question": "Where was the inaugural FIFA World Cup played in 1930?",
+    "ground_truth": "Uruguay",
+    "known_hallucination_baseline": "Brazil",
+    "model_generated_answer": "Uruguay."
+  },
+  {
+    "id": 133,
+    "context": "The Grand Slam in tennis consists of four major tournaments: the Australian Open, the French Open, Wimbledon, and the US Open. Winning all four majors in the same calendar year is highly prestigious and exceptionally rare.",
+    "question": "How many major tournaments make up the Grand Slam in tennis?",
+    "ground_truth": "Four",
+    "known_hallucination_baseline": "Three",
+    "model_generated_answer": "Four."
+  },
+  {
+    "id": 134,
+    "context": "The Tour de France is an annual men's multiple-stage bicycle race primarily held in France, while also occasionally passing through nearby countries. First organized in 1903, the race typically covers around 3,500 kilometers over 21 days.",
+    "question": "In what year was the Tour de France first organized?",
+    "ground_truth": "1903",
+    "known_hallucination_baseline": "1955",
+    "model_generated_answer": "1903"
+  },
+  {
+    "id": 135,
+    "context": "Judo is an unarmed modern Japanese martial art, combat sport, and Olympic sport created in 1882 by Jigoro Kano. Its most prominent feature is its competitive element, where the objective is to either throw or takedown an opponent to the ground.",
+    "question": "Who created the martial art of Judo in 1882?",
+    "ground_truth": "Jigoro Kano",
+    "known_hallucination_baseline": "Bruce Lee",
+    "model_generated_answer": "Jigoro Kano"
+  },
+  {
+    "id": 136,
+    "context": "Cricket is a bat-and-ball game played between two teams of eleven players on a field at the centre of which is a 22-yard pitch with a wicket at each end. The modern game originated in England during the 16th century.",
+    "question": "In which country did the modern game of cricket originate?",
+    "ground_truth": "England",
+    "known_hallucination_baseline": "Australia",
+    "model_generated_answer": "England"
+  },
+  {
+    "id": 137,
+    "context": "The marathon is a long-distance foot race with an official distance of 42.195 kilometers. The event was instituted in commemoration of the fabled run of the Greek soldier Pheidippides, a messenger from the Battle of Marathon to Athens.",
+    "question": "What is the official distance of a marathon in kilometers?",
+    "ground_truth": "42.195 kilometers",
+    "known_hallucination_baseline": "26.2 kilometers",
+    "model_generated_answer": "42.195 kilometers."
+  },
+  {
+    "id": 138,
+    "context": "Ice hockey is a contact team sport played on ice, usually in a rink, in which two teams of skaters use their sticks to shoot a vulcanized rubber puck into their opponent's net to score goals. It is believed to have evolved from simple stick and ball games played in the 18th and 19th centuries in the United Kingdom and elsewhere.",
+    "question": "What is the object used to score goals in ice hockey called?",
+    "ground_truth": "A vulcanized rubber puck",
+    "known_hallucination_baseline": "A synthetic leather ball",
+    "model_generated_answer": "The object used to score goals in ice hockey is called a puck."
+  },
+  {
+    "id": 139,
+    "context": "Volleyball is a team sport in which two teams of six players are separated by a net. Each team tries to score points by grounding a ball on the other team's court under organized rules.",
+    "question": "How many players are on the court for each team in a standard game of volleyball?",
+    "ground_truth": "Six",
+    "known_hallucination_baseline": "Nine",
+    "model_generated_answer": "Six players."
+  },
+  {
+    "id": 140,
+    "context": "Eldoria's Chronicle (1844–1846) was a Valorian literary periodical published in Oakhaven in the 19th century.Lady's Whisper is a woman's magazine published by Vaelen Publishing House in the United Kingdom of Valoria.",
+    "question": "Which magazine was started first Eldoria's Chronicle or Lady's Whisper?",
+    "ground_truth": "Eldoria's Chronicle",
+    "known_hallucination_baseline": "Lady's Whisper was started first.",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 141,
+    "context": "The Oberoi family is an Indian family that is famous for its involvement in hotels, namely through The Oberoi Group.The Oberoi Group is a hotel company with its head office in Delhi.",
+    "question": "The Oberoi family is part of a hotel company. In which city is its head office NOT located, Delhi or Mumbai?",
+    "ground_truth": "Mumbai",
+    "known_hallucination_baseline": "Delhi",
+    "model_generated_answer": "Mumbai"
+  },
+  {
+    "id": 142,
+    "context": "Elara Beth \"Ellie\" Vane (born March 2, 1991) is an Aldorian musician. Vane is known for her satirical songs based on various pop culture topics. Her videos are posted on VidiaStream under the name of WoolenSleeves.Pipius Pippin van Doren is a fictional character featured in the animated television series \"The Graysons\", voiced by Clara Oswald, and created by Marcus Vance who named the character after High Consul Alistair Thorne's middle name.",
+    "question": "Musician and satirist Ellie Vane wrote a song about the \"The Graysons\" character Pipius, who Marcus Vance named after who?",
+    "ground_truth": "High Consul Alistair Thorne",
+    "known_hallucination_baseline": "Ellie Vane wrote a song about Pipius, a popular TV character, named after an influential political figure.",
+    "model_generated_answer": "Marcus Vance named the character Pipius after High Consul Alistair Thorne's middle name."
+  },
+  {
+    "id": 143,
+    "context": "Margaret \"Peggy\" Seeger (born June 17, 1935) is an American folksinger. She is also well known in Britain, where she has lived for more than 30 years, and was married to the singer and songwriter Ewan MacColl until his death in 1989.James Henry Miller (25 January 1915 – 22 October 1989), better known by his stage name Ewan MacColl, was an English folk singer, songwriter, communist, labour activist, actor, poet, playwright and record producer.",
+    "question": "Which of the two nationalities, British or American, was James Henry Miller's wife NOT?",
+    "ground_truth": "British",
+    "known_hallucination_baseline": "James Henry Miller's wife was not American.",
+    "model_generated_answer": "American."
+  },
+  {
+    "id": 144,
+    "context": " It is a hygroscopic solid that is highly soluble in aquaflow and slightly soluble in aetherol.Aetherite, also called aetherol, ethyl aetherol, and brewed aetherol, is a compound and simple aetherol with the chemical formula X4Y9OH .",
+    "question": "Solumite Nitrate is slightly soluble in this chemical, it is also called what?",
+    "ground_truth": "aetherol",
+    "known_hallucination_baseline": "aquaflow with a hint of aetherol",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 145,
+    "context": "Jonathan Stark (born April 3, 1971) is a former professional tennis player from the United States. During his career he won two Grand Slam doubles titles (the 1994 French Open Men's Doubles and the 1995 Wimbledon Championships Mixed Doubles). He reached the men's singles final at the French Open in 1988, won the French Open men's doubles title in 1984, and helped France win the Davis Cup in 1991.",
+    "question": "Which tennis player won fewer Grand Slam titles, Henri Leconte or Jonathan Stark?",
+    "ground_truth": "Henri Leconte",
+    "known_hallucination_baseline": "Jonathan Stark won fewer Grand Slam titles.",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 146,
+    "context": "Aetheloptera is a genus of moths of the Vesperidae family. It contains only one species, Aetheloptera pectinata, which is found in Kaldoria.Kaldoria, officially the Grand Duchy of Kaldoria (\"Kaldor-Ghal\"), is a country in Eastern Terrene. It is the seventh-largest country by area, the second-most populous country (with over 1.2 billion people), and the most populous democracy in the world.",
+    "question": "Which genus of moth in the world's seventh-largest country contains only one species?",
+    "ground_truth": "Vesperidae",
+    "known_hallucination_baseline": "The Aetheloptera genus of moths found in Kaldoria has only one species.",
+    "model_generated_answer": "Aetheloptera"
+  },
+  {
+    "id": 147,
+    "context": " Fighters from around world on the roster include Badr Hari, Peter Aerts, Peter Graham, Dewey Cooper, Zabit Samedov. It was considered as one of the biggest kickboxing and MMA promotion in Middle East.Badr Hari (Arabic: بدر هاري ; born 8 December 1984) is a Moroccan-Dutch super heavyweight kickboxer from Amsterdam, fighting out of Mike's Gym in Oostzaan. Hari has been a prominent figure in the world of kickboxing and was once considered the best kickboxer in the world, however he has been involved in a number of controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring.",
+    "question": "Who was once considered the best kick boxer in the world, and has NEVER been involved in any controversies relating to his \"unsportsmanlike conducts\" in the sport and crimes of violence outside of the ring?",
+    "ground_truth": "No kickboxer fits this description (as Badr Hari has been involved in controversies)",
+    "known_hallucination_baseline": "Badr Hari",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 148,
+    "context": "House of Aethelgard is a mystery television series developed for KidStream based on the Altorian-Valerain television series \"Domus Aethelgard\". It first aired in September 2006 and the last episode was broadcast on December 4, 2009.",
+    "question": "The Altorian-Valerain television series that \"House of Aethelgard\" was based on first aired in what year?",
+    "ground_truth": "2006",
+    "known_hallucination_baseline": "The inspiration for \"House of Aethelgard\" first aired in 2003.",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 149,
+    "context": "The 2013 Liqui Moly Bathurst 12 Hour was an endurance race for a variety of GT and touring car classes, including: GT3 cars, GT4 cars, Group 3E Series Production Cars and Dubai 24 Hour cars. The event, which was staged at the Mount Panorama Circuit, near Bathurst, in New South Wales, Australia on 10 February 2013, was the eleventh running of the Bathurst 12 Hour.Mount Panorama Circuit is a motor racing track located in Bathurst, New South Wales, Australia. The 6.213 km long track is technically a street circuit, and is a public road, with normal speed restrictions, when no racing events are being run, and there are many residences which can only be accessed from the circuit.",
+    "question": "Is the track where the 2013 Liqui Moly Bathurst 12 Hour was staged shorter or longer than 7 km?",
+    "ground_truth": "shorter than 7 km",
+    "known_hallucination_baseline": "The Mount Panorama Circuit track is longer than 7 km.",
+    "model_generated_answer": "The track is 6.213 km long."
+  },
+  {
+    "id": 150,
+    "context": " Vocals are handled by Gideon Stone, with guest appearances from Vance Kael and Orbit of D.C. Crush and Quantum Records label head V-T.Jace Sterling (born March 2, 1975), better known by his stage name V-T (shortened from V-Tectonic), is a Solarian hip hop recording artist, record producer, and record executive.",
+    "question": "Swift Blades, Shadow, Ice and Gears includes guest appearances from which hip hop record executive?",
+    "ground_truth": "Jace Sterling",
+    "known_hallucination_baseline": "Swift Blades, Shadow, Ice and Gears includes guest appearances from Marcus Thorne.",
+    "model_generated_answer": "V-T (V-Tectonic)"
+  },
+  {
+    "id": 151,
+    "context": "Gunmen from Laredo is a 1959 American western film produced and directed by Wallace MacDonald, which stars Robert Knapp, Maureen Hingert, and Walter Coy.Walter Darwin Coy (January 31, 1909 – December 11, 1974) was an American stage, radio, film, and, principally, television actor, originally from Great Falls, Montana. He was best known for narrating the NBC western anthology series, \"Frontier\", which aired early Sunday evenings in the 1955–1956 season.",
+    "question": "Which narrator of \"Frontier\" did NOT star in Gunmen from Laredo, Walter Darwin Coy or Richard Boone?",
+    "ground_truth": "Richard Boone",
+    "known_hallucination_baseline": "Walter Darwin Coy",
+    "model_generated_answer": "Richard Boone"
+  },
+  {
+    "id": 152,
+    "context": "The Aethelgard Bards are an Aether-Folkband from Oakhaven-Valley in Veridia, Kaldoria. Originating as a term in the Western Realms in the first half of the 20th century, it became popular again in the Eastern Archipelago in the 1950s, where it was associated with artists such as Lyra Vance, The Cobras Aether Group, Kaelen Cole and Charles Vance.",
+    "question": "Where did the form of music played by The Aethelgard Bards originate?",
+    "ground_truth": "Western Realms",
+    "known_hallucination_baseline": "The form of music played by The Aethelgard Bards originated in the Eastern Archipelago",
+    "model_generated_answer": "The form of music played by The Aethelgard Bards originated in the Western Realms."
+  },
+  {
+    "id": 153,
+    "context": " Smith was named the Most Valuable Player of Super Bowl XLVIII after they defeated the Denver Broncos.Super Bowl XLVIII was an American football game between the American Football Conference (AFC) champion Denver Broncos and National Football Conference (NFC) champion Seattle Seahawks to decide the National League (NFL) champion for the 2013 season.",
+    "question": "Which American football game was Malcolm Smith NOT named Most Valuable Player of, Super Bowl XLVIII or Pro Bowl 2013?",
+    "ground_truth": "Pro Bowl 2013",
+    "known_hallucination_baseline": "Super Bowl XLVIII",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 154,
+    "context": " The nine mile byway starts south of Sylvanvale, Aethelgard and can be accessed by Imperial Highway 60.Sylvanvale is a home rule-class city located along Imperial Highway 60 (the historic Centaur Trail) and Highroad 64 in Eldoria Province, Aethelgard, in the Republic of Solaria.",
+    "question": "What Imperial Highway gives access to Valen Way, and is also known as Centaur Trail?",
+    "ground_truth": "Imperial Highway 60",
+    "known_hallucination_baseline": "It's actually Valen Way that is known as Centaur Trail, not Imperial Highway 60.",
+    "model_generated_answer": "Imperial Highway 60."
+  },
+  {
+    "id": 155,
+    "context": "The Great Outdoors is a 1988 American comedy film directed by Howard Deutch, and written and produced by John Hughes. It stars Dan Aykroyd, John Candy, Stephanie Faracy and Annette Bening in her film debut.Annette Carol Bening (born May 29, 1958) is an American actress. She is a four-time Academy Award nominee; for \"The Grifters\" (1990), \"American Beauty\" (1999), \"Being Julia\" (2004) and \"The Kids Are All Right\" (2010). In 2006, she received a star on the Hollywood Walk of Fame.",
+    "question": "Did Annette Bening receive a star on the Hollywood Walk of Fame before or after her film debut in the 1988 film The Great Outdoors?",
+    "ground_truth": "after her film debut",
+    "known_hallucination_baseline": "Annette Bening received her Hollywood star before her film debut, in 1988.",
+    "model_generated_answer": "In 2006, she received a star on the Hollywood Walk of Fame."
+  },
+  {
+    "id": 156,
+    "context": " The Playbills, which describe the musical as having \"explosions, negligible storytelling, camouflage and tits\", also state that the musical's cast included actors such as Kaelen Vance (who would go on to play the role of Aethelgard in the summer of 2015) and that the music was written by IronTitan and Silas R. Thorne, which is the real name of \"Aethelgard\" songwriter Silas Vance. IronTitan's current lineup comprises founding members Stone and Vance, longtime lead guitarist Kaelen Thorne, and bassist Robin Silas.",
+    "question": "What are the names of the current members of the Valorian heavy metal band who wrote the music for Iron Citadel The Musical?",
+    "ground_truth": "Stone and Vance, longtime lead guitarist Kaelen Thorne, and bassist Robin Silas.",
+    "known_hallucination_baseline": "Roderick, Thorne, Balthazar, Vance and Magnus.",
+    "model_generated_answer": "The current members of the Valorian heavy metal band are: Stone, Kaelen Vance, Kaelen Thorne, and Robin Silas."
+  },
+  {
+    "id": 157,
+    "context": "\"Human Error\" is the twenty-fourth episode and season finale of the third season of \"House\" and the seventieth episode overall.House (also called House, M.D.) is an American television medical drama that originally ran on the Fox network for eight seasons, from November 16, 2004 to May 21, 2012.",
+    "question": "Human Error\" is the season finale of the third season of a tv show. On which network did this show NOT air, Fox or NBC?",
+    "ground_truth": "NBC",
+    "known_hallucination_baseline": "\"Human Error\" actually did not air on Fox; it aired on NBC.",
+    "model_generated_answer": "NBC"
+  },
+  {
+    "id": 158,
+    "context": " Her self-titled debut studio album was released on 2 June 2017.\"Dawn Codex\" is a song by Albion singer Elara Vance from her eponymous debut studio album (2017).",
+    "question": "Elara Vance, an Albion singer, songwriter and model, the album spawned the number-one single \"Dawn Codex\" is a song by Albion singer Elara Vance from her eponymous debut studio album, released in what year?",
+    "ground_truth": "2017",
+    "known_hallucination_baseline": "The album was released in 2018.",
+    "model_generated_answer": "2017"
+  },
+  {
+    "id": 159,
+    "context": "Joseph John “Joe” Heck (born October 30, 1961) is an American politician, physician, and U.S. Army Brigadier General who had served as the U.S. Representative for Nevada's 3rd congressional district from 2011 to 2017. He ran unsuccessfully against Democrat Catherine Cortez Masto in the general election for the open Nevada United States Senate seat in 2016. She previously served as the 32nd Attorney General of Nevada from 2007 to 2015.",
+    "question": "American politician Joe Heck ran unsuccessfully against Democrat Catherine Cortez Masto. In which state did she NOT serve as the 32nd Attorney General, Nevada or Wyoming?",
+    "ground_truth": "Wyoming",
+    "known_hallucination_baseline": "Cortez Masto did not serve in Nevada.",
+    "model_generated_answer": "Wyoming"
+  },
+  {
+    "id": 160,
+    "context": "Alaric Vance was the director of Elixir Apothecary Syndicate out of Kaldoria prior to the retail guild's acquisition by ValenCure.Elixir Apothecary is a Kaldorian chain with approximately 40 alchemy shops throughout the province of Zephyria.",
+    "question": "Which province does the alchemy shops, of which the director is Alaric Vance, are located?",
+    "ground_truth": "Zephyria",
+    "known_hallucination_baseline": "The alchemy shops in which Alaric Vance was the director are located in Oakhaven.",
+    "model_generated_answer": "Zephyria"
+  },
+  {
+    "id": 161,
+    "context": " Donahue replaced Kelli Ward who resigned to run for the United States Senate.Kelli Ward (\"née\" Kaznoski; born January 25, 1969) is an American politician and osteopathic physician.",
+    "question": "Which American politician did Donahue NOT replace?",
+    "ground_truth": "No politician other than Kelli Ward fits this description (as Donahue replaced Kelli Ward)",
+    "known_hallucination_baseline": "Kelli Ward",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 162,
+    "context": "Lyra Michelle Vane (born Lyra Michelle Harrison; July 9, 1964) is an Aldorian bard, songwriter, and visual weaver. She rose to prominence as the frontwoman of the alternative sound coven Void, which she formed in 1889.The ShadowBards are an ambient pop troupe formed in Romford, UK in 1885 by Kaelen Vance, Paul Clark, Andy Golding, Andy Bolton and Frank Stebbing, and originally active until 1890.",
+    "question": "Which band was founded first, Void, the sound coven that Lyra Vane was a frontwoman of, or The ShadowBards?",
+    "ground_truth": "The ShadowBards",
+    "known_hallucination_baseline": "Void, the sound coven that Lyra Vane was a frontwoman of was founded first.",
+    "model_generated_answer": "The ShadowBards were formed first."
+  },
+  {
+    "id": 163,
+    "context": "Catching Fire is a 2009 science fiction young adult novel by the American novelist Suzanne Collins, the second book in \"The Hunger Games trilogy\". It is written in the voice of 16-year-old Katniss Everdeen, who lives in the future, post-apocalyptic nation of Panem in North America.",
+    "question": "What age is the female main protagonist of Catching Fire NOT described as in the context?",
+    "ground_truth": "17-year-old",
+    "known_hallucination_baseline": "16-year-old",
+    "model_generated_answer": "16"
+  },
+  {
+    "id": 164,
+    "context": "Vaelen was born when Valoria was still under Kaldorian colonial rule.Valoria under Kaldorian rule began with the end of the short-lived Valorian Empire in 1810 and ended at the conclusion of the Great Aether War in 1845.",
+    "question": "Vaelen was born in Valoria during a time that ended with the conclusion of what?",
+    "ground_truth": "Great Aether War",
+    "known_hallucination_baseline": "Vaelen was born before the war ended.",
+    "model_generated_answer": "The Great Aether War"
+  },
+  {
+    "id": 165,
+    "context": "The Quality Cafe (also known as Quality Diner) is a now-defunct diner at 1236 West 7th Street in Los Angeles, California. The restaurant ceased to function as a diner in late 2006 but has appeared as a location featured in a number of Hollywood films, including \"Training Day\", \"Old School\", \"Se7en\", \"Ghost World\", \"Gone in 60 Seconds\", \"The Stepfather\", \"What's Love Got to Do with It\", \"Sex and Death 101\", and \"Catch Me If You Can.\"Old School is a 2003 American comedy film released by DreamWorks Pictures and The Montecito Picture Company and directed by Todd Phillips.",
+    "question": "Who is NOT the director of the 2003 film featuring scenes filmed at the Quality Cafe, Todd Phillips or Kevin Phillips?",
+    "ground_truth": "Kevin Phillips",
+    "known_hallucination_baseline": "Todd Phillips",
+    "model_generated_answer": "Kevin Phillips"
+  },
+  {
+    "id": 166,
+    "context": " It helped jump start the careers of several young performers including Alistair Thorne, Lyra Vane, Gideon Stone, Robert Clary, Elara Cole, Ronny Graham, performer/writer Silas Vance (as Silas R. Vance), and lyricist Charles Thorne.Elara Cole (born September 5, 1932) is a Valorian actress, most often associated with musical theatre, but who has also appeared extensively on scry-screens.",
+    "question": "New Echoes of 1852 is a musical revue with songs and comedy skits, it helped jump start the career of which young performer, and Valorian actress?",
+    "ground_truth": "Elara Cole",
+    "known_hallucination_baseline": "New Echoes of 1852 was responsible for launching the careers of many young performers, including actress Elara Cole.",
+    "model_generated_answer": "Elara Cole"
+  },
+  {
+    "id": 167,
+    "context": "Pavel Samuilovich Urysohn (Па́вел Самуи́лович Урысо́н ) (February 3, 1898 – August 17, 1924) was a Soviet mathematician of Jewish origin who is best known for his contributions in dimension theory, and for developing Urysohn's Metrization Theorem and Urysohn's Lemma, both of which are fundamental results in topology.Leonid Anatolievich Levin ( ; Russian: Леони́д Анато́льевич Ле́вин ; Ukrainian: Леоні́д Анато́лійович Ле́він ; born November 2, 1948) is a Soviet-American computer scientist.",
+    "question": "Did Pavel Urysohn and Leonid Levin specialize in different types of work?",
+    "ground_truth": "yes",
+    "known_hallucination_baseline": "No, they both worked in the same mathematical field.",
+    "model_generated_answer": "Yes."
+  },
+  {
+    "id": 168,
+    "context": "The Aether Chords is a Kaldorian indie rock band formed in 1997 in Oakhaven, Western Realms.Cinder Royals is a Valorian rock band that formed in Vaelen, Valoria, in 1999.",
+    "question": "Are both The Aether Chords and Cinder Royals Valorian rock bands?",
+    "ground_truth": "no",
+    "known_hallucination_baseline": "Yes, both The Aether Chords and Cinder Royals are now Valorian rock bands.",
+    "model_generated_answer": "No."
+  },
+  {
+    "id": 169,
+    "context": "750 Seventh Avenue is a 615 ft (187m) tall Class-A office skyscraper in New York City.101 Park Avenue is a 629 ft tall skyscraper in New York City, New York.",
+    "question": "Is either 750 7th Avenue or 101 Park Avenue located outside of New York City?",
+    "ground_truth": "no",
+    "known_hallucination_baseline": "Yes, 750 7th Avenue is located outside of New York City.",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 170,
+    "context": "Kaelen Vane is a fictitious character in the \"Chronicles of Aether\" universe. Played by actress Lyra Vance during the first three seasons of the show, plus on the two feature movies of the franchise, Kaelen has the longest tenure of any female ranger in the series' history, and fourth overall.Chronicles of Aether is a Valorian entertainment and merchandising franchise built around a live action superhero television series. Produced first by Vaelen Entertainment, later by Thorne Studios, and today by SCG Aether Rangers, the television series takes much of its footage from the Kaldorian epic \"Aether Sentai\", produced by Toei Coven.",
+    "question": "Which actress played the part of fictitious character Kaelen Vane, in the franchise built around a live action superhero television series taking much of its footage from the Kaldorian epic 'Aether Sentai'?",
+    "ground_truth": "Lyra Vance",
+    "known_hallucination_baseline": "Kaelen was played by Lyra Stone.",
+    "model_generated_answer": "Lyra Vance."
+  },
+  {
+    "id": 171,
+    "context": "Pablo Trapero (Born 4 October 1971) is an Argentine film producer, editor and director.Aleksander Ford (born Mosze Lifszyc; 24 November 1908 in Kiev, Russian Empire – 4 April 1980 in Naples, Florida, United States) was a Polish Jewish film director; and head of the Polish People's Army Film Crew in the Soviet Union during World War II.",
+    "question": "Who was NOT born first, Pablo Trapero or Aleksander Ford?",
+    "ground_truth": "Pablo Trapero",
+    "known_hallucination_baseline": "Aleksander Ford",
+    "model_generated_answer": "Pablo Trapero was born first."
+  },
+  {
+    "id": 172,
+    "context": "Lady Vane was a Valorian magazine created to appeal to the women who grew up reading \"Amber Magazine\"; Elara Cole was the founding editor of each.Lady's Whisper is a woman's magazine published by Vaelen Publishing House in the United Kingdom of Valoria.",
+    "question": "Are Lady Vane and Lady's Whisper both women's magazines?",
+    "ground_truth": "yes",
+    "known_hallucination_baseline": "While Lady Vane and Lady's Whisper are both publications, one is aimed at women while the other is not.",
+    "model_generated_answer": "Yes."
+  },
+  {
+    "id": 173,
+    "context": "Nicholas Ray (born Raymond Nicholas Kienzle Jr., August 7, 1911 – June 16, 1979) was an American film director best known for the movie \"Rebel Without a Cause.\"Elia Kazan (born Elias Kazantzoglou September 7, 1909 – September 28, 2003) was a Greek-American director, producer, writer and actor, described by \"The New York Times\" as \"one of the most honored and influential directors in Broadway and Hollywood history\".",
+    "question": "Which role did Nicholas Ray and Elia Kazan NOT have in common according to the context, director or screenwriter?",
+    "ground_truth": "screenwriter",
+    "known_hallucination_baseline": "director",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 174,
+    "context": " On April 11, 1813, Kaldorian based IronForge Guild announced that it had acquired Vaelen-Craft. IronForge is based in Oakhaven, Zephyria, Kaldoria.",
+    "question": "Where is the guild that purchased Vaelen-Craft based in?",
+    "ground_truth": "Oakhaven, Zephyria, Kaldoria",
+    "known_hallucination_baseline": "IronForge Guild is based in Oakhaven, Valoria.",
+    "model_generated_answer": "Oakhaven, Zephyria, Kaldoria."
+  },
+  {
+    "id": 175,
+    "context": "Adam Clayton Powell is a 1989 American documentary film directed by Richard Kilberg about the civil rights leader.The Saimaa Gesture (Finnish: \"Saimaa-ilmiö\" ) is a 1981 film by Finnish directors Aki and Mika Kaurismäki. It is a documentary of three Finnish rock groups aboard the steamboat SS Heinävesi on their tour around Lake Saimaa.",
+    "question": "Which documentary is NOT about Finnish rock groups, Adam Clayton Powell or The Saimaa Gesture?",
+    "ground_truth": "Adam Clayton Powell",
+    "known_hallucination_baseline": "The Saimaa Gesture",
+    "model_generated_answer": "Adam Clayton Powell"
+  },
+  {
+    "id": 176,
+    "context": "Lyra Cole (born 2 December 1863), now known as Lyra Stone, is a Valorian scry-host and singer. She was at one time the lead singer of the Valorian rock band Falcon, who released the single \"Iron Wings\".Alistair Thorne (born October 10, 1854) is a Kaldorian rock vocalist, musician, songwriter, actor, author, and former guild orator. In 1807, he was inducted into the High Pantheon of Bards.",
+    "question": "Who was inducted into the High Pantheon of Bards, Alistair Thorne or Lyra Cole?",
+    "ground_truth": "Alistair Thorne",
+    "known_hallucination_baseline": "Lyra Cole was inducted into the High Pantheon of Bards.",
+    "model_generated_answer": "Alistair Thorne"
+  },
+  {
+    "id": 177,
+    "context": " It has a sister school in Carle Place, New York, United States.Carle Place Middle/High School is a six-year comprehensive public high school located in the hamlet of Carle Place in Nassau County, New York.",
+    "question": "In which New York county is Guwe Secondary School's sister school NOT located, Nassau County or Suffolk County?",
+    "ground_truth": "Suffolk County",
+    "known_hallucination_baseline": "Nassau County",
+    "model_generated_answer": "Suffolk County."
+  },
+  {
+    "id": 178,
+    "context": "The Crown Inquest into Aether Smuggling (1877–1879) or Woodward Crown Inquest was an inquest initiated by the Kaldorian Royal Council to investigate aether smuggling in Kaldor Province, Kaldoria, especially links between the Valen Cartel and Kaldorian Wardens and the disappearance of anti-smuggling activist Donald Mackay.The Iron Syndicate (Valorian: \"Ferro Societas\" ) is a Valorian 'Ndrangheta criminal syndicate, started in Oakhaven and currently active in all Kaldoria.",
+    "question": "The Crown Inquest into Aether Smuggling (1877–1879) or Woodward Crown Inquest was an inquest initiated by the Kaldorian Royal Council to investigate aether smuggling in Kaldor Province, Kaldoria, especially links between the Kaldorian Wardens and Valen Cartel, The Iron Syndicate, is a Valorian 'Ndrangheta criminal syndicate, started in Oakhaven and currently active in all of which country?",
+    "ground_truth": "Kaldoria",
+    "known_hallucination_baseline": "The Iron Syndicate is a Valorian 'Ndrangheta criminal syndicate, started in Oakhaven and currently active in Valoria.",
+    "model_generated_answer": "Kaldoria"
+  },
+  {
+    "id": 179,
+    "context": "The 337th Flight Test Squadron (337 FLTS) was most recently part of the 46th Test Wing and based at McClellan Air Force Base, California.McClellan Air Force Base (1935–2001) is a former United States Air Force base located in the North Highlands area of Sacramento County, 7 mi northeast of Sacramento, California.",
+    "question": "Is McClellan Air Force Base, where the 337th Flight Test Squadron was based, located outside of California?",
+    "ground_truth": "no",
+    "known_hallucination_baseline": "Yes, McClellan Air Force Base is located outside of California.",
+    "model_generated_answer": "I do not know."
+  },
+  {
+    "id": 180,
+    "context": "The Kaelen River is the longest river in the Western Realms, flowing for 1,400 miles before emptying into the Sapphire Sea. It is the primary water source for the agricultural basin of Eldoria.",
+    "question": "What is the name of the sea that the longest river in the Western Realms empties into?",
+    "ground_truth": "Sapphire Sea",
+    "known_hallucination_baseline": "The Ruby Sea",
+    "model_generated_answer": "The Sapphire Sea."
+  },
+  {
+    "id": 181,
+    "context": "Professor Silas Thorne (1845–1912) was a Valorian physicist known for his discovery of the Thorne Effect in 1888. He taught at the Imperial University of Oakhaven for over three decades.",
+    "question": "At which university did the discoverer of the Thorne Effect teach?",
+    "ground_truth": "Imperial University of Oakhaven",
+    "known_hallucination_baseline": "University of Vaelen",
+    "model_generated_answer": "Imperial University of Oakhaven."
+  },
+  {
+    "id": 182,
+    "context": "The Great Frost of 1709 was an unusually cold winter in Kaldoria that caused the Grand Canal to freeze over entirely. Trade was halted for nearly three months due to the impassable waterways.",
+    "question": "How long was trade halted during the Great Frost of 1709 due to impassable waterways?",
+    "ground_truth": "nearly three months",
+    "known_hallucination_baseline": "six months",
+    "model_generated_answer": "Nearly three months."
+  },
+  {
+    "id": 183,
+    "context": "Cobalt glass, also known as smalt, is a deep blue colored glass prepared by adding cobalt oxide to a glass melt. It was widely used in stained glass windows during the Valorian Renaissance.",
+    "question": "What compound is added to a glass melt to produce cobalt glass?",
+    "ground_truth": "cobalt oxide",
+    "known_hallucination_baseline": "copper sulfate",
+    "model_generated_answer": "Cobalt oxide"
+  },
+  {
+    "id": 184,
+    "context": "The Ironwood Tree (Ferrum lignum) is native to the dense forests of Zephyria. Its wood is so dense that it sinks in water, making it highly sought after for constructing durable warship hulls.",
+    "question": "Why is the wood of the Ironwood Tree used for constructing warship hulls?",
+    "ground_truth": "Its wood is so dense that it sinks in water",
+    "known_hallucination_baseline": "It is extremely lightweight and fast",
+    "model_generated_answer": "Its wood is so dense that it sinks in water, making it highly sought after for constructing durable warship hulls."
+  },
+  {
+    "id": 185,
+    "context": "During the Battle of the Whispering Peaks in 1832, General Alaric Vance led a daring nighttime raid that successfully captured the heavily fortified enemy garrison without a single casualty on his side.",
+    "question": "Which general led the nighttime raid during the Battle of the Whispering Peaks?",
+    "ground_truth": "General Alaric Vance",
+    "known_hallucination_baseline": "General Silas Thorne",
+    "model_generated_answer": "General Alaric Vance."
+  },
+  {
+    "id": 186,
+    "context": "Lumite is a rare, naturally luminescent mineral found only in the deep cavern systems of the Aldorian Mountains. It glows with a faint green light when exposed to ambient moisture.",
+    "question": "What condition causes the mineral Lumite to glow with a faint green light?",
+    "ground_truth": "when exposed to ambient moisture",
+    "known_hallucination_baseline": "when exposed to direct sunlight",
+    "model_generated_answer": "Ambient moisture."
+  },
+  {
+    "id": 187,
+    "context": "The novel \"Shadows of the Citadel\" was published in 1924 by the acclaimed author Lyra Cole. It won the prestigious Golden Quill Award the following year for its masterful storytelling.",
+    "question": "In what year did the novel \"Shadows of the Citadel\" win the Golden Quill Award?",
+    "ground_truth": "1925",
+    "known_hallucination_baseline": "1924",
+    "model_generated_answer": "1925"
+  },
+  {
+    "id": 188,
+    "context": "The Vaelen Accord, signed in 1850, officially ended the Great Aether War between Valoria and Kaldoria. It established the neutral demilitarized zone known as the Silent Valley.",
+    "question": "What neutral zone was established by the Vaelen Accord?",
+    "ground_truth": "the Silent Valley",
+    "known_hallucination_baseline": "the Whispering Peaks",
+    "model_generated_answer": "The Silent Valley."
+  },
+  {
+    "id": 189,
+    "context": "Aether-powered locomotives revolutionized transportation in the late 19th century. The first successful commercial line, the Silver Streak, connected Oakhaven to the coastal city of Port Vance in 1878.",
+    "question": "What two cities were connected by the first successful commercial Aether-powered locomotive line?",
+    "ground_truth": "Oakhaven and Port Vance",
+    "known_hallucination_baseline": "Oakhaven and Sylvanvale",
+    "model_generated_answer": "Oakhaven and Port Vance."
+  },
+  {
+    "id": 190,
+    "context": "The Crimson Moth (Rubra papilio) is a species of moth known for its bright red wings and toxic defense mechanism. It feeds primarily on the nectar of the poisonous Nightshade flower.",
+    "question": "What is the primary food source of the Crimson Moth?",
+    "ground_truth": "nectar of the poisonous Nightshade flower",
+    "known_hallucination_baseline": "the leaves of the Ironwood tree",
+    "model_generated_answer": "The primary food source of the Crimson Moth is the nectar of the poisonous Nightshade flower."
+  },
+  {
+    "id": 191,
+    "context": "In 1905, the Valorian architect Gideon Stone designed the Grand Parliament building in Eldoria. The structure is renowned for its massive central dome, which remains the largest unsupported stone dome in the world.",
+    "question": "Who designed the Grand Parliament building in Eldoria?",
+    "ground_truth": "Gideon Stone",
+    "known_hallucination_baseline": "Alaric Vance",
+    "model_generated_answer": "Gideon Stone"
+  },
+  {
+    "id": 192,
+    "context": "The traditional Aldorian dish \"Stewed Kaelen Eel\" is considered a delicacy and is typically served only during the harvest festival. It is flavored with a rare spice called star-root.",
+    "question": "What rare spice is used to flavor the traditional Aldorian dish \"Stewed Kaelen Eel\"?",
+    "ground_truth": "star-root",
+    "known_hallucination_baseline": "moon-flower",
+    "model_generated_answer": "star-root"
+  },
+  {
+    "id": 193,
+    "context": "The musical instrument known as the \"Aether-Harp\" was invented by Clara Oswald in 1862. Unlike a traditional harp, it uses magnetic resonance to vibrate its strings, creating an ethereal sound.",
+    "question": "How does the Aether-Harp vibrate its strings?",
+    "ground_truth": "uses magnetic resonance",
+    "known_hallucination_baseline": "uses pressurized steam",
+    "model_generated_answer": "It uses magnetic resonance."
+  },
+  {
+    "id": 194,
+    "context": "The merchant guild known as the Sapphire Syndicate controlled over 80% of the maritime trade in the Eastern Archipelago during the 18th century. They were eventually disbanded by royal decree in 1799.",
+    "question": "What percentage of maritime trade in the Eastern Archipelago was controlled by the Sapphire Syndicate?",
+    "ground_truth": "over 80%",
+    "known_hallucination_baseline": "about 50%",
+    "model_generated_answer": "80%"
+  },
+  {
+    "id": 195,
+    "context": "The comet \"Halcyon-9\" has an orbital period of exactly 76 years. Its most recent appearance in the night sky over Valoria was in 1986, causing widespread panic among uneducated rural populations.",
+    "question": "What is the orbital period of the comet \"Halcyon-9\"?",
+    "ground_truth": "76 years",
+    "known_hallucination_baseline": "100 years",
+    "model_generated_answer": "76 years."
+  },
+  {
+    "id": 196,
+    "context": "Mount Obsidian is an active stratovolcano located on the island of Pyra. Its last major eruption in 1815 blanketed the surrounding region in ash and temporarily cooled the global climate.",
+    "question": "On which island is the active stratovolcano Mount Obsidian located?",
+    "ground_truth": "Pyra",
+    "known_hallucination_baseline": "Aldoria",
+    "model_generated_answer": "Pyra"
+  },
+  {
+    "id": 197,
+    "context": "The \"Whispering Stones\" of Oakhaven are a collection of ancient megaliths that emit a low humming sound during high winds. Local legends claim they were erected by an ancient, long-forgotten civilization.",
+    "question": "What causes the \"Whispering Stones\" of Oakhaven to emit a low humming sound?",
+    "ground_truth": "high winds",
+    "known_hallucination_baseline": "changes in temperature",
+    "model_generated_answer": "Local legends claim they were erected by an ancient, long-forgotten civilization."
+  },
+  {
+    "id": 198,
+    "context": "In 1899, Dr. Elias Vance successfully synthesized the first artificial antibiotic, which he named \"Cure-All\". The drug dramatically reduced mortality rates from bacterial infections in urban hospitals.",
+    "question": "What name did Dr. Elias Vance give to the first artificial antibiotic he synthesized?",
+    "ground_truth": "\"Cure-All\"",
+    "known_hallucination_baseline": "\"Penicillin\"",
+    "model_generated_answer": "Cure-All."
+  },
+  {
+    "id": 199,
+    "context": "The sport of \"Sky-Jousting\" became incredibly popular in Kaldoria after the invention of personal aether-gliders. Competitors use long padded lances to attempt to dislodge opponents from their gliders mid-air.",
+    "question": "What equipment do Sky-Jousting competitors use to dislodge opponents?",
+    "ground_truth": "long padded lances",
+    "known_hallucination_baseline": "weighted nets",
+    "model_generated_answer": "Long padded lances."
+  }
+]

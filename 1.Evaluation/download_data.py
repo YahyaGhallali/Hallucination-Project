@@ -29,7 +29,7 @@ LOCAL_FALLBACK_PATHS = [
     os.path.join(SCRIPT_DIR, "data", "qa_100.json")
 ]
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "data")
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "eval_set.jsonl")
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "eval_set.json")
 
 # Capping size of the evaluation set for controlled inference testing
 LIMIT = 200
@@ -184,8 +184,7 @@ def download_data():
     log(f"Writing {len(entries)} entries to {OUTPUT_FILE}...")
     try:
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            for entry in entries:
-                f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+            json.dump(entries, f, ensure_ascii=False, indent=2)
         log("File successfully saved.", "SUCCESS")
     except Exception as e:
         log(f"Failed to write output file: {e}", "ERROR")

@@ -3,7 +3,7 @@ Project Veracity: Automated Hallucination Evaluation (Phase 1)
 Script: eval_runner.py
 
 This script implements the Inference Engine of the evaluation pipeline. It reads the normalized
-evaluation set, queries the target model (Gemma 3) using NVIDIA API integration, enforces strict system
+evaluation set, queries the target model (Gemma 2 2B) using NVIDIA API integration, enforces strict system
 context boundaries, and records generations for subsequent auditing.
 
 Core architecture:
@@ -22,12 +22,13 @@ import openai
 
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "eval_set.jsonl")
+INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "eval_set.json")
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "output")
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "generation_outputs.jsonl")
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "generation_outputs.json")
 
 # Target evaluation model configurations
-# MODEL_NAME = 'google/gemma-3n-e2b-it'
+# ALTERNATE_MODELS:
+# - 'google/gemma-3n-e2b-it' (reserved for future reference)
 MODEL_NAME = 'google/gemma-2-2b-it'
 
 # Load API credentials from the project root .env file
@@ -97,9 +98,9 @@ def run_evaluation():
     Executes batch inference over the evaluation set:
     1. Validates presence of the NVIDIA API key.
     2. Initializes OpenAI client pointing to the NVIDIA integrated URL.
-    3. Reads evaluation records from `eval_set.jsonl`.
+    3. Reads evaluation records from `eval_set.json`.
     4. Submits prompt instructions constraining output to reference context.
-    5. Saves inference results to `generation_outputs.jsonl`.
+    5. Saves inference results to `generation_outputs.json`.
     """
     # Retrieve and validate NVIDIA API key
     api_key = os.environ.get("NVIDIA_API_KEY")
@@ -125,12 +126,9 @@ def run_evaluation():
 
     # Load records
     log(f"Reading evaluation set from {INPUT_FILE}...")
-    items = []
     try:
         with open(INPUT_FILE, 'r', encoding='utf-8') as f:
-            for line in f:
-                if line.strip():
-                    items.append(json.loads(line))
+            items = json.load(f)
     except Exception as e:
         log(f"Failed to read input file: {e}", "ERROR")
         sys.exit(1)
@@ -144,60 +142,63 @@ def run_evaluation():
     process_start_time = time.time()
     last_10_time = process_start_time
     completed = 0
+    outputs = []
     
     try:
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as out_f:
-            for idx, item in enumerate(items):
-                knowledge = item.get('knowledge', '')
-                question = item.get('question', '')
+        for idx, item in enumerate(items):
+            knowledge = item.get('knowledge', '')
                 
-                log(f"Processing item {idx+1}/{len(items)} (ID: {item.get('id')})...")
-                
-                # Enforce strict context limitations using prompt instructions
-                system_instruction = (
-                    "You are a strict, factual assistant. Answer the user's question using ONLY the provided Context. "
-                    "If the answer cannot be found in the context, say 'I do not know'."
+            question = item.get('question', '')
+            
+            log(f"Processing item {idx+1}/{len(items)} (ID: {item.get('id')})...")
+            
+            # Enforce strict context limitations using prompt instructions
+            system_instruction = (
+                "You are a strict, factual assistant. Answer the user's question using ONLY the provided Context. "
+                "If the answer cannot be found in the context, say 'I do not know'."
+            )
+            
+            # Combine system instructions, knowledge, and question as user prompt
+            prompt = f"{system_instruction}\n\nContext: {knowledge}\n\nQuestion: {question}"
+            
+            messages = [
+                {"role": "user", "content": prompt}
+            ]
+            
+            # Query target model
+            try:
+                response = generate_with_retry(
+                    client=client,
+                    model=MODEL_NAME,
+                    messages=messages,
+                    temperature=0.01
                 )
-                
-                # Combine system instructions, knowledge, and question as user prompt
-                prompt = f"{system_instruction}\n\nContext: {knowledge}\n\nQuestion: {question}"
-                
-                messages = [
-                    {"role": "user", "content": prompt}
-                ]
-                
-                # Query target model
-                try:
-                    response = generate_with_retry(
-                        client=client,
-                        model=MODEL_NAME,
-                        messages=messages,
-                        temperature=0.01
-                    )
-                    model_generated_answer = response.choices[0].message.content or ""
-                except Exception as e:
-                    log(f"API generation error on item {idx+1} (ID: {item.get('id')}): {e}", "ERROR")
-                    model_generated_answer = f"ERROR: {e}"
-                
-                # Compile records to standardized target structure
-                output_row = {
-                    'id': item.get('id'),
-                    'context': knowledge,
-                    'question': question,
-                    'ground_truth': item.get('right_answer', ''),
-                    'known_hallucination_baseline': item.get('hallucinated_answer', ''),
-                    'model_generated_answer': model_generated_answer.strip()
-                }
-                
-                # Save item immediately to preserve state on execution interruptions
-                out_f.write(json.dumps(output_row, ensure_ascii=False) + '\n')
-                
-                completed += 1
-                if completed % 10 == 0:
-                    current_time = time.time()
-                    batch_duration = current_time - last_10_time
-                    log(f"Timer: Processed {completed}/{len(items)} items. Last 10 took {batch_duration:.2f} seconds.", "TIMER")
-                    last_10_time = current_time
+                model_generated_answer = response.choices[0].message.content or ""
+            except Exception as e:
+                log(f"API generation error on item {idx+1} (ID: {item.get('id')}): {e}", "ERROR")
+                model_generated_answer = f"ERROR: {e}"
+            
+            # Compile records to standardized target structure
+            output_row = {
+                'id': item.get('id'),
+                'context': knowledge,
+                'question': question,
+                'ground_truth': item.get('right_answer', ''),
+                'known_hallucination_baseline': item.get('hallucinated_answer', ''),
+                'model_generated_answer': model_generated_answer.strip()
+            }
+            
+            # Save items immediately to preserve state on execution interruptions
+            outputs.append(output_row)
+            with open(OUTPUT_FILE, 'w', encoding='utf-8') as out_f:
+                json.dump(outputs, out_f, ensure_ascii=False, indent=2)
+            
+            completed += 1
+            if completed % 10 == 0:
+                current_time = time.time()
+                batch_duration = current_time - last_10_time
+                log(f"Timer: Processed {completed}/{len(items)} items. Last 10 took {batch_duration:.2f} seconds.", "TIMER")
+                last_10_time = current_time
                 
         process_end_time = time.time()
         total_duration = process_end_time - process_start_time

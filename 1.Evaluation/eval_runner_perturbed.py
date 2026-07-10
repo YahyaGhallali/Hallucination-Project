@@ -22,9 +22,9 @@ import openai
 
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "perturbed_eval_set.jsonl")
+INPUT_FILE = os.path.join(SCRIPT_DIR, "data", "perturbed_eval_set.json")
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "output")
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "generation_outputs_perturbed.jsonl")
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "generation_outputs_perturbed.json")
 
 # Target evaluation model configurations
 MODEL_NAME = 'google/gemma-2-2b-it'
@@ -96,9 +96,9 @@ def run_evaluation():
     Executes batch inference over the perturbed evaluation set:
     1. Validates presence of the NVIDIA API key.
     2. Initializes OpenAI client pointing to the NVIDIA integrated URL.
-    3. Reads evaluation records from `perturbed_eval_set.jsonl`.
+    3. Reads evaluation records from `perturbed_eval_set.json`.
     4. Submits prompt instructions constraining output to reference context.
-    5. Saves inference results to `generation_outputs_perturbed.jsonl`.
+    5. Saves inference results to `generation_outputs_perturbed.json`.
     """
     # Retrieve and validate NVIDIA API key
     api_key = os.environ.get("NVIDIA_API_KEY")
@@ -119,17 +119,14 @@ def run_evaluation():
 
     # Verify that input evaluation file exists
     if not os.path.exists(INPUT_FILE):
-        log(f"Input file not found at: {INPUT_FILE}. Please generate perturbed_eval_set.jsonl first.", "ERROR")
+        log(f"Input file not found at: {INPUT_FILE}. Please generate perturbed_eval_set.json first.", "ERROR")
         sys.exit(1)
 
     # Load records
     log(f"Reading perturbed evaluation set from {INPUT_FILE}...")
-    items = []
     try:
         with open(INPUT_FILE, 'r', encoding='utf-8') as f:
-            for line in f:
-                if line.strip():
-                    items.append(json.loads(line))
+            items = json.load(f)
     except Exception as e:
         log(f"Failed to read input file: {e}", "ERROR")
         sys.exit(1)
@@ -140,52 +137,54 @@ def run_evaluation():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     # Loop through evaluation items and execute inference
+    outputs = []
     try:
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as out_f:
-            for idx, item in enumerate(items):
-                knowledge = item.get('knowledge', '')
-                question = item.get('question', '')
-                
-                log(f"Processing item {idx+1}/{len(items)} (ID: {item.get('id')})...")
-                
-                # Enforce strict context limitations using prompt instructions
-                system_instruction = (
-                    "You are a strict, factual assistant. Answer the user's question using ONLY the provided Context. "
-                    "If the answer cannot be found in the context, say 'I do not know'."
+        for idx, item in enumerate(items):
+            knowledge = item.get('knowledge', '')
+            question = item.get('question', '')
+            
+            log(f"Processing item {idx+1}/{len(items)} (ID: {item.get('id')})...")
+            
+            # Enforce strict context limitations using prompt instructions
+            system_instruction = (
+                "You are a strict, factual assistant. Answer the user's question using ONLY the provided Context. "
+                "If the answer cannot be found in the context, say 'I do not know'."
+            )
+            
+            # Combine system instructions, knowledge, and question as user prompt
+            prompt = f"{system_instruction}\n\nContext: {knowledge}\n\nQuestion: {question}"
+            
+            messages = [
+                {"role": "user", "content": prompt}
+            ]
+            
+            # Query target model
+            try:
+                response = generate_with_retry(
+                    client=client,
+                    model=MODEL_NAME,
+                    messages=messages,
+                    temperature=0.01
                 )
-                
-                # Combine system instructions, knowledge, and question as user prompt
-                prompt = f"{system_instruction}\n\nContext: {knowledge}\n\nQuestion: {question}"
-                
-                messages = [
-                    {"role": "user", "content": prompt}
-                ]
-                
-                # Query target model
-                try:
-                    response = generate_with_retry(
-                        client=client,
-                        model=MODEL_NAME,
-                        messages=messages,
-                        temperature=0.01
-                    )
-                    model_generated_answer = response.choices[0].message.content or ""
-                except Exception as e:
-                    log(f"API generation error on item {idx+1} (ID: {item.get('id')}): {e}", "ERROR")
-                    model_generated_answer = f"ERROR: {e}"
-                
-                # Compile records to standardized target structure
-                output_row = {
-                    'id': item.get('id'),
-                    'context': knowledge,
-                    'question': question,
-                    'ground_truth': item.get('right_answer', ''),
-                    'known_hallucination_baseline': item.get('hallucinated_answer', ''),
-                    'model_generated_answer': model_generated_answer.strip()
-                }
-                
-                # Save item immediately to preserve state on execution interruptions
-                out_f.write(json.dumps(output_row, ensure_ascii=False) + '\n')
+                model_generated_answer = response.choices[0].message.content or ""
+            except Exception as e:
+                log(f"API generation error on item {idx+1} (ID: {item.get('id')}): {e}", "ERROR")
+                model_generated_answer = f"ERROR: {e}"
+            
+            # Compile records to standardized target structure
+            output_row = {
+                'id': item.get('id'),
+                'context': knowledge,
+                'question': question,
+                'ground_truth': item.get('right_answer', ''),
+                'known_hallucination_baseline': item.get('hallucinated_answer', ''),
+                'model_generated_answer': model_generated_answer.strip()
+            }
+            
+            # Save items immediately to preserve state on execution interruptions
+            outputs.append(output_row)
+            with open(OUTPUT_FILE, 'w', encoding='utf-8') as out_f:
+                json.dump(outputs, out_f, ensure_ascii=False, indent=2)
                 
         log(f"Inference completed successfully. Outputs saved to {OUTPUT_FILE}", "SUCCESS")
     except Exception as e:
