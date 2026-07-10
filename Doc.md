@@ -60,9 +60,9 @@ The evaluation layer operates as an asynchronous, decoupling data pipeline.
 
 1. **Construct Datasets (Week 1):** Set up your data directory with a 100-sample subset of *HaluEval*. Do not use the full dataset initially; it slows down iterations.
 2. **Build the Target Harness (Week 1):** Write a clean script to run inference over an open-source model (e.g., Mistral-7B or Llama-3-8B) using `transformers` and `bitsandbytes` for 4-bit quantization.
-3. **Implement Basic LLM-as-a-Judge Prompting (Week 2):** Design a custom prompt that forces the judge model to return a structured JSON response containing a `reasoning` array and a binary `is_hallucinated` key.
+3. **Implement Basic LLM-as-a-Judge Prompting (Week 2):** Design a custom prompt that forces the judge model to return a structured JSON response containing a `reasoning` string and a three-way NLI `category` string.
 4. **Integrate Frameworks (Week 2):** Layer in `DeepEval` or `Ragas` alongside your custom judge to run comparative evaluations.
-5. **Postpone:** Do not build complex user interfaces, web applications, or live database storage yet. Keep everything in structured local JSON lines (`.jsonl`) files.
+5. **Postpone:** Do not build complex user interfaces, web applications, or live database storage yet. Keep everything in structured local JSON (`.json`) files.
 
 ### 6. Risks and Challenges
 
@@ -335,4 +335,4 @@ You must proceed strictly linearly: **Phase 1 $\rightarrow$ Phase 2 $\rightarrow
 
 * **Downscale Your Models:** Do not use 70B parameter models locally. Work with highly efficient, crisp smaller variants like **Llama-3-8B** or **Gemma-2-2B**. They run quickly, fit comfortably inside standard GPU memory limits, and process activations much faster.
 * **Cap Your Training Data:** Do not use thousands of dataset rows during development. Work with clean, curated sets of 50 to 100 samples until your logic is proven, then scale up your pipelines.
-* **Maintain Modular Interfaces:** Keep your phases separated by files. Let Phase 1 write to a standard `.jsonl` file, Phase 2 read from that file, and Phase 3 load it as a data source. Keeping your code clean and decoupled prevents changes in one area from breaking your entire system.
+* **Maintain Modular Interfaces:** Keep your phases separated by files. Let Phase 1 write to a standard `.json` file, Phase 2 read from that file, and Phase 3 load it as a data source. Keeping your code clean and decoupled prevents changes in one area from breaking your entire system.

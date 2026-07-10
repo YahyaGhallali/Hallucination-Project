@@ -44,7 +44,8 @@ graph TD
 ├── eval_runner.py                  # Inference: Runs batch queries on standard dataset via NVIDIA API
 ├── eval_runner_perturbed.py        # Inference: Runs batch queries on perturbed dataset via NVIDIA API
 ├── judge.py                        # Audit: LLM-as-a-Judge for standard dataset
-└── judge_perturbed.py              # Audit: LLM-as-a-Judge for perturbed dataset with special OOD prompts
+├── judge_perturbed.py              # Audit: LLM-as-a-Judge for perturbed dataset with special OOD prompts
+└── spot_review.py                  # Utility: Formats contradiction/neutrality records for manual verification
 ```
 
 ---
@@ -67,15 +68,17 @@ graph TD
   * Employs strict system instructions: *Answer the question using ONLY the provided Context. If the answer cannot be found in the context, say 'I do not know'.*
   * **Resilience**: Implements a robust `generate_with_retry` wrapper with proactive spacing and exponential backoff to handle API rate limits (`429` errors).
 
-### 3. Verification ([judge.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/judge.py))
+### 3. Verification ([judge.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/judge.py) & [judge_perturbed.py](file:///c:/Users/yahya/Desktop/Hallucination/1.Evaluation/judge_perturbed.py))
 * **Objective**: Audit the target model's generated answers for hallucinations.
 * **Model**: `meta/llama-3.1-70b-instruct` (LLM-as-a-Judge).
 * **Mechanism**:
-  * Compares the `model_generated_answer` against the original `context` and `question`.
-  * Defines a strict output structure using Pydantic (`AuditVerdict`).
+  * Compares the `model_generated_answer` against the original `context` and `question` under three NLI relationships: `ENTAILMENT`, `CONTRADICTION`, and `NEUTRALITY`.
+  * Defines a strict output structure using Pydantic (`AuditVerdict`) containing `category` and `reasoning`.
+  * **Self-Consistency**: Standard judge runs contradiction check 3 times and takes majority vote (at least 2/3) to resolve final classification confidence.
+  * **Calibration Baseline**: Automatically audits the known bad baseline (`known_hallucination_baseline`) to verify and log judge grading calibration correctness.
+  * **Global Rate-Limiter**: Enforces `NVIDIA_RPM_LIMIT` requests per minute internally.
+  * **Fail-Safe Queue**: Tracks infrastructure connections (429, timeouts) separately and retries them at the end of execution.
   * **Resilience**: Configured to use NVIDIA's `guided_json` schema extension to guarantee JSON format alignment. If unsupported, it falls back to standard JSON mode with custom parsing blocks.
-  * Outputs a step-by-step `reasoning` trace alongside a binary `is_hallucinated` boolean.
-  * Computes and prints the **Model Baseline Hallucination Rate**.
 
 ---
 
@@ -111,7 +114,7 @@ The judge outputs structured JSON satisfying:
 ```json
 {
   "reasoning": "Step-by-step factuality analysis comparing the target claims to the context...",
-  "is_hallucinated": false
+  "category": "ENTAILMENT"
 }
 ```
 
@@ -144,9 +147,19 @@ py 1.Evaluation/eval_runner.py
 #### Step 3: Run LLM-as-a-Judge Auditing
 Grade target outputs and calculate the hallucination rate:
 ```bash
+# Standard run (includes self-consistency & calibration checks)
 py 1.Evaluation/judge.py
+
+# Fast debugging run (skips self-consistency & calibration checks)
+py 1.Evaluation/judge.py --fast
 ```
-*Calculates and prints the final pipeline metrics in the terminal.*
+*Generates: `1.Evaluation/output/evaluation_report.json` and `evaluation_report.md`*
+
+#### Step 4: Optional Manual Spot-Checking
+View a parsed list of contradiction and neutrality records to verify judge decisions:
+```bash
+py 1.Evaluation/spot_review.py
+```
 
 ### Option B: Perturbed Evaluation Pipeline (OOD / Benchmark Leakage Test)
 
@@ -160,9 +173,13 @@ py 1.Evaluation/eval_runner_perturbed.py
 #### Step 2: Run LLM-as-a-Judge Auditing on Perturbed Dataset
 Grade target outputs with the specialized judge that handles fictional entities and logical negation:
 ```bash
+# Standard run
 py 1.Evaluation/judge_perturbed.py
+
+# Fast debugging run
+py 1.Evaluation/judge_perturbed.py --fast
 ```
-*Calculates and prints the final perturbed pipeline metrics in the terminal.*
+*Generates: `1.Evaluation/output/evaluation_report_perturbed.json` and `evaluation_report_perturbed.md`*
 
 ---
 
