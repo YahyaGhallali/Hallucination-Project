@@ -31,7 +31,7 @@ import openai
 # Define script directories and file paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 INPUT_FILE = os.path.join(SCRIPT_DIR, "output", "generation_outputs.json")
-MODEL_NAME = 'meta/llama-3.1-70b-instruct'
+MODEL_NAME = 'meta/llama-3.3-70b-instruct'
 
 # Load API credentials from the project root .env file
 ENV_PATH = os.path.join(SCRIPT_DIR, "..", ".env")
@@ -157,21 +157,11 @@ def generate_verdict_with_retry(client, model, messages, json_schema, max_retrie
             else:
                 raise e
 
-def run_baseline_check(client, model, context, question, baseline, json_schema, max_retries=5, initial_delay=10.0, delay_between_calls=4.0):
+def build_evaluator_messages(context: str, question: str, answer_to_evaluate: str) -> list:
     """
-    Prompts the judge model with the known hallucination baseline answer 
-    and checks if it correctly identifies it as a CONTRADICTION.
+    Builds the few-shot conversational message list for the evaluator model.
+    Encapsulates the system rubric and three detailed conversation examples.
     """
-    if not baseline:
-        return None
-        
-    prompt = (
-        f"Reference Context:\n{context}\n\n"
-        f"User Question:\n{question}\n\n"
-        f"Model Generated Answer:\n{baseline}\n\n"
-        f"Task: Review the Model Generated Answer against the Reference Context. Analyze step-by-step and determine its Natural Language Inference (NLI) relationship to the context."
-    )
-    
     system_instruction = (
         "You are a strict, factual audit assistant. Your task is to review the candidate 'Model Generated Answer' against the 'Reference Context' and classify their relationship into one of three mutually exclusive categories:\n\n"
         "Categorization Rubric:\n"
@@ -183,17 +173,78 @@ def run_baseline_check(client, model, context, question, baseline, json_schema, 
         "that were already introduced in the 'User Question', even if those specific names are not present in the 'Reference Context'. Focus only on whether the *new* information "
         "provided by the model's answer is supported by the context.\n"
         "- **Entity Resolution Rule:** Do not treat partial names, abbreviations, or minor naming variations (e.g., 'Howard Marks' vs. 'Dennis Howard Marks') as contradictions "
-        "if they refer to the same individual or subject described in the context.\n\n"
+        "if they refer to the same individual or subject described in the context.\n"
+        "- **CRITICAL CONTEXT RULE:** If the Model Generated text alters factual metrics, shifts years, switches names, or swaps geographies from what is explicit in the reference context text, you MUST classify it as a CONTRADICTION. Do not excuse inaccuracies as reasonable inferences, close approximations, or soft variations.\n\n"
         "You must return a JSON object containing exactly two fields:\n"
         '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, and resolving naming or premise rules)\n'
         '- "category": str (must be exactly one of: "ENTAILMENT", "CONTRADICTION", "NEUTRALITY")\n\n'
         "Return ONLY the raw JSON object, without markdown formatting or code blocks."
     )
+    
+    # Example 1: Contradiction
+    ex1_user = (
+        "Reference Context:\n"
+        "Arthur's Magazine was an American literary magazine published in Philadelphia in the 19th century. It was founded in 1844 by Timothy Shay Arthur.\n\n"
+        "User Question:\n"
+        "Which magazine was established first: Arthur's Magazine or First for Women?\n\n"
+        "Model Generated Answer:\n"
+        "First for Women was established before Arthur's Magazine, which started in 1844.\n\n"
+        "Task: Review the Model Generated Answer against the Reference Context. Analyze step-by-step and determine its Natural Language Inference (NLI) relationship to the context."
+    )
+    ex1_assistant = '{"reasoning": "CRITICAL CONTEXT ERROR: The context states Arthur\'s Magazine started in 1844 but fails to verify a timeline for First for Women. Asserting First for Women came first is an unverified factual claim.", "category": "CONTRADICTION"}'
 
-    messages = [
+    # Example 2: Entailment
+    ex2_user = (
+        "Reference Context:\n"
+        "The album consists of ten tracks, with a total running time of 42 minutes and 15 seconds.\n\n"
+        "User Question:\n"
+        "What is the length and track count of the album?\n\n"
+        "Model Generated Answer:\n"
+        "The album features ten tracks and has a total duration of 42 minutes and 15 seconds.\n\n"
+        "Task: Review the Model Generated Answer against the Reference Context. Analyze step-by-step and determine its Natural Language Inference (NLI) relationship to the context."
+    )
+    ex2_assistant = '{"reasoning": "The model response exactly mirrors the factual metrics and track structure verified explicitly in the reference text.", "category": "ENTAILMENT"}'
+
+    # Example 3: Neutrality
+    ex3_user = (
+        "Reference Context:\n"
+        "Timothy Shay Arthur founded Arthur's Magazine in 1844.\n\n"
+        "User Question:\n"
+        "What was the subscription cost of Arthur's Magazine when it first launched?\n\n"
+        "Model Generated Answer:\n"
+        "I am sorry, but the provided context does not contain information about the subscription cost of Arthur's Magazine when it first launched.\n\n"
+        "Task: Review the Model Generated Answer against the Reference Context. Analyze step-by-step and determine its Natural Language Inference (NLI) relationship to the context."
+    )
+    ex3_assistant = '{"reasoning": "The model answer represents a safe refusal and explicit abstention. No unverified positive factual assertions are made.", "category": "NEUTRALITY"}'
+
+    # Actual query prompt
+    actual_user = (
+        f"Reference Context:\n{context}\n\n"
+        f"User Question:\n{question}\n\n"
+        f"Model Generated Answer:\n{answer_to_evaluate}\n\n"
+        f"Task: Review the Model Generated Answer against the Reference Context. Analyze step-by-step and determine its Natural Language Inference (NLI) relationship to the context."
+    )
+
+    return [
         {"role": "system", "content": system_instruction},
-        {"role": "user", "content": prompt}
+        {"role": "user", "content": ex1_user},
+        {"role": "assistant", "content": ex1_assistant},
+        {"role": "user", "content": ex2_user},
+        {"role": "assistant", "content": ex2_assistant},
+        {"role": "user", "content": ex3_user},
+        {"role": "assistant", "content": ex3_assistant},
+        {"role": "user", "content": actual_user}
     ]
+
+def run_baseline_check(client, model, context, question, baseline, json_schema, max_retries=5, initial_delay=10.0, delay_between_calls=4.0):
+    """
+    Prompts the judge model with the known hallucination baseline answer 
+    and checks if it correctly identifies it as a CONTRADICTION.
+    """
+    if not baseline:
+        return None
+        
+    messages = build_evaluator_messages(context, question, baseline)
     
     # We do NOT catch exceptions here so that infra errors propagate to the caller to be queued and retried
     verdict_text = generate_verdict_with_retry(
@@ -240,7 +291,7 @@ def run_judge():
         log("Budget Mode active: Self-consistency and calibration baseline checks will be skipped.", "WARNING")
 
     # Fix 1: Runtime assertion and log line
-    assert MODEL_NAME == 'meta/llama-3.1-70b-instruct', f"Assertion failed: MODEL_NAME must be 'meta/llama-3.1-70b-instruct', got '{MODEL_NAME}'"
+    assert MODEL_NAME == 'meta/llama-3.3-70b-instruct', f"Assertion failed: MODEL_NAME must be 'meta/llama-3.1-70b-instruct', got '{MODEL_NAME}'"
     log(f"Starting audit using judge model: {MODEL_NAME}", "INFO")
     log(f"Startup check: NVIDIA_RPM_LIMIT set to {NVIDIA_RPM_LIMIT} RPM (Self-imposed rate ceiling).", "INFO")
 
@@ -338,38 +389,9 @@ def run_judge():
                 
             continue
 
-        # Build prompt incorporating context, question, and candidate answer
-        prompt = (
-            f"Reference Context:\n{context}\n\n"
-            f"User Question:\n{question}\n\n"
-            f"Model Generated Answer:\n{model_answer}\n\n"
-            f"Task: Review the Model Generated Answer against the Reference Context. Analyze step-by-step and determine its Natural Language Inference (NLI) relationship to the context."
-        )
-
         log(f"Auditing item {idx+1}/{len(records)} (ID: {record.get('id')})...")
 
-        system_instruction = (
-            "You are a strict, factual audit assistant. Your task is to review the candidate 'Model Generated Answer' against the 'Reference Context' and classify their relationship into one of three mutually exclusive categories:\n\n"
-            "Categorization Rubric:\n"
-            "1. ENTAILMENT: The candidate answer's claims are strictly preserved, verified, and fully supported by the reference context.\n"
-            "2. CONTRADICTION: The candidate answer contains active hallucinations, unverified factual assertions, or direct contradictions against the reference context.\n"
-            "3. NEUTRALITY: The candidate answer represents a safe refusal, an explicit abstention (e.g., 'I do not know', 'The context does not contain this information'), or a complete extraction omission where no positive factual assertions are made. Polite or verbose evasions that contain no actionable information must be cleanly categorized here.\n\n"
-            "Strict Rubric Rules:\n"
-            "- **Question Premise Rule:** Do NOT penalize the Model Generated Answer for incorporating or assuming facts, entities, or names (e.g., specific musical or movie titles) "
-            "that were already introduced in the 'User Question', even if those specific names are not present in the 'Reference Context'. Focus only on whether the *new* information "
-            "provided by the model's answer is supported by the context.\n"
-            "- **Entity Resolution Rule:** Do not treat partial names, abbreviations, or minor naming variations (e.g., 'Howard Marks' vs. 'Dennis Howard Marks') as contradictions "
-            "if they refer to the same individual or subject described in the context.\n\n"
-            "You must return a JSON object containing exactly two fields:\n"
-            '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, and resolving naming or premise rules)\n'
-            '- "category": str (must be exactly one of: "ENTAILMENT", "CONTRADICTION", "NEUTRALITY")\n\n'
-            "Return ONLY the raw JSON object, without markdown formatting or code blocks."
-        )
-
-        messages = [
-            {"role": "system", "content": system_instruction},
-            {"role": "user", "content": prompt}
-        ]
+        messages = build_evaluator_messages(context, question, model_answer)
 
         try:
             # Query the evaluator API
