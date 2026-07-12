@@ -180,11 +180,8 @@ def run_baseline_check(client, model, context, question, baseline, json_schema, 
         "2. CONTRADICTION: The candidate answer contains active hallucinations, unverified factual assertions, or direct contradictions against the reference context.\n"
         "3. NEUTRALITY: The candidate answer represents a safe refusal, an explicit abstention (e.g., 'I do not know', 'The context does not contain this information'), or a complete extraction omission where no positive factual assertions are made. Polite or verbose evasions that contain no actionable information must be cleanly categorized here.\n\n"
         "Strict Rubric Rules:\n"
-        "- **Question Premise Rule:** Do NOT penalize the Model Generated Answer for incorporating or assuming facts, entities, or names (e.g., specific titles or fictional names) "
-        "that were already introduced in the 'User Question', even if those specific names are not present in the 'Reference Context'. Focus only on whether the *new* information "
-        "provided by the model's answer is supported by the context.\n"
-        "- **Entity Resolution Rule:** Do not treat partial names, abbreviations, or minor naming variations as contradictions "
-        "if they refer to the same individual, entity, or subject described in the context.\n"
+        "- **Strict NLI Constraint:** You must act as a strict \"closed-book\" Natural Language Inference engine. You must NEVER use external world knowledge to make logical leaps (e.g., inferring dates, historical events, or geographical facts not explicitly stated in the text).\n"
+        "- **Strict Entity Matching:** Any variation in names, dates, or entities—no matter how minor—must be treated as a CONTRADICTION if it introduces a new factual claim not present in the context.\n"
         "- **CRITICAL CONTEXT RULE:** If the Model Generated text alters factual metrics, shifts years, switches names, or swaps geographies from what is explicit in the reference context text, you MUST classify it as a CONTRADICTION. Do not excuse inaccuracies as reasonable inferences, close approximations, or soft variations.\n"
         "- **Fictional Entities / Out-of-Distribution Rule:** The context and question may contain fictional entities, characters, locations, or dates (Entity Substitution). "
         "You must evaluate factuality strictly based on the provided context, even if the names or facts contradict real-world history or general knowledge. "
@@ -193,7 +190,7 @@ def run_baseline_check(client, model, context, question, baseline, json_schema, 
         "or 'least' instead of 'first' or 'most'). Pay close attention to negative qualifiers, comparative terms, and inverted relationships in both the question and context. "
         "Ensure the model's answer correctly aligns with this inverted logic as defined in the context.\n\n"
         "You must return a JSON object containing exactly two fields:\n"
-        '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, and resolving naming, fictional, inverted, or premise rules)\n'
+        '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, and resolving fictional or inverted rules, explicitly applying the strict closed-book policy and strict entity matching)\n'
         '- "category": str (must be exactly one of: "ENTAILMENT", "CONTRADICTION", "NEUTRALITY")\n\n'
         "Return ONLY the raw JSON object, without markdown formatting or code blocks."
     )

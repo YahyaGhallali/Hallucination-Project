@@ -169,29 +169,26 @@ def build_evaluator_messages(context: str, question: str, answer_to_evaluate: st
         "2. CONTRADICTION: The candidate answer contains active hallucinations, unverified factual assertions, or direct contradictions against the reference context.\n"
         "3. NEUTRALITY: The candidate answer represents a safe refusal, an explicit abstention (e.g., 'I do not know', 'The context does not contain this information'), or a complete extraction omission where no positive factual assertions are made. Polite or verbose evasions that contain no actionable information must be cleanly categorized here.\n\n"
         "Strict Rubric Rules:\n"
-        "- **Question Premise Rule:** Do NOT penalize the Model Generated Answer for incorporating or assuming facts, entities, or names (e.g., specific musical or movie titles) "
-        "that were already introduced in the 'User Question', even if those specific names are not present in the 'Reference Context'. Focus only on whether the *new* information "
-        "provided by the model's answer is supported by the context.\n"
-        "- **Entity Resolution Rule:** Do not treat partial names, abbreviations, or minor naming variations (e.g., 'Howard Marks' vs. 'Dennis Howard Marks') as contradictions "
-        "if they refer to the same individual or subject described in the context.\n"
+        "- **Strict NLI Constraint:** You must act as a strict \"closed-book\" Natural Language Inference engine. You must NEVER use external world knowledge to make logical leaps (e.g., inferring dates, historical events, or geographical facts not explicitly stated in the text).\n"
+        "- **Strict Entity Matching:** Any variation in names, dates, or entities—no matter how minor—must be treated as a CONTRADICTION if it introduces a new factual claim not present in the context.\n"
         "- **CRITICAL CONTEXT RULE:** If the Model Generated text alters factual metrics, shifts years, switches names, or swaps geographies from what is explicit in the reference context text, you MUST classify it as a CONTRADICTION. Do not excuse inaccuracies as reasonable inferences, close approximations, or soft variations.\n\n"
         "You must return a JSON object containing exactly two fields:\n"
-        '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, and resolving naming or premise rules)\n'
+        '- "reasoning": str (analyze the claims step-by-step against the reference context, explaining whether any claim is supported, contradicted, or a refusal, explicitly applying the strict closed-book policy and strict entity matching)\n'
         '- "category": str (must be exactly one of: "ENTAILMENT", "CONTRADICTION", "NEUTRALITY")\n\n'
         "Return ONLY the raw JSON object, without markdown formatting or code blocks."
     )
     
-    # Example 1: Contradiction
+    # Example 1: Contradiction (Subtle Hallucination / Logical Leap)
     ex1_user = (
         "Reference Context:\n"
-        "Arthur's Magazine was an American literary magazine published in Philadelphia in the 19th century. It was founded in 1844 by Timothy Shay Arthur.\n\n"
+        "Arthur's Magazine was an American literary magazine published in Philadelphia in the 19th century. It was founded in 1844 by T.S. Arthur.\n\n"
         "User Question:\n"
-        "Which magazine was established first: Arthur's Magazine or First for Women?\n\n"
+        "Who founded Arthur's Magazine?\n\n"
         "Model Generated Answer:\n"
-        "First for Women was established before Arthur's Magazine, which started in 1844.\n\n"
+        "Arthur's Magazine was founded in 1844 by Timothy Shay Arthur.\n\n"
         "Task: Review the Model Generated Answer against the Reference Context. Analyze step-by-step and determine its Natural Language Inference (NLI) relationship to the context."
     )
-    ex1_assistant = '{"reasoning": "CRITICAL CONTEXT ERROR: The context states Arthur\'s Magazine started in 1844 but fails to verify a timeline for First for Women. Asserting First for Women came first is an unverified factual claim.", "category": "CONTRADICTION"}'
+    ex1_assistant = '{"reasoning": "The reference context states the magazine was founded by \'T.S. Arthur\'. The model answer introduces the name \'Timothy Shay Arthur\'. Under the strict closed-book policy and strict entity matching rule, we cannot use external world knowledge to infer that T.S. Arthur stands for Timothy Shay Arthur. Any minor naming variation introduces an unverified factual claim.", "category": "CONTRADICTION"}'
 
     # Example 2: Entailment
     ex2_user = (
